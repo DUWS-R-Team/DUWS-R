@@ -260,3 +260,9 @@ minor fixes to "guards.sqf"
 v0.8a
 fixed a bug where the player would suffer lag after 30 minutes (temporary disabled music_loop.sqf)
 removed hq icon (temporary disabled)
+
+v0.8b
+removed the dynamic music (temporary)
+
+v0.8c
+rolled back to the old save method

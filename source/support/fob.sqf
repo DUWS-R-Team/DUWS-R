@@ -106,10 +106,9 @@ publicVariable "Array_of_FOBname";
 
 
 sleep 1;
-enableSaving true;
-sleep 0.1;
+
 saveGame;
-enableSaving false;
+
 sleep 1;
 
 sleep 600;

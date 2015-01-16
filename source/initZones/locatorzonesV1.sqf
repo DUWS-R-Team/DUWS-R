@@ -103,7 +103,7 @@ player globalChat format["All zones found. Welcome to %1, %2",_worldName,profile
 
 hint format["Campaign generated\nzones: %1\nmaximum radius: %2m\nminimum radius: %3m\nmax. distance from HQ: %4m\n\nIf you experience performance issues, restart the mission and try reducing the amount of zones/and or their radius",zones_number,zones_max_radius,zones_min_radius,zones_max_dist_from_hq];
 [] spawn {
-sleep 9;
+sleep 20;
 [] execVM "misc\bottom_right_message.sqf";
 };
 
@@ -114,9 +114,7 @@ _zones_array = [_zones_array, 0] call BIS_fnc_removeIndex;
 //player globalchat format["%1",_zones_array];
 _warcom_init = [_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] execVM "WARCOM\WARCOM_init.sqf"; // 2700 is 40 mins
 waitUntil {scriptDone _warcom_init};
-sleep 0.1;
-//savegame;
-enableSaving false;
+savegame;
 sleep 1;
 [[format["Campaign generated<br />Welcome to %1, %2",_worldName,profilename]]] spawn BIS_fnc_typeText;  
 playMusic ["EventTrack01a_F_EPA", 0];

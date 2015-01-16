@@ -5,10 +5,9 @@ player setdammage 0;
 if (isServer) then {
 skiptime 6;
 sleep 0.3;
-enableSaving true;
-sleep 0.1;
+
 saveGame;
-enableSaving false;
+
 hint "You and your squad members have been fully healed";
 
 

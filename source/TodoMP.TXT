@@ -1,0 +1,16 @@
+synchroniser le temps (meh)
+
+synchro zone notification
+
+ajouter random pour la création de fortification
+
+---verifier le victory screen
+---autres joueurs ont action sur fob ?
+
+option pour options de défaite (commandpointsblu1)
+
+vérifier les bonus d'xp et de zones, etc...
+
+les portes de l'helicos s'ouvrent
+
+FOB pas synchro
