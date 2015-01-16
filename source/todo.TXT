@@ -1,0 +1,48 @@
+
+attaques sur la base, basées sur le nombre de points par 30 mins, à partir d'un certain niveau
+changer la mission rescue, mettre un seul .sqf
+pouvoir desactiver musiques
+optimiser le choix de musiques (dynamiques ?).
+
+PFLIR NAZE, améliorer
+
+
+hint d'aide apparaissent seulement lors de la 1ère partie.
+
+ajouter support truck (support unlock ?)
+BASES PREFABS (altis)
+mettre à jour VAS --> 1.7
+
+field refit
+ajouter jeep
+
+transformer cp en AP
+
+Tim_Fragmagnet: Optimization idea for DUWS,   add a user changable setting for a distance at which the AI in a zone starts up, instead of every zone being simulated and tanking the FPS.
+Tim_Fragmagnet: and still have a choice to diable it
+Tim_Fragmagnet: big old block of text right here
+
+There could also be zone creation choices,
+
+Simultanious - aka what happens now
+Simultanious: Close - zones spawn close the HQ
+Simultanious: Far - zones spawn far from the HQ
+Sequential - 1 zone spawns and another spawns after that one is taken (or you can also have a version with a timer)
+Sequential: Close - same as sequential but close to the HQ
+Sequential: Far - you get the idea.
+Sequential: Progressive - Zones keep spawning farther away from the HQ.
+Cluster - like sequential but they spawn multiple at a time from a user defined number (can have a timer version of this one too)
+Cluster: Close
+Cluster: Far
+Cluster: Progressive
+Pack Spawn: This one seems like a neato idea, zones spawn like in cluster, however, they spawn very close to each other and all act as if they were one big zone with AI explicitly patrolling between them and such, and when you capture one, AI from the others goes to provide reinforcements
+Pack Spawn: Close
+Pack Spawn: Far
+Pack Spawn: Progressive
+Tim_Fragmagnet: Also here's another idea,  for random enemy AI patrols,   if there are multiple zones that have ocean water within them, boat patrols, bam more stuff
+Tim_Fragmagnet is now Online.
+Tim_Fragmagnet: also here's a sidemission idea    when the blufor army power gets high enough
+Tim_Fragmagnet: add a side mission to laser target stuff for a helicopter
+Tim_Fragmagnet: also for the assassination side missions,  make it so that if you get detected before the target is dead, you fail.
+Tim_Fragmagnet: but make a different version called eliminate target, where being detected is fine.
+Tim_Fragmagnet: and have another side mission type called assault,   where there's a group blufor waiting to attack a position and they go once you get there.     and have tanks and such

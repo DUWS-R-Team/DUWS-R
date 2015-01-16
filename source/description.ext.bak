@@ -1,0 +1,39 @@
+OnLoadMission = "A procedurally generated campaign where you earn resources, execute missions and lead the BLUFOR forces to capture the island and win the war.";
+onLoadName = "Dynamic Universal WAR System (DUWS)";
+dev = "dev";
+author = "kibot";
+//briefingName = "briefingname";
+overviewText = "A procedurally generated campaign where you earn resources, execute missions and lead the BLUFOR forces to capture the island and win the war. Play the way you want: be a spec ops, a squad leader or control a whole army, the choice is yours. (In the future, the DUWS will feature persistent elements that allow you to play a single campaign throughout multiple islands.)";
+//overviewPicture = "\a3\Missions_F_Beta\data\img\showcase_commanding_I_overview_ca.paa";
+overviewPicture = "rtipic.paa";
+LoadScreen = "rtipic.paa";
+
+respawn = 3;
+respawnDelay = 10;
+respawnTemplates[] = {"MenuPosition", "Counter"};
+disabledAI = 1;
+
+#include "debriefing.hpp"
+#include "dialog\defines.hpp"
+#include "dialog\squad\squadmng.hpp"
+#include "dialog\squad\rename\renamesquad.hpp"
+#include "dialog\request.hpp"
+#include "dialog\info\info.hpp"
+#include "dialog\info\reset\reset.hpp"
+#include "locations.hpp"
+#include "support\support.hpp"
+#include "hints.hpp"
+#include "dialog\startup\startup.hpp"
+#include "sounds\sounds.hpp"
+
+
+// VAS INIT BEGIN --  ALSO TAW VIEWDISTANCE
+#include "taw_vd\dialog.hpp"       
+#include "VAS\menu.hpp"
+class CfgFunctions
+{
+	#include "VAS\cfgfunctions.hpp"
+	#include "taw_vd\CfgFunctions.hpp"
+};
+
+// VAS INIT END --

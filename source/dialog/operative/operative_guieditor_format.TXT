@@ -1,0 +1,44 @@
+/* #Renaji
+$[
+	1.063,
+	["azeza",[[0,0,1,1],0.025,0.04,"GUI_GRID"],0,0,0],
+	[1018,"background_operative",[2,"",["2.5 * GUI_GRID_W + GUI_GRID_X","4 * GUI_GRID_H + GUI_GRID_Y","34.5 * GUI_GRID_W","16.5 * GUI_GRID_H"],[-1,-1,-1,-1],[0,0,0,0.3],[-1,-1,-1,-1],"","-1"],[]],
+	[1800,"operative_main_frame",[2,"Recruit special operatives",["3 * GUI_GRID_W + GUI_GRID_X","4.5 * GUI_GRID_H + GUI_GRID_Y","33.5 * GUI_GRID_W","15.5 * GUI_GRID_H"],[-1,-1,-1,-1],[0,0,0,0.3],[-1,-1,-1,-1],"","-1"],[]],
+	[1600,"operative_exit_button",[2,"EXIT",["30.5 * GUI_GRID_W + GUI_GRID_X","18.5 * GUI_GRID_H + GUI_GRID_Y","5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1601,"operative_recruit_button",[2,"DEPLOY (X CP)",["17.5 * GUI_GRID_W + GUI_GRID_X","18.5 * GUI_GRID_H + GUI_GRID_Y","12 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Add this operative to your squad","-1"],[]],
+	[1602,"operative_info_button",[2,"INFO",["13.5 * GUI_GRID_W + GUI_GRID_X","18.5 * GUI_GRID_H + GUI_GRID_Y","3.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Informations about the operatives","-1"],[]],
+	[1500,"operative_listbox",[2,"",["3.5 * GUI_GRID_W + GUI_GRID_X","6 * GUI_GRID_H + GUI_GRID_Y","9.5 * GUI_GRID_W","13.5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1801,"operative_skill_frame",[2,"Skills",["14 * GUI_GRID_W + GUI_GRID_X","6 * GUI_GRID_H + GUI_GRID_Y","13 * GUI_GRID_W","12 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1000,"operative_aim_txt",[2,"Aiming:",["14.5 * GUI_GRID_W + GUI_GRID_X","7 * GUI_GRID_H + GUI_GRID_Y","3.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"General accuracy of the operative with weapons","-1"],[]],
+	[1001,"operative_spot_txt",[2,"Spotting:",["14.5 * GUI_GRID_W + GUI_GRID_X","10 * GUI_GRID_H + GUI_GRID_Y","4.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"General spotting skill of the operative","-1"],[]],
+	[1002,"operative_courage_txt",[2,"Courage:",["14.5 * GUI_GRID_W + GUI_GRID_X","11.5 * GUI_GRID_H + GUI_GRID_Y","4.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Morale of the operative","-1"],[]],
+	[1003,"operative_communications_txt",[2,"Communications: ",["14.5 * GUI_GRID_W + GUI_GRID_X","13 * GUI_GRID_H + GUI_GRID_Y","8 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Affects how quickly recognized targets are shared with the group","-1"],[]],
+	[1004,"operative_reflexes_txt",[2,"Reflexes:",["14.5 * GUI_GRID_W + GUI_GRID_X","8.5 * GUI_GRID_H + GUI_GRID_Y","4.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Affects how quickly the operative can rotate and stabilize its aim","-1"],[]],
+	[1005,"operative_reload_txt",[2,"Reload speed:",["14.5 * GUI_GRID_W + GUI_GRID_X","14.5 * GUI_GRID_H + GUI_GRID_Y","6.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"How quickly the operative reload and switch weapons","-1"],[]],
+	[1006,"operative_aiming_value",[2,"xxx",["18.5 * GUI_GRID_W + GUI_GRID_X","7 * GUI_GRID_H + GUI_GRID_Y","2.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"General accuracy of the operative with weapons","-1"],[]],
+	[1007,"operative_reflexes_value",[2,"xxx",["19.5 * GUI_GRID_W + GUI_GRID_X","8.5 * GUI_GRID_H + GUI_GRID_Y","2.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Affects how quickly the operative can rotate and stabilize its aim","-1"],[]],
+	[1008,"operative_spotting_value",[2,"xxx",["19.5 * GUI_GRID_W + GUI_GRID_X","10 * GUI_GRID_H + GUI_GRID_Y","2 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"General spotting skill of the operative","-1"],[]],
+	[1009,"operative_courage_value",[2,"xxx",["19.5 * GUI_GRID_W + GUI_GRID_X","11.5 * GUI_GRID_H + GUI_GRID_Y","2 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Morale of the operative","-1"],[]],
+	[1010,"operative_communications_value",[2,"xxx",["23 * GUI_GRID_W + GUI_GRID_X","13 * GUI_GRID_H + GUI_GRID_Y","2 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Affects how quickly recognized targets are shared with the group","-1"],[]],
+	[1011,"operative_reload_value",[2,"xxx",["21.5 * GUI_GRID_W + GUI_GRID_X","14.5 * GUI_GRID_H + GUI_GRID_Y","2 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"How quickly the operative reload and switch weapons","-1"],[]],
+	[1802,"operative_role_frame",[2,"Role",["28 * GUI_GRID_W + GUI_GRID_X","13.5 * GUI_GRID_H + GUI_GRID_Y","7.5 * GUI_GRID_W","4.5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1803,"operative_status_frame",[2,"Status",["28 * GUI_GRID_W + GUI_GRID_X","6 * GUI_GRID_H + GUI_GRID_Y","7.5 * GUI_GRID_W","7 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1013,"operative_status_value",[2,"xxxx",["28.5 * GUI_GRID_W + GUI_GRID_X","7 * GUI_GRID_H + GUI_GRID_Y","6.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1012,"operative_time_remaining",[2,"Wait time:",["28.5 * GUI_GRID_W + GUI_GRID_X","10 * GUI_GRID_H + GUI_GRID_Y","6.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1014,"operative_role_value",[2,"xxxx",["28.5 * GUI_GRID_W + GUI_GRID_X","15 * GUI_GRID_H + GUI_GRID_Y","6.5 * GUI_GRID_W","1.5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1016,"operative_time_remaining_value",[2,"xxxx",["28.5 * GUI_GRID_W + GUI_GRID_X","11.5 * GUI_GRID_H + GUI_GRID_Y","6.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1015,"operative_available_points_txt",[2,"Available points:",["14.5 * GUI_GRID_W + GUI_GRID_X","16 * GUI_GRID_H + GUI_GRID_Y","8 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Available points to spend","-1"],[]],
+	[1017,"operative_available_points_value",[2,"xxx",["22.5 * GUI_GRID_W + GUI_GRID_X","16 * GUI_GRID_H + GUI_GRID_Y","3.5 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Available points to spend","-1"],[]],
+	[1603,"operative_add_aiming",[2,"+",["25.5 * GUI_GRID_W + GUI_GRID_X","7 * GUI_GRID_H + GUI_GRID_Y","1 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Spend 1 point on this skill","-1"],[]],
+	[1604,"operative_add_reflexes",[2,"+",["25.5 * GUI_GRID_W + GUI_GRID_X","8.5 * GUI_GRID_H + GUI_GRID_Y","1 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Informations about the operatives","-1"],[]],
+	[1605,"operative_add_spotting",[2,"+",["25.5 * GUI_GRID_W + GUI_GRID_X","10 * GUI_GRID_H + GUI_GRID_Y","1 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Informations about the operatives","-1"],[]],
+	[1606,"operative_add_courage",[2,"+",["25.5 * GUI_GRID_W + GUI_GRID_X","11.5 * GUI_GRID_H + GUI_GRID_Y","1 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Informations about the operatives","-1"],[]],
+	[1607,"operative_add_comms",[2,"+",["25.5 * GUI_GRID_W + GUI_GRID_X","13 * GUI_GRID_H + GUI_GRID_Y","1 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Informations about the operatives","-1"],[]],
+	[1608,"operative_add_reload",[2,"+",["25.5 * GUI_GRID_W + GUI_GRID_X","14.5 * GUI_GRID_H + GUI_GRID_Y","1 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Informations about the operatives","-1"],[]]
+]
+*/
+
+
+*/
+
+

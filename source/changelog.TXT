@@ -1,0 +1,262 @@
+0.101
+changed player stat menu
+introduced persistent stats
+added reset stat button
+added new support "vehicle refit"
+cost of personnal flir upped to 20
+
+0.2
+introduced a failsafe for the zone creation
+added a loading screen while searching for the HQ
+added a dynamic weather system, you can also chose your weather type at the beginning at the campaign
+added to possibility to establish FOBs after you have captured your first zone
+updated the DUWS ingame manual
+added ATV in the vehicle menu
+removed accidental parachute spawn
+removed the error that sometimes occurs when fetching into cfgVehicles
+Thanks to Das Attorney for the help
+fixed an issue where the player might die during the init of the missions (very rare)
+Added the WARCOM
+ai skills was broken in ancient DUWS version, now it's functionning properly and you can set the ai skill in the start menu
+player can chose starting army power
+lots of minor bug fixes
+
+0.2a
+fixed variables names where a few players dindt got the AP bonus
+
+0.2b
+fixed a bug where the FOB option would not reappear after being denied
+
+0.3
+updated name/adjectives pool for the name randomization
+introduced the xp system, based on persistent stats. That means XP is also persistent, if you have unlocked abilities during a campaign, you will keep them if you restart the mission.
+introduced the abilities, based on the xp and thus, abilities are persistents.
+added quick reflexes to abilities
+added advanced conditionning to abilities
+added field surgery to abilities
+added veteran instinct to abilities
+WARCOM: now the task forces will have a marker on their position
+player stats menu accomodated so the player can see his XP now.
+updated army power entry in the manual
+added experience section in the manual
+
+added a check to the script for the script fetching valid zones to make sure nothing is spawning inside a rock or something weird. Due to these changes, fetching a hq location should take a bit more longer. I also increased the authorized max Z(elevation) difference to make the side missions being generated more quickly.
+
+when the player was manually placing the HQ, the DUWS was broken. Added another step in the init.sqf
+zones manual placement was also broken, hopefuly fixed now. Check the init.sqf if you are placing the zones by hand.
+
+0.3a
+achieving side missions would not give you CP anymore, just fixed that
+fixed a bug where --blank-- would appear on some mission names
+
+0.4
+switched to dev build of arma
+player can select the blufor ai skill range
+added high command module support with squads, meaning that the player can request squad at the hq now, basicly you can own and order a whole army now if you want to.
+added tooltips at the startup dialog
+divided by 3 the amount of CP you receive when a zone is captured
+player can request supply drops at fobs
+updated to vas 1.6 (meaning you can now change binoculars at armory. Also included localization in german for the VAS)
+added AT specialist and diver to unit list
+
+using BIS_fnc_findSafePos to generate the position for HQ and side mission. Now, HQ and side mission generation is instantaneous and much more efficient. Generated stuff should now not spawn anymore in odd places.
+
+tweaked mapsize.sqf to make BIS_fnc_findSafePos usable
+tweaked all the mission files to accomodate BIS_fnc_findSafePos
+tweaked locatorHQ.sqf to accomodate BIS_fnc_findSafePos
+added a check, generated side missions will never be on the same spot
+OPFOR AT and AA specialist are now patrolling the enemy zones.
+increased list of random names
+added helicopter taxi in supports
+changed the spawn location of BLU attack waves, hopefuly commander will not randomly die anymore
+
+0.4a
+typo correction by FrankHH
+added new support Mk.20 Rockeye II cluster bomb
+using taxi would not cost you any CP
+being denied the LZ would prevent the taxi option to reappear
+
+0.4b
+QUICKFIX: vehicles would not be created anymore, just fixed that.
+
+0.5
+Implemented OPFOR AP management
+changed the zone capture system, now the opfor can, and will try to recapture the zones under blufor control
+fixed bugs at the startup screen
+randomized the delay between assault waves
+Startup help hints are appearing only if it's your first time playing the mission (or this version)
+HQ spawn is now inside a bunker
+minor tweaks and fixes
+revamped the whole side mission generation system, now the player can chose through the strategic map wich mission to play. Missions are generated randomly.
+updated VAS to 1.7
+
+0.5a
+player could not give SITREP anymore, fixed now
+
+0.5b
+requesting a vehicle will not blow up the HQ anymore.
+
+0.51
+made the instructions inside the init.sqf more clear for when the player is placing manually stuff (hq & zones)
+balancing: when a zone is captured by blufor, both armies are getting equally stronger, thus giving a challenge for the player who wants to play only as capturing the zones
+the HQ will broadcast a message to all BLUFOR units if enemy units are within 300meters of the main base.
+added a new side mission: sabotage
+modified briefings entries
+bought infantry is spawning just outside the HQ.
+
+0.51a
+quickfix: player can now complete the rescue side mission.
+
+0.6
+sometimes, a random music track is playing when being transported by taxi helo
+modified the request menu GUI
+helo taxi should not stop hovering when being called
+sometimes the player would spawn into the air at mission startup
+When requesting a FOB, the script put it automatically in a valid pos. If no pos are found, request is denied
+added marksman, sniper & spotter in the unit list
+switched to BIS_fnc_findSafePos for finding a zone.
+WARCOM will init even when zones are manually placed.
+added prefabs buildings when zones are created. No more "zone 1", "zone 2", "zone 3", ...
+added the squad manager interface, where you can disband/add units to HC/your own squad
+the game will autosave when a FOB is deployed
+increased the price of motorized scouts and mec. squad
+added new support: specialized infantry training
+HQ and FOBs now have guards
+added radio chatter to HQ 
+BLUFOR skill affects single units now.
+
+0.7
+COOP SUPPORT (listen server only)
+typo corrections
+added a random delay before the first wave of OPFOR attack
+player is no longer able to use actions at the HQ and FOBs through AI squad members
+resting will now remove dead bodies
+OPFOR zones spawn further from base now
+player will now be notified when he enters a FOB location
+player will be notified when enemies are close to a FOB.
+player will have to wait more before the DUWS report an impossible zone generation error at startup
+
+0.7a
+quickfix: HC would not init in SP
+
+0.73
+HC squads now have names (fireateam, rifle squad, etc..) instead of Alpha 1-1, etc...
+You can now rename your HC squads
+opfor assault waves spawn outside prefabs
+OPFOR and BLUFOR are now patrolling between the zones
+OPFOR leader will sometimes call for QRF on their position when attacked
+Added TAW viewdistance script (by Tonic) for MP
+added explosive specialist to the list of units
+FOB and HQ guards are equipped with AT and AA
+Added a little loop that should delete de empty groups, hopefully fixing the bug of AI not shooting each others
+
+0.73a
+removed "TF derp" markers on opfor qrf...
+
+0.73b
+holding control zones gives you CP
+
+0.73c
+potentially fixed the issue where the AI would stop working properly
+
+0.73e
+Changed the weather script. Using "Arid" settings should not cause the crashes anymore.
+
+0.74
+added new ability: field repair
+added new support: boat taxi
+added safeties regarding setFog to weather script
+player can now convert CP into AP
+added static defenses to HQ
+added sound effects when unlocking stuff
+player can now purchase static defenses at FOBs
+player can decide if he wants to fast travel with the helo taxi support or not
+tweaked the helo taxi script to avoid bugs
+added new vehicles (MBT and AA afv)
+tweaked the weather.sqf and added debug lines into the .rpt to hopefully fix the AI bug
+removed the OPFOR arty from the random vehicle spawn
+added smoke and chemlight to mark the helicopter lz for the helo taxi script
+
+0.74a
+added new names to the random names pool
+disabled the dynamic weather to avoid AI bugs
+
+0.74b
+MP: when a player is killed, only 2 cp are removed
+BLUFOR patrols are now friendly
+
+0.75
+added the fob manager
+the player can manually reinforce each fobs
+the player can choose to fast travel between fobs and the main base (can be deactivated at startup)
+the HQ is telling you the AP and the CP when giving a SITREP
+Re-arranged playable units to allow squad-play and more variety. (timsk)
+Players can now respawn at any FoB or main base. (timsk)
+the blufor tracked apc really costs 35 now
+added the CRV-6e Bobcat to purchase
+added a new prefab: camp site (DemolitionsTech)
+added a 3d icon for the officer at the main base
+updated to VAS 2.0
+
+Thanks to timsk and DemolitionsTech for their contribution.
+
+0.75a
+player is not locked anymore inside the taxi chopper
+modified the spawn position of the requested empty vehicles to avoid the rotor of a chopper bumping into the HQ
+destroyed vehicles, ragdolls, dropped weapons, smokes and chemlights will be deleted 1 hour after being far from the player (v1.7 "repetitive_cleanup.sqf" script by aeroson)
+fixed a bug where there was playable units in the water
+fixed the manual setting of HQ and zones (bugs, player being invincible,...)
+
+0.75b
+at startup, player can now choose the maxium distance from the HQ when the zones are spawned
+dynamic weather is now enabled again, with the possibility to not enable it at startup
+added names and adjectives to the random name pool
+the player can now choose to place manually the HQ at the startup
+
+0.76
+the menu where the player select random on manual HQ placement should not reopen
+manual placement of HQ is less restrictive
+BLUFOR and OPFOR patrols between zones should be more common
+side mission placement radius is limited to the "zone maximum distance from the hq" set at the startup
+the player can now recruit special operative. They have their own skills, they have special equipment and they stay all the duration of the campaign, they get better as the campaign progress
+upgraded to VAS 2.2
+
+v0.76a
+quickfix: recruited special operatives should not get stuck inside the HQ
+
+v0.77
+BIS_fnc_addStackedEventHandler is used instead of onEachFrame
+personnal FLIR display is synchronized with player stance
+radio towers need only 1 satchel charge to be destroyed now
+in mp, the host can now save even when he has not chosen the squad leader spot in the lobby
+in mp, the host can choose the CP penalty when a player dies in the game lobby
+player cannot save manually anymore (by pressing escape and then "save" in the menu). He must rest, create a FOB or spend 1 CP on a SITREP
+incorporated a revive script for MP (can be disabled in the lobby). (thanks to aeroson for get/set loadout script)
+increased the delay between OPFOR assaults
+reduced the flying altitude for the helo taxi
+the zone generation process has been modified, it takes a bit more time but it MAY prevent the "AI not engaging each other" bug
+
+v0.77a
+added a bottom right message when resting and when the campaign is generated
+made the weather sync in mp more efficent for fog values
+dynamic weather should act more according to chosen startup parameters
+if the player has a GPS in his gps slot in his inventory, his position will be shown on the map
+savegames should now be able to be resumed after closing ArmA3
+
+v0.8
+added a transparent black background to the dialog interfaces
+english operatives now have english voices
+special ability "field surgery" has an animation now
+removed debug console
+added a new ability: "logistic support"
+each time operators receive a skill bonus, deployed operators will get 10 skill points wich can be spent on any skill the player wants
+for the support "helo taxi", when the pilot leaves the chopper (meaning it's problably disabled), support will be available again
+removed 1 radio chatter file, to make the mission lighter
+added new ability: field commander
+tweaks to the gps marker system
+added dynamic ambient music
+minor fixes to "guards.sqf"
+
+v0.8a
+fixed a bug where the player would suffer lag after 30 minutes (temporary disabled music_loop.sqf)
+removed hq icon (temporary disabled)

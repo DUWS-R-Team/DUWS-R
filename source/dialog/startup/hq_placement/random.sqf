@@ -1,0 +1,1 @@
+chosen_hq_placement = true;

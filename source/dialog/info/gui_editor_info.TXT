@@ -1,0 +1,21 @@
+/* #Qezugi
+/* #Pitohi
+$[
+	1.062,
+	["aze",[[0,0,1,1],0.025,0.04,"GUI_GRID"],0,0,0],
+	[1800,"infoBackground",[2,"CAMPAIGN INFO",["0 * GUI_GRID_W + GUI_GRID_X","0 * GUI_GRID_H + GUI_GRID_Y","40 * GUI_GRID_W","25 * GUI_GRID_H"],[-1,-1,-1,-1],[0,0,0,0.5],[-1,-1,-1,-1],"","-1"],[]],
+	[1604,"",[2,"OK",["11.5 * GUI_GRID_W + GUI_GRID_X","23.5 * GUI_GRID_H + GUI_GRID_Y","8 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1806,"zones_captured_total_frame",[2,"Total of zones captured",["1 * GUI_GRID_W + GUI_GRID_X","1 * GUI_GRID_H + GUI_GRID_Y","18.5 * GUI_GRID_W","2 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1803,"",[2,"Side missions completed in total",["20.5 * GUI_GRID_W + GUI_GRID_X","1 * GUI_GRID_H + GUI_GRID_Y","18.5 * GUI_GRID_W","2 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1001,"",[2,"ZUC:XXX",["1 * GUI_GRID_W + GUI_GRID_X","1.5 * GUI_GRID_H + GUI_GRID_Y","18.5 * GUI_GRID_W","1.5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Total amount of zones you have captured","-1"],[]],
+	[1004,"missionsuccess",[2,"XXX",["21 * GUI_GRID_W + GUI_GRID_X","1.5 * GUI_GRID_H + GUI_GRID_Y","17 * GUI_GRID_W","1.5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Total amount of side mission you have completed","-1"],[]],
+	[1801,"island_captured_frame",[2,"Islands captured",["1 * GUI_GRID_W + GUI_GRID_X","3.5 * GUI_GRID_H + GUI_GRID_Y","18.5 * GUI_GRID_W","6.5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1500,"islandscapturedlistbox",[2,"",["1.5 * GUI_GRID_W + GUI_GRID_X","4.5 * GUI_GRID_H + GUI_GRID_Y","17.5 * GUI_GRID_W","5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Islands you have captured","-1"],[]],
+	[1600,"reset_stats_button",[2,"RESET STATS",["20.5 * GUI_GRID_W + GUI_GRID_X","23.5 * GUI_GRID_H + GUI_GRID_Y","8 * GUI_GRID_W","1 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Reset your stats to 0","-1"],[]],
+	[1802,"frame_player_xp",[2,"(player) total experience",["20.5 * GUI_GRID_W + GUI_GRID_X","3.5 * GUI_GRID_H + GUI_GRID_Y","18.5 * GUI_GRID_W","2 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Experience of the player","-1"],[]],
+	[1000,"player_experience_text",[2,"XXX",["21 * GUI_GRID_W + GUI_GRID_X","4 * GUI_GRID_H + GUI_GRID_Y","17 * GUI_GRID_W","1.5 * GUI_GRID_H"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Experience of the player","-1"],[]]
+]
+*/
+
+*/
+
