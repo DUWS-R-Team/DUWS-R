@@ -133,7 +133,6 @@ while {!_found} do
 };  // END WHILE LOOP --- LOCATION FOUND
 }; // END FOR LOOP -- ALL ZONES CREATED 
 
-//hintSilent format["All zones found\nWelcome to %1\nHave fun !\nDUWS by kibot",_worldName];
 player globalChat format["All zones found. Welcome to %1, %2",_worldName,profileName];
 
 // For some reasons I had to add a zone [0,0,0] in _zones_array, now I must remove it:

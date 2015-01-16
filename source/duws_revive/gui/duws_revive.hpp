@@ -8,7 +8,7 @@ class duws_revive_menu
 class controls
 {
 ////////////////////////////////////////////////////////
-// GUI EDITOR OUTPUT START (by kibot, v1.063, #Zoxome)
+// GUI EDITOR OUTPUT START
 ////////////////////////////////////////////////////////
 
 class duws_death_waiting_txt: RscText

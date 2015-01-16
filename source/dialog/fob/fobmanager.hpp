@@ -7,7 +7,7 @@ class fob_mng_dialog
 class controls
 {
 ////////////////////////////////////////////////////////
-// GUI EDITOR OUTPUT START (by kibot, v1.063, #Sevoly)
+// GUI EDITOR OUTPUT START
 ////////////////////////////////////////////////////////
 class background_request: RscText
 {

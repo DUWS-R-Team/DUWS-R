@@ -97,7 +97,6 @@ while {!_found} do
 };  // END WHILE LOOP --- LOCATION FOUND
 }; // END FOR LOOP -- ALL ZONES CREATED 
 
-//hintSilent format["All zones found\nWelcome to %1\nHave fun !\nDUWS by kibot",_worldName];
 player globalChat format["All zones found. Welcome to %1, %2",_worldName,profileName];
 
 

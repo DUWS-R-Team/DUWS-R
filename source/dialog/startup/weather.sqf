@@ -41,7 +41,7 @@ switch (weather_type) do
     _fog_height = random 1;
     _fog_height = (_fog_height / 10); // transforme en centiemes 
 	if (_fog_height<0.1) then {_fog_height = 0.1};	
-	diag_log format ["DUWS DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];
+	diag_log format ["DUWS-R DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];
     _fog_time setFog [_fog_intensity, _fog_height, 10];
 
     _overcast_intensity = random 1;
@@ -90,7 +90,7 @@ switch (weather_type) do
     _fog_height = random 1;
     _fog_height = (_fog_height / 10); // transforme en centiemes
 	if (_fog_height<0.1) then {_fog_height = 0.1};	
-	diag_log format ["DUWS DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];	
+	diag_log format ["DUWS-R DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];	
     _fog_time setFog [_fog_intensity, _fog_height, 10];
     
     _overcast_intensity = random 5;
@@ -118,7 +118,7 @@ switch (weather_type) do
      _fog_height = random 1;
      _fog_height = (_fog_height / 10); // transforme en centiemes
 	if (_fog_height<0.1) then {_fog_height = 0.1};	
-	diag_log format ["DUWS DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];	
+	diag_log format ["DUWS-R DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];	
      _fog_time setFog [_fog_intensity, _fog_height, 10];
     
      _overcast_intensity = random 4;
@@ -146,13 +146,13 @@ switch (weather_type) do
      _fog_height = random 1;
      _fog_height = (_fog_height / 10); // transforme en centiemes
 	if (_fog_height<0.1) then {_fog_height = 0.1};	
-	diag_log format ["DUWS DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];	
+	diag_log format ["DUWS-R DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];	
      _fog_time setFog [_fog_intensity, _fog_height, 10];
     
      _overcast_intensity = random 6;
      _overcast_intensity = (_overcast_intensity / 10); // transforme en dixièmes
      20 setOvercast _overcast_intensity;
-	diag_log format ["DUWS DEBUG: %3 setOvercast %1", _overcast_intensity];	
+	diag_log format ["DUWS-R DEBUG: %3 setOvercast %1", _overcast_intensity];	
 	
      _wait_total = _fog_time + _wait_after;
      _wait_total_minute = _wait_total / 60;

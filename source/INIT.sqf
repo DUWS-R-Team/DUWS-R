@@ -1,4 +1,4 @@
-diag_log format ["------------------ DUWS START ----v073------ player: %1", profileName];
+diag_log format ["------------------ DUWS-R START ----v0------ player: %1", profileName];
 //////////////////////////////////////////////////////
 //  HOW TO MANUALLY CREATE THE MISSION:   
 //  1)YOU MUST PLACE THE HQ LOCATION
@@ -298,12 +298,11 @@ _basepoint = [] execVM "zones_bonus.sqf";
 // INIT the operative list
 execVM "dialog\operative\operator_init.sqf";
 
-
 // Create help for DUWS
-_index = player createDiarySubject ["help","DUWS Manual"]; 
-player createDiaryRecord ["help", ["Feedback/bug report", "Please report any bug you see REGARDING THE MISSION by contacting me (kibot) on the BIS forums, on Armaholic or you can post a message under the ""discussion"" tab of the Steam Workshop. You can also directly go to the appropriate topic on the BIS forums. <br />Please keep in mind that this mission is still in development. Suggestions/feedbacks are welcome."]];
-player createDiaryRecord ["help", ["Export to another island", "<font color='#FF0000'>How to export to another island:</font color><br />You just need to take the .pbo file and rename it with the name of the island you want to export the mission to. You don't have anything else to do<br /><br />Example:<br />SP_DUWS.stratis.pbo >>> SP_DUWS.chernarus.pbo"]];
-player createDiaryRecord ["help", ["Credits", "Mision made by kibot. VAS script and TAW view distance by Tonic. Thanks to Kempco for the mapsize script. Thanks to FrankHH for correcting the typos. Thanks to FunkDooBiesT for his help and his time.<br />Thanks to WolfFlight[TZW] and Amarak[TZW] for their help.<br />repetitive cleanup and SET/GET loadout scripts by aeroson.<br />Thanks to timsk."]];
+_index = player createDiarySubject ["help","DUWS-R Manual"]; 
+player createDiaryRecord ["help", ["Feedback/bug report", "Internal team members: Use the ""issues"" section to report items."]];
+player createDiaryRecord ["help", ["Export to another island", "<font color='#FF0000'>How to export to another island:</font color><br />You just need to take the .pbo file and rename it with the name of the island you want to export the mission to. You don't have anything else to do<br /><br />Example:<br />SP_DUWS-R.stratis.pbo >>> SP_DUWS-R.chernarus.pbo"]];
+player createDiaryRecord ["help", ["Credits", "Many thanks goes out to everyone that worked on the original DUWS by kibot!"]];
 player createDiaryRecord ["help", ["Command Points (CP)", "Command points are used to purchase vehicles, units and ask for support (like artillery or save the game outside the base). To obtain Command points, you must capture the enemy controlled zones (red zones on the map) or execute side missions. You also receive 3 command points for each zone you have under your control every 30 minutes."]];
 player createDiaryRecord ["help", ["Army Power (AP)", "Army power represent the strenght of the BLUFOR forces present on the island. By capturing enemy positions and accomplishing side missions, you will add Army Power to your army. The attack waves of the BLUFOR army will become stronger."]];
 player createDiaryRecord ["help", ["Experience", "By accomplishing side missions, capturing zones and islands, you will increase your experience. With experience, you will automatically unlock new abilties. Once you have an ability, a description of this ability will be available in the 'ability' tab in the briefing.<br />Capturing an island gives you <font color='#FF0000'>5 XP</font color><br />Achieving a side mission: <font color='#FF0000'>2 XP</font color><br />Capturing a zone: <font color='#FF0000'>1 XP</font color>"]];
@@ -329,7 +328,7 @@ player createDiaryRecord ["help", ["MP notes", "The CP pool is common for everyo
 if (isMultiplayer) then {
 	[] spawn {
 		waitUntil {time > 5};
-		["info",["MP Mechanics","Check the manual for the specifics of the DUWS in MP"]] call bis_fnc_showNotification;
+		["info",["MP Mechanics","Check the manual for the specifics of the DUWS-R in MP"]] call bis_fnc_showNotification;
 	};
 };
 
