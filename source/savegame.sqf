@@ -3,17 +3,14 @@
 player setdammage 0;
 
 if (isServer) then {
-skiptime 6;
-sleep 0.3;
+    skiptime 6;
+    sleep 0.3;
+    saveGame;
 
-saveGame;
+    hint "You and your squad members have been fully healed";
+    savegameNumber = savegameNumber + 1;
+    publicVariable "savegameNumber";
 
-hint "You and your squad members have been fully healed";
-
-
-savegameNumber = savegameNumber + 1;
-publicVariable "savegameNumber";
-
-sleep 2;
-[] execVM "misc\bottom_right_message.sqf";
+    sleep 2;
+    [] execVM "misc\bottom_right_message.sqf";
 };

@@ -9,6 +9,7 @@ class CfgDebriefing
 		picture = "\a3\ui_f\data\gui\cfg\hints\UnitType_ca.paa";
 		pictureColor[] = {0.0,0,1,1};
 	};
+
  	class officerkilled
 	{
 		title = "HQ Officer Killed";
