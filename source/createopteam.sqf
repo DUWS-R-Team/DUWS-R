@@ -4,7 +4,6 @@
 _position = _this select 0;
 _radius   = _this select 1;
 
-
 // hint format["%1",_position];
 
 _group = [_position, EAST, ["O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_LAT_F","O_Soldier_GL_F"],[],[],opfor_ai_skill] call BIS_fnc_spawnGroup;
