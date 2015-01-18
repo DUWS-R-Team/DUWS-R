@@ -8,7 +8,7 @@ class ressourceheader
 class controls
 {
 ////////////////////////////////////////////////////////
-// GUI EDITOR OUTPUT START (by kibot, v1.062, #Foputi)
+// GUI EDITOR OUTPUT START
 ////////////////////////////////////////////////////////
 class background_request: RscText
 {

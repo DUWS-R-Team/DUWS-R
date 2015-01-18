@@ -10,7 +10,7 @@ class squad_rename_dialog
 class controls
 {
 ////////////////////////////////////////////////////////
-// GUI EDITOR OUTPUT START (by kibot, v1.062, #Miwysa)
+// GUI EDITOR OUTPUT START
 ////////////////////////////////////////////////////////
 
 class renameHCmainframe: RscFrame

@@ -9,7 +9,7 @@ class startup_dialog
 class controls
 {
 ////////////////////////////////////////////////////////
-// GUI EDITOR OUTPUT START (by kibot, v1.062, #Nanyko)
+// GUI EDITOR OUTPUT START
 ////////////////////////////////////////////////////////
 class background_request: RscText
 {
@@ -146,7 +146,7 @@ class oap_start_combo: RscCombo
 class text_information: RscText
 {
 	idc = 1000;
-	text = "Before generating the campaign with non-default parameters, make sure that the island you are playing on is capable to host all the zones. Otherwise the DUWS may not be able to generate the zones."; //--- ToDo: Localize;
+	text = "Before generating the campaign with non-default parameters, make sure that the island you are playing on is capable to host all the zones. Otherwise the DUWS-R may not be able to generate the zones."; //--- ToDo: Localize;
 	x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 	y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 	w = 39 * GUI_GRID_W;

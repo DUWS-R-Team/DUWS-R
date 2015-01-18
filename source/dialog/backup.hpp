@@ -8,7 +8,7 @@ class ressourceheader
 class controls
 {
 ////////////////////////////////////////////////////////
-// GUI EDITOR OUTPUT START (by kibot, v1.062, #Fimogu)
+// GUI EDITOR OUTPUT START
 ////////////////////////////////////////////////////////
 
 class mainframebackground: RscFrame

@@ -23,7 +23,7 @@ class Mission
 	randomSeed=16091530;
 	class Intel
 	{
-		briefingName="[SP/MP]Dynamic Universal War System";
+		briefingName="[SP/MP]Dynamic Universal War System - Rebirth";
 		overviewText="Play a full, randomly generated campaign on whatever island you want to.";
 		startWeather=0;
 		startWind=0;
