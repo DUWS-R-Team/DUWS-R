@@ -156,16 +156,29 @@ class startup_dialog
         class start_button: RscButton
         {
             idc = 1600;
-            text = "START"; //--- ToDo: Localize;
+            text = "START-R"; //--- ToDo: Localize;
             x = 16 * GUI_GRID_W + GUI_GRID_X;
             y = 23 * GUI_GRID_H + GUI_GRID_Y;
             w = 8 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
             sizeEx = 0.05;
             colorBackground[] = {1, 0, 0,0.5};
-            tooltip = "Generate the zones and the campaign"; //--- ToDo: Localize;
+            tooltip = "Randomly generate the zones, then start the campaign"; //--- ToDo: Localize;
             action = "_nul = [] execvm ""dialog\startup\startup_start.sqf""";
         };
+		class start_button2: RscButton
+		{
+			idc = 1601;
+			text = "START-M"; //--- ToDo: Localize;
+			x = 24.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 23 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			sizeEx = 0.05;
+			colorBackground[] = {1, 0, 0,0.5};
+			tooltip = "Manually generate the zones, then start the campaign"; //--- ToDo: Localize;
+			action = "_nul = [] execvm ""dialog\startup\startup_start2.sqf""";
+		};
         class weather_type_frame: RscFrame
         {
             idc = 1807;
