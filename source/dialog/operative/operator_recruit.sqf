@@ -18,16 +18,16 @@ _proceed = true;
 
 switch (_selected_soldier_status) do
 {
-  case "Ready": {
-	if (commandpointsblu1<5) exitWith {_proceed = false;};
-	commandpointsblu1 = commandpointsblu1 - 5;
-  };
-
-  case "Healed": {
-	if (commandpointsblu1<2) exitWith {_proceed = false;};
-	commandpointsblu1 = commandpointsblu1 - 2;
-  };  
+    case "Ready": {
+        if (commandpointsblu1<5) exitWith {_proceed = false;};
+        commandpointsblu1 = commandpointsblu1 - 5;
+    };
+    case "Healed": {
+        if (commandpointsblu1<2) exitWith {_proceed = false;};
+        commandpointsblu1 = commandpointsblu1 - 2;
+    };
 };
+
 if (!_proceed) exitWith {hint "You don't have enough Command Points"};
 
 _soldier = group player createUnit [_selected_soldier_class, [getpos hq_blu1 select 0, (getpos hq_blu1 select 1)+20], [], 0, "FORM"];
@@ -46,9 +46,6 @@ _soldier setskill ["commanding",_selected_soldier_comms];
 removeheadgear _soldier;
 _soldier addHeadgear _selected_soldier_headgear;
 
-
- 
-
 _selected_index = lbCurSel 1500;
 lbSetColor [1500, _selected_index, [0, 1, 0, 1]];
 
@@ -57,9 +54,6 @@ ctrlSetText [1013, format["%1",_selected_soldier_status]];
 
 buttonSetAction [1601, "hint ""This operative is already active in this theatre of operation"""]; 
 ctrlSetText [1601, "ALREADY DEPLOYED"];	
-
-
-
 
 // wait until the operator is dead
 waitUntil {sleep 2; !alive _soldier}; 
@@ -72,7 +66,7 @@ duws_operator_list select _selected_soldier_index set [7,"Injured"];
 for [{_timer=_soldier_timeheal}, {_timer>0}, {_timer=_timer-1}] do
 {
     duws_operator_list select _selected_soldier_index set [12,_timer];
-	sleep 1;
+    sleep 1;
 };
 // soldier is healed
 duws_operator_list select _selected_soldier_index set [12,0];
