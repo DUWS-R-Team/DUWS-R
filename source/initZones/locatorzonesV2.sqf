@@ -13,6 +13,7 @@ _worldName = getText(configFile >> "cfgWorlds" >> worldName >> "description");
 _fortified = false;
 openMap [true, true]; 
 hint "Click somewhere on the island to place enemy zones";
+_zones_array = [[-9999,-9999,-9999]];
 for [{_i=1}, {_i<=zones_number}, {_i=_i+1}] do  // BEGIN "FOR" LOOP --
 {
 	player globalChat format["Choose location for zone #%1...",_i];
