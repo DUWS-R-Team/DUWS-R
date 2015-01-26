@@ -58,6 +58,11 @@ _handle = [(getpos hq_blu1), _hq] execVM "initHQ\fortify.sqf";
     sleep 6;
     ["officerkilled",false,true] call BIS_fnc_endMission;
 };
+
+//CREATE PATROL
+_handle = [getpos hq_blu1] execVM "initHQ\guardsHQ.sqf";
+_handle = [getpos hq_blu1] execVM "initHQ\guardsHQ.sqf";
+
 // IF THE OFFICER IS DEAD -- End OF "SPAWN"
 
 // TELEPORT PLAYER
