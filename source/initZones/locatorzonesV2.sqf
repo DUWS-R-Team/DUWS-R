@@ -16,47 +16,47 @@ hint "Click somewhere on the island to place enemy zones";
 _zones_array = [[-9999,-9999,-9999]];
 for [{_i=1}, {_i<=zones_number}, {_i=_i+1}] do  // BEGIN "FOR" LOOP --
 {
-	player globalChat format["Choose location for zone #%1...",_i];
-	_found = false;
-	_zone_radius = 0;
-	_points_zone = 0;
-	while {_zone_radius<=zones_min_radius} do {
-		_random_zones_max_radius = random zones_max_radius;
-		_zone_radius = round _random_zones_max_radius;   
-		_points_zone = round (_zone_radius/10);
-	};
+    player globalChat format["Choose location for zone #%1...",_i];
+    _found = false;
+    _zone_radius = 0;
+    _points_zone = 0;
+    while {_zone_radius<=zones_min_radius} do {
+        _random_zones_max_radius = random zones_max_radius;
+        _zone_radius = round _random_zones_max_radius;   
+        _points_zone = round (_zone_radius/10);
+    };
 	
-	while {!_found} do {
-		clicked = false;
-		OnMapSingleClick "ClickedPos = _pos; clicked = true;";	
-		_found_distance = false;
-		_missionPos = [];
-		
-		if (clicked) then {
-			
-			_missionPos = [ClickedPos, 0,50,15,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
+    while {!_found} do {
+        clicked = false;
+        OnMapSingleClick "ClickedPos = _pos; clicked = true;";	
+        _found_distance = false;
+        _missionPos = [];
 
-			if (0 == _missionPos select 0 && 0 == _missionPos select 1) then {
-				clicked = false;
-				hint "Invalid position, the position must be flat and no objects must be near the position";
-			} else {
-				onMapSingleClick "";
-				hint "Valid pos, creating enemy zone";
-				_found_distance = true;
-			};
-		};
-		
-		if (_found_distance) then {
-		_missionPos = [round(_missionPos select 0),round(_missionPos select 1)];
-		_generatezonescript = [format["Zone %1",_i],_points_zone,_zone_radius,_missionPos,_fortified,true] execvm "initZones\createzone.sqf";
-		_found = true;
-		_zones_array = _zones_array + [_missionPos]; 
+        if (clicked) then {
 
-		player globalChat format["Zone location #%1 found !",_i];
-		player globalChat format["Generating zone #%1",_i];
-		waituntil {scriptdone _generatezonescript};
-		};
-	};
+            _missionPos = [ClickedPos, 0,50,15,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
+
+        if (0 == _missionPos select 0 && 0 == _missionPos select 1) then {
+            clicked = false;
+            hint "Invalid position, the position must be flat and no objects must be near the position";
+        } else {
+            onMapSingleClick "";
+            hint "Valid pos, creating enemy zone";
+            _found_distance = true;
+            };
+        };
+
+        if (_found_distance) then {
+            _missionPos = [round(_missionPos select 0),round(_missionPos select 1)];
+            _generatezonescript = [format["Zone %1",_i],_points_zone,_zone_radius,_missionPos,_fortified,true] execvm "initZones\createzone.sqf";
+            _found = true;
+            _zones_array = _zones_array + [_missionPos]; 
+
+            player globalChat format["Zone location #%1 found !",_i];
+            player globalChat format["Generating zone #%1",_i];
+            waituntil {scriptdone _generatezonescript};
+        };
+    };
 };
 
 openMap [false, false]; 
