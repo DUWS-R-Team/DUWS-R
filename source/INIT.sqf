@@ -152,6 +152,8 @@ else /// JIP for the client
 if (isNil "Array_of_FOBname") then {
 	Array_of_FOBname = [];
 };
+
+game_master = ["player1"];
 	
 player allowDamage false;
 
@@ -204,31 +206,35 @@ if (isMultiplayer) then {
         "finishedMissionsNumber" addPublicVariableEventHandler {[] execVM "persistent\persistent_stats_missions_total.sqf";}; // change the shown CP for request dialog	
 	};	
 	
-    if (isServer) then { // SERVER INIT
-        DUWS_host_start = false;
-        publicVariable "DUWS_host_start";
-        waitUntil {time > 0.1};
-        getsize_script = [player] execVM "mapsize.sqf";
-        DUWS_host_start = true;
-        publicVariable "DUWS_host_start";
+	if (((vehiclevarname player) in game_master)) then {
+		if (!isDedicated && !HQ_pos_found_generated) then { // SERVER INIT
+			DUWS_host_start = false;
+			publicVariable "DUWS_host_start";
+			waitUntil {time > 0.1};
+			getsize_script = [player] execVM "mapsize.sqf";
+			DUWS_host_start = true;
+			publicVariable "DUWS_host_start";
 
-        // init High Command
-        _handle = [] execVM "dialog\hc_init.sqf";
-        waitUntil {scriptDone getsize_script};
-	}; 
+			// init High Command
+			_handle = [] execVM "dialog\hc_init.sqf";
+			waitUntil {scriptDone getsize_script};
+		};
+	}		
 };
 
-if (isServer) then {
-    _null = [] execVM "dialog\startup\hq_placement\placement.sqf";
-    waitUntil {chosen_hq_placement};	
+if (((vehiclevarname player) in game_master)) then {
+	if (!isDedicated && !HQ_pos_found_generated) then {
+		_null = [] execVM "dialog\startup\hq_placement\placement.sqf";
+		waitUntil {chosen_hq_placement};	
 
-    // create random HQ
-    if (!hq_manually_placed && !player_is_choosing_hqpos) then {
-        hq_create = [20, 0.015] execVM "initHQ\locatorHQ.sqf";
-        waitUntil {scriptDone hq_create};	
-    };
-};
-
+		// create random HQ
+		if (!hq_manually_placed && !player_is_choosing_hqpos) then {
+			hq_create = [20, 0.015] execVM "initHQ\locatorHQ.sqf";
+			waitUntil {scriptDone hq_create};	
+		};
+	};
+}
+	
 /*
 //////// DEBUG LOOP /////////////
 [] spawn {
@@ -254,7 +260,7 @@ if (isServer) then {
     ] execVM 'repetitive_cleanup.sqf';	
 };
 
-if (!isServer) then { 
+if (hasInterface) then { 
     // WHEN CLIENT CONNECTS INIT (might need sleep)
     waitUntil {isPlayer Player};
     hintsilent "Waiting for the host to find an HQ...";	

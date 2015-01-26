@@ -38,7 +38,6 @@ publicVariable "hq_blu1";
 _hq setpos [_hqblu select 0, _hqblu select 1, 0.59]; 
 _hq disableAI "AUTOTARGET";
 _hq setdir 0;
-_handle = [hq_blu1] execVM "initHQ\HQaddactions.sqf";
 removeallweapons _hq;
 _hq switchMove "acts_StandingSpeakingUnarmed";
 _handle = [_hq] execVM "sounds\radiochatter.sqf";
