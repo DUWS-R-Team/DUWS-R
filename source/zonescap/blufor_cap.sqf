@@ -40,7 +40,7 @@ str(_markername) setMarkerColor "ColorGreen";
 // MODIFY MARKER ELLIPSE
 str(_markername2) setMarkerColor "ColorGreen";
 
-if (isServer) then {
+if (hasInterface) then {
 commandpointsblu1 = commandpointsblu1 + (_points/2); 
 publicVariable "commandpointsblu1"; 
 };

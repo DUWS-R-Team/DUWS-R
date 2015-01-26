@@ -22,7 +22,7 @@ _index = 0;
 } forEach WARCOM_zones_controled_by_OPFOR;
 
 // ADD POINTS
-if (isServer) then {
+if (hasInterface) then {
     _points = round(_points/3);
     commandpointsblu1 = commandpointsblu1 + _points;
     publicVariable "commandpointsblu1";
