@@ -22,35 +22,31 @@ _HQguard4 setpos [(_centerPos select 0), (_centerPos select 1)-9];
 _HQguard4 setdir 0;
 [_HQguard4,"STAND","FULL"] call BIS_fnc_ambientAnimCombat;
 
-
-
-
 // patrolling guard
 _groupPatrol = createGroup WEST;
 _HQguard5 = _groupPatrol createUnit ["B_Soldier_GL_F", _centerPos, [], 0, "FORM"]; 
 _HQguard5 setpos [(_centerPos select 0)+10, (_centerPos select 1)+10];
 
 _groupPatrol setCombatMode "YELLOW";
-    _wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)+10], 0];
-    _wp setWaypointType "MOVE";
+_wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)+10], 0];
+_wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "SAFE";
 _wp setWaypointSpeed "LIMITED";
 
-    _wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)+10], 0];
-    _wp setWaypointType "MOVE";
+_wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)+10], 0];
+_wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "SAFE";
 _wp setWaypointSpeed "LIMITED";	
 	
-    _wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)-10], 0];
-    _wp setWaypointType "MOVE";
+_wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)-10], 0];
+_wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "SAFE";
 _wp setWaypointSpeed "LIMITED";	
 
-    _wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)-10], 0];
-    _wp setWaypointType "MOVE";
+_wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)-10], 0];
+_wp setWaypointType "MOVE";
 	
-    _wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)+10], 0];
-    _wp setWaypointType "CYCLE";
+_wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)+10], 0];
+_wp setWaypointType "CYCLE";
 _wp setWaypointBehaviour "SAFE";
 _wp setWaypointSpeed "LIMITED";
-	

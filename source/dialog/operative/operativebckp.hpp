@@ -1,4 +1,4 @@
-
+// TODO: Can this be deleted? 
 class operativemaingui
 {
 	idd = -1;
