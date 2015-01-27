@@ -5,7 +5,7 @@ switch (_index) do
 
     case index_max_radius_500:  
     {
-            zones_max_radius = 500
+        zones_max_radius = 500
     };
 
     case index_max_radius_750:  
@@ -410,37 +410,37 @@ _index = lbCurSel 2104;
 switch (_index) do
 {
 
-    case index_    blufor_ap_0:  
+    case index_blufor_ap_0:  
     {
         blufor_ap = 0;
     };
 
-    case index_    blufor_ap_10:  
+    case index_blufor_ap_10:  
     {
         blufor_ap = 10;
     };
 
-    case index_    blufor_ap_50:  
+    case index_blufor_ap_50:  
     {
         blufor_ap = 50;
     };
 
-    case index_    blufor_ap_80:  
+    case index_blufor_ap_80:  
     {
         blufor_ap = 80;
     };
 
-    case index_    blufor_ap_110:  
+    case index_blufor_ap_110:  
     {
         blufor_ap = 110;
     };
 	
-    case index_    blufor_ap_170:  
+    case index_blufor_ap_170:  
     {
         blufor_ap = 170;
     };
 	
-    case index_    blufor_ap_200:  
+    case index_blufor_ap_200:  
     {
         blufor_ap = 200;
     };
@@ -452,37 +452,37 @@ _index = lbCurSel 2105;
 switch (_index) do
 {
 
-    case index_    opfor_ap_0:  
+    case index_opfor_ap_0:  
     {
         opfor_ap = 0;
     };
 
-    case index_    opfor_ap_10:  
+    case index_opfor_ap_10:  
     {
         opfor_ap = 10;
     };
 
-    case index_    opfor_ap_50:  
+    case index_opfor_ap_50:  
     {
         opfor_ap = 50;
     };
 
-    case index_    opfor_ap_80:  
+    case index_opfor_ap_80:  
     {
         opfor_ap = 80;
     };
 
-    case index_    opfor_ap_110:  
+    case index_opfor_ap_110:  
     {
         opfor_ap = 110;
     };
 	
-    case index_    opfor_ap_170:  
+    case index_opfor_ap_170:  
     {
         opfor_ap = 170;
     };
 	
-    case index_    opfor_ap_200:  
+    case index_opfor_ap_200:  
     {
         opfor_ap = 200;
     };
@@ -582,6 +582,7 @@ switch (_index) do
     {
         zones_max_dist_from_hq = 20000;
     };
+	
     case index_max_dist_hq_250:  
     {
         zones_max_dist_from_hq = 25000;
