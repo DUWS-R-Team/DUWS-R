@@ -611,7 +611,7 @@ manually_chosen = true;
 publicVariable "chosen_settings";
 publicVariable "commandpointsblu1";
 publicVariable "weather_type";
-publicVariable "    blufor_ai_skill";
+publicVariable "blufor_ai_skill";
 publicVariable "opfor_ai_skill";
 publicVariable "enableChopperFastTravel";
 publicVariable "manually_chosen";
