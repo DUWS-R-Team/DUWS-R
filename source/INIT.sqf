@@ -41,6 +41,7 @@ hq_manually_placed = false;
 zones_manually_placed = false;  
 zones_max_dist_from_hq = 7500;
 dynamic_weather_enable = true;		
+maually_chosen = false;
 
 if (isNil "enable_fast_travel") then { enable_fast_travel = true; };
 // chopper taxi (support) will fast travel (teleport) or not
