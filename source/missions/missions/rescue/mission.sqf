@@ -38,9 +38,11 @@ _group = createGroup west;
 // TASK AND NOTIFICATION
 _VARtaskgeneratedName = format ["rescue%1%2",round(_MissionPos select 0),round(_Missionpos select 1)]; // generate variable name for task
 
-_taskhandle = player createSimpleTask ["taskRescue"];
-_taskhandle setSimpleTaskDescription ["One of our patrols has been ambushed and requires immediate assistance",_mission_name,""];
-_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+//_taskhandle = player createSimpleTask ["taskRescue"];
+//_taskhandle setSimpleTaskDescription ["One of our patrols has been ambushed and requires immediate assistance",_mission_name,""];
+//_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+
+[west, "_taskhandle", ["taskRescue.", "One of our patrols has been ambushed and requires immediate assistance", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
 if (!ismultiplayer) then {
     execVM "utilities\autoSave.sqf";

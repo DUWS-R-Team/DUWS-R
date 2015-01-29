@@ -44,21 +44,25 @@ _WARCOM_zones_controled_by_OPFOR = WARCOM_createdZones;
 WARCOM_zones_controled_by_OPFOR = [] + _WARCOM_zones_controled_by_OPFOR;
 
 // Init BLU patrols
+diag_log "Init BLU patrols";
 _blu_patrol = [] execVM "WARCOM\WARCOM_blu_patrol.sqf";
-waitUntil {scriptDone _blu_patrol};
+//waitUntil {scriptDone _blu_patrol};
 
 // Init OPF patrols
+diag_log "Init OPF patrols";
 _opf_patrol = [] execVM "WARCOM\WARCOM_opf_patrol.sqf";
-waitUntil {scriptDone _opf_patrol};
+//waitUntil {scriptDone _opf_patrol};
 
 // Initialize the BLU attack waves
+diag_log "Initialize the BLU attack waves";
 _blu_assault = [] execVM "WARCOM\WARCOM_blu_assault.sqf";
-waitUntil {scriptDone _blu_assault};
+//waitUntil {scriptDone _blu_assault};
 
 
 // Init the OPF attack waves
+diag_log "Init the OPF attack waves";
 _opf_assault = [] execVM "WARCOM\WARCOM_opf_assault.sqf";
-waitUntil {scriptDone _opf_assault};
+//waitUntil {scriptDone _opf_assault};
 
 
 

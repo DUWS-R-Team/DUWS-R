@@ -44,9 +44,10 @@ _box3 setdir 180;
 
 
 // TASK AND NOTIFICATION
-_taskhandle = player createSimpleTask ["taskSteal"];
-_taskhandle setSimpleTaskDescription ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.",_mission_name,""];
-_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+//_taskhandle = player createSimpleTask ["taskSteal"];
+//_taskhandle setSimpleTaskDescription ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.",_mission_name,""];
+//_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+[west, "_taskhandle", ["taskSteal.", "An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
 if (!ismultiplayer) then {
     execVM "utilities\autoSave.sqf";
@@ -73,7 +74,8 @@ waitUntil {sleep 2; ((getdammage _truck1)>0.95 OR (_truck1 distance _initpos)<50
 deleteMarker str(_markername2);
 deleteMarker str(_markername);
 
-player removeSimpleTask _taskhandle;
+//player removeSimpleTask _taskhandle;
+[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
 
 if (getdammage _truck1>0.95) exitWith {
     ["TaskFailed",["","The enemy convoy is destroyed"]] call bis_fnc_showNotification;
