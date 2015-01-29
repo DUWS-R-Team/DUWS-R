@@ -334,12 +334,14 @@ switch (_index) do {
 
 zones_spacing = zones_max_radius + 200;
 chosen_settings = true;  //  Give the go ! BluHQinit.sqf can continue execution
+manually_chosen = false;
 publicVariable "chosen_settings";
 publicVariable "commandpointsblu1";
 publicVariable "weather_type";
 publicVariable "blufor_ai_skill";
 publicVariable "opfor_ai_skill";
 publicVariable "enableChopperFastTravel";
+publicVariable "manually_chosen";
 
 //	commandpointsblu1 = 9999999;
 //hint format["Max radius: %1\nMin radius: %2\nZones number: %3\nCommand points: %4\nBLU AP: %5\nOPF AP: %6\nWeather type: %7\nBLU AI skill: %8\nOPF AI skill: %9",zones_max_radius,zones_min_radius,zones_number,commandpointsblu1,opfor_ap,blufor_ap,weather_type,blufor_ai_skill,opfor_ai_skill];
