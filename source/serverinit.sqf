@@ -159,6 +159,18 @@ if (isNil "FogVar") then {
 
 publicVariable "FogVar";
 
+if (isNil "createzone_server") then {	
+	createzone_server = false;
+};
+
+publicVariable "createzone_server";
+
+if (isNil "mission_number_of_zones_captured") then {	
+	mission_number_of_zones_captured = 0;
+};
+
+publicVariable "mission_number_of_zones_captured";
+
 // this is a special one (if/else)
 if (isNil "Array_of_FOBS") then {
     // if the player is sp or server or no fobs have been created
@@ -180,7 +192,12 @@ publicVariable "Array_of_FOBname";
 
 game_master = ["player1"];publicVariable "game_master";
 	
-
+ waitUntil {chosen_settings && createzone_server};
+ if (!zones_manually_placed) then {
+	    if (!zones_created) then {      // CHECK IF ZONES ARE PLACED, IF NOT EXECUTE locatorZonesV1.sqf
+        _zones_create = [50, 0.2] execVM "initZones\locatorZonesV1.sqf";   // CHECK IF ZONES HAVE ALREADY BEEN PLACED
+    };
+ };
 
 waitUntil { !isNil "serv_zones_array" };
 diag_log format ["serv_zones_array: %1", serv_zones_array];

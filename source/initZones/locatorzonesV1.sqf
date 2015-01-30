@@ -52,7 +52,7 @@ while {!_found} do
 			_posDeMeilleurTruc = [center_of_map, 0,half_of_map,5,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
 			if (_posDeMeilleurTruc select 0 != 0 && _posDeMeilleurTruc select 1 != 0) then {_Posfound=true;};
 		};
-		_playerDistance = _posDeMeilleurTruc distance player;
+		_playerDistance = _posDeMeilleurTruc distance hq_blu1;
 		
 		
 		
@@ -91,7 +91,7 @@ while {!_found} do
 
      player globalChat format["Zone location #%1 found !",_i];
 	 player globalChat format["Generating zone #%1",_i];
-	 waituntil {scriptdone _generatezonescript};
+	 //waituntil {scriptdone _generatezonescript};
      }; // END OF THIRD LOOP     
    };  // END SECOND LOOP
 };  // END WHILE LOOP --- LOCATION FOUND
