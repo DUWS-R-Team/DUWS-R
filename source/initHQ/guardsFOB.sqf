@@ -1,5 +1,6 @@
 _centerPos = _this select 0;
-_hq = _this select 1;
+_fob = _this select 1;
+_size = 500;
 
 // Create the guards
 _groupGuard = createGroup WEST;
@@ -11,7 +12,7 @@ _HQguard1 setdir 270;
 _HQguard2 = _groupGuard createUnit ["B_Soldier_F", _centerPos, [], 0, "FORM"]; 
 _HQguard2 setpos [(_centerPos select 0)-6.5, (_centerPos select 1)-4.7];
 _HQguard2 setdir 270;
-[_HQguard2,"GUARD","FULL"] call BIS_fnc_ambientAnimCombat;
+[_HQguard2,"WATCH","FULL"] call BIS_fnc_ambientAnimCombat;
 
 _HQguard3 = _groupGuard createUnit ["B_Soldier_TL_F", _centerPos, [], 0, "FORM"]; 
 _HQguard3 setpos [(_centerPos select 0), (_centerPos select 1)-7.58];
@@ -38,7 +39,7 @@ _wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)
 _wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "SAFE";
 _wp setWaypointSpeed "LIMITED";	
-	
+
 _wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)-10], 0];
 _wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "SAFE";
@@ -46,10 +47,10 @@ _wp setWaypointSpeed "LIMITED";
 
 _wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)-10], 0];
 _wp setWaypointType "MOVE";
-	
+
 _wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)+10], 0];
 _wp setWaypointType "CYCLE";
 _wp setWaypointBehaviour "SAFE";
 _wp setWaypointSpeed "LIMITED";
 
-_hq addAction ["<t color='#ff0066'>Replace Guards (20CP)</t>", "initHQ\reguard.sqf", [_groupGuard, _groupPatrol, _centerPos, _hq], 0, true, true, "", "_this == player"];
+_fob addAction ["<t color='#ff0066'>Replace Guards (15CP)</t>", "initHQ\reguardFOB.sqf", [_groupGuard, _groupPatrol, _centerPos, _fob], 0, true, true, "", "_this == player"];

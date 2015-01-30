@@ -1,18 +1,5 @@
-_centerPos = (_this select 3) select 0;
-_actionID = _this select 2;
-_object = _this select 0;
-_fob = (_this select 3) select 1;
-aliveAllUnits = {alive _x} count allunits;
-
-if (commandpointsblu1 < 4) exitWith {hint "You don't have enough Command Points"};
-commandpointsblu1 = commandpointsblu1 - 4;
-publicvariable "commandpointsblu1";
-
-
-if ((Warcom_Limiter_Param == 1) && (aliveAllUnits>99)) exitWith {hint "*DUWS AI Limiter is ENABLED!*\n\nTry Fortifying again when there are less than 100 AI units on the map"};
-
-_object removeAction _actionID;
-playSound "loadgun";
+_centerPos = _this  select 0;
+_fob = _this select 1;
 
 _groupGuard = createGroup WEST;
 

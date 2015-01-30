@@ -47,6 +47,13 @@ _taskhandle = player createSimpleTask ["taskRescue"];
 _taskhandle setSimpleTaskDescription ["One of our patrols has been ambushed and requires immediate assistance",_mission_name,""];
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
+if (!ismultiplayer) then {
+    enableSaving true;
+    sleep 0.1;
+    saveGame;
+    enableSaving false;
+};
+
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 call compile format ["%1 = _taskhandle",_VARtaskgeneratedName]; // create variable using the generated name and inject taskhandle into it

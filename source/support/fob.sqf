@@ -70,7 +70,7 @@ DUWS_fnc_fob = {
 [_fob,"DUWS_fnc_fob",true,true] spawn BIS_fnc_MP; // [_fob,"DUWS_fnc_fob",nil,true] spawn BIS_fnc_MP;
 
 // For fortifying
-_fob addaction ["<t color='#ff0000'>Fortify FOB(4CP)</t>","inithq\fortifyFOB.sqf", getpos _fob, 0, true, true, "", "_this == player"];
+_fob addaction ["<t color='#ff0000'>Fortify FOB(4CP)</t>","inithq\fortifyFOB.sqf", [(getpos _fob), _fob], 0, true, true, "", "_this == player"];
 
 [_foundPickupPos, _size] execvm "createpatrol.sqf";
 [_foundPickupPos, _size] execvm "createpatrol.sqf";
@@ -78,7 +78,7 @@ _fob addaction ["<t color='#ff0000'>Fortify FOB(4CP)</t>","inithq\fortifyFOB.sqf
 
 PAPABEAR sidechat "The FOB has been deployed.";
 
-_handle = [_foundPickupPos] execVM "initHQ\guards.sqf";
+_handle = [_foundPickupPos, _fob] execVM "initHQ\guardsFOB.sqf";
 
 
 // CREATE ZONE NOTIFICATION TRIGGER

@@ -45,10 +45,10 @@ _handle = [_hq] execVM "sounds\radiochatter.sqf";
 //_drawicon = [] execVM "inithq\drawIcon.sqf"; // create the icon
 
 //GUARDS
-_handle = [getpos hq_blu1] execVM "initHQ\guards.sqf";
+_handle = [(getpos hq_blu1), _hq] execVM "initHQ\guards.sqf";
 
 //STATIC DEFENSES
-_handle = [getpos hq_blu1] execVM "initHQ\fortify.sqf";
+_handle = [(getpos hq_blu1), _hq] execVM "initHQ\fortify.sqf";
 
 // IF THE OFFICER IS DEAD -- BEGIN OF "SPAWN"
 [_hq] spawn {

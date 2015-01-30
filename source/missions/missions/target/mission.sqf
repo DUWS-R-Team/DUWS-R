@@ -43,6 +43,13 @@ _taskhandle = player createSimpleTask ["taskTarget"];
 _taskhandle setSimpleTaskDescription ["A high enemy target has been spotted somewhere in this location. Hunt him down.",_mission_name,""];
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
+if (!ismultiplayer) then {
+    enableSaving true;
+    sleep 0.1;
+    saveGame;
+    enableSaving false;
+};
+
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 waitUntil {sleep 2; !alive _target};  // MISSION COMPLETED --
