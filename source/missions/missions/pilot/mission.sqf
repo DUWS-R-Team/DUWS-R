@@ -45,6 +45,13 @@ _taskhandle = player createSimpleTask ["taskPilot"];
 _taskhandle setSimpleTaskDescription ["One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.",_mission_name,""];
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
+if (!ismultiplayer) then {
+    enableSaving true;
+    sleep 0.1;
+    saveGame;
+    enableSaving false;
+};
+
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 waitUntil {sleep 1; (player distance _pilot)<6 OR !(alive _pilot)};  // PLAYER IS WITH THE PILOT --

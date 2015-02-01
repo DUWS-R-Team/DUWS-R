@@ -48,6 +48,13 @@ _taskhandle = player createSimpleTask ["taskSteal"];
 _taskhandle setSimpleTaskDescription ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.",_mission_name,""];
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
+if (!ismultiplayer) then {
+    enableSaving true;
+    sleep 0.1;
+    saveGame;
+    enableSaving false;
+};
+
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 // CREATE PATROLS

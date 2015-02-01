@@ -35,6 +35,13 @@ _taskhandle = player createSimpleTask ["taskDestroy"];
 _taskhandle setSimpleTaskDescription ["We have detected a large amount of enemy trasmissions coming from this area. This is probably caused by a radio tower used by the enemy forces on the island. Destroy the tower. Be sure to take some satchels, which you can find in the armory. Armory can be unlocked at the HQ.",_mission_name,""];
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
+if (!ismultiplayer) then {
+    enableSaving true;
+    sleep 0.1;
+    saveGame;
+    enableSaving false;
+};
+
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 // CREATE PATROLS

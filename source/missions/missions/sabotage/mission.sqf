@@ -39,6 +39,13 @@ _taskhandle = player createSimpleTask ["taskSabot"];
 _taskhandle setSimpleTaskDescription ["The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies.",_mission_name,""];
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
+if (!ismultiplayer) then {
+    enableSaving true;
+    sleep 0.1;
+    saveGame;
+    enableSaving false;
+};
+
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 call compile format ["%1 = _taskhandle",_VARtaskgeneratedName]; // create variable using the generated name so we can access it with the action

@@ -34,15 +34,17 @@ for [{_i=1}, {_i<=zones_number}, {_i=_i+1}] do  // BEGIN "FOR" LOOP --
 
         if (clicked) then {
 
-            _missionPos = [ClickedPos, 0,50,15,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
+            _posDeMeilleurTruc = [];
+            _posDeMeilleurTruc = [ClickedPos, 0,50,15,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
 
-            if (0 == _missionPos select 0 && 0 == _missionPos select 1) then {
+            if (0 == _posDeMeilleurTruc select 0 && 0 == _posDeMeilleurTruc select 1) then {
                 clicked = false;
                 hint "Invalid position, the position must be flat and no objects must be near the position";
             } else {
                 onMapSingleClick "";
                 hint "Valid pos, creating enemy zone";
                 _found_distance = true;
+                _missionPos = _posDeMeilleurTruc;
             };
         };
 
