@@ -6,7 +6,6 @@ _randompos = [(_missionpos select 0)+(random _radius)-(random _radius), (_missio
 // CREATE NAME
 _mission_name = MissionNameCase5;
 
-
 // CREATE MARKER (ICON)
 _markername = format["sabot%1%2",round(_randompos select 0),round(_randompos select 1)]; // Define marker name
 _markerstr = createMarker [str(_markername), _randompos];
@@ -28,22 +27,15 @@ str(_markername2) setMarkerAlpha 0.3;
 _tower = createVehicle ["Land_dp_transformer_F", _MissionPos, [], 0, "NONE"];
 _tower addaction ["Sabotage", "missions\missions\sabotage\success.sqf",[_missionPos,_mission_name,_markername,_markername2]]; 
 
-
-
 // TASK AND NOTIFICATION
 _VARtaskgeneratedName = format["tsksabot%1%2",round(_MissionPos select 0),round(_Missionpos select 1)]; // generate variable name for task
-
-
 
 _taskhandle = player createSimpleTask ["taskSabot"];
 _taskhandle setSimpleTaskDescription ["The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies.",_mission_name,""];
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
 if (!ismultiplayer) then {
-    enableSaving true;
-    sleep 0.1;
-    saveGame;
-    enableSaving false;
+    execVM "utilities\autoSave.sqf";
 };
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
@@ -52,9 +44,9 @@ call compile format ["%1 = _taskhandle",_VARtaskgeneratedName]; // create variab
 
 
 // CREATE OPFOR PATROLS
-      sleep 1;
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target
+sleep 1;
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target
 sleep 10;
-      [_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target
+[_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target

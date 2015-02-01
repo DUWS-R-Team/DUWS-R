@@ -26,12 +26,12 @@ str(_markername2) setMarkerSize [_radius, _radius];
 str(_markername2) setMarkerAlpha 0.5;
 
 // CREATE PATROLS
-      sleep 1;
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_randompos, _radius] execvm "createopteam.sqf";
-        
+sleep 1;
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_randompos, _radius] execvm "createopteam.sqf";
+
 // CREATE WRECK
 _choppa = "Land_Wreck_Heli_Attack_01_F" createVehicle (_missionpos);
 
@@ -46,10 +46,7 @@ _taskhandle setSimpleTaskDescription ["One of our AH-99 helicopters has been dow
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
 if (!ismultiplayer) then {
-    enableSaving true;
-    sleep 0.1;
-    saveGame;
-    enableSaving false;
+    execVM "utilities\autoSave.sqf";
 };
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;

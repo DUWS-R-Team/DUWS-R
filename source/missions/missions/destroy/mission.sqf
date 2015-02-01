@@ -6,7 +6,6 @@ _randompos = [(_missionpos select 0)+(random _radius)-(random _radius), (_missio
 // CREATE NAME
 _mission_name = MissionNameCase3;
 
-
 // CREATE MARKER (ICON)
 _markername = format["resc%1%2",round(_randompos select 0),round(_randompos select 1)]; // Define marker name
 _markerstr = createMarker [str(_markername), _randompos];
@@ -36,10 +35,7 @@ _taskhandle setSimpleTaskDescription ["We have detected a large amount of enemy 
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
 if (!ismultiplayer) then {
-    enableSaving true;
-    sleep 0.1;
-    saveGame;
-    enableSaving false;
+    execVM "utilities\autoSave.sqf";
 };
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
