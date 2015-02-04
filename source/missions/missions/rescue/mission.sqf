@@ -6,7 +6,6 @@ _randompos = [(_missionpos select 0)+(random _radius)-(random _radius), (_missio
 // CREATE NAME
 _mission_name = MissionNameCase0;
 
-
 // CREATE MARKER (ICON)
 _markername = format["resc%1%2",round(_randompos select 0),round(_randompos select 1)]; // Define marker name
 _markerstr = createMarker [str(_markername), _randompos];
@@ -34,11 +33,7 @@ _group = createGroup west;
 "b_soldier_tl_f" createUnit [[(_missionpos select 0)+(random 10),(_missionpos select 1)+(random 10)], _group,format["this setcaptive true; this switchMove ""acts_InjuredCoughRifle02""; %1 = this",_soldier1]];
 "B_Soldier_F" createUnit [[(_missionpos select 0),(_missionpos select 1)], _group,format["this setcaptive true; this switchMove ""acts_InjuredLookingRifle02""; %1 = this",_soldier2]];
 "B_Soldier_ar_F" createUnit [[(_missionpos select 0)+(random 5),(_missionpos select 1)+(random 5)], _group,format["this setcaptive true; this switchMove ""acts_InjuredLookingRifle03""; %1 = this",_soldier3]];
-
 // END CREATE SOLDIERS
-
-
-
 
 // TASK AND NOTIFICATION
 _VARtaskgeneratedName = format ["rescue%1%2",round(_MissionPos select 0),round(_Missionpos select 1)]; // generate variable name for task
@@ -48,10 +43,7 @@ _taskhandle setSimpleTaskDescription ["One of our patrols has been ambushed and 
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
 if (!ismultiplayer) then {
-    enableSaving true;
-    sleep 0.1;
-    saveGame;
-    enableSaving false;
+    execVM "utilities\autoSave.sqf";
 };
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
@@ -66,7 +58,7 @@ _trg setTriggerStatements["this",format["[""%1"",%2,%3,%4,%5,""%6"",this] execvm
 _trg setTriggerTimeout [10, 10, 10, true ];  
 
 // CREATE OPFOR PATROLS
-      sleep 1;
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_randompos, _radius] execvm "createoppatrol.sqf";
+sleep 1;
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_randompos, _radius] execvm "createoppatrol.sqf";
 

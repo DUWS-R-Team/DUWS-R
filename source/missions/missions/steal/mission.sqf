@@ -49,21 +49,18 @@ _taskhandle setSimpleTaskDescription ["An enemy truck full of supplies has been 
 _taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
 if (!ismultiplayer) then {
-    enableSaving true;
-    sleep 0.1;
-    saveGame;
-    enableSaving false;
+    execVM "utilities\autoSave.sqf";
 };
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 // CREATE PATROLS
-      sleep 1;
-      [_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_randompos, _radius] execvm "createopteam.sqf";
-      
-      _group = createGroup east;
+sleep 1;
+[_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_randompos, _radius] execvm "createopteam.sqf";
+
+_group = createGroup east;
 _unit = _group createUnit ["O_Soldier_SL_F", _missionpos, [], 0, "FORM"]; 
 _unit = _group createUnit ["O_Soldier_LAT_F", _missionpos, [], 0, "FORM"];
 _unit = _group createUnit ["O_soldier_F", _missionpos, [], 0, "FORM"];
