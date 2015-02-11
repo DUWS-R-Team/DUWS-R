@@ -9,15 +9,18 @@ class Mission
 		"A3_Characters_F_INDEP",
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f_beta",
-		"a3_map_altis"
+		"a3_map_altis",
+		"a3_characters_f",
+		"A3_Modules_F"
 	};
 	addOnsAuto[]=
 	{
 		"A3_Characters_F_OPFOR",
+		"a3_characters_f",
 		"A3_Characters_F_Civil",
 		"A3_Characters_F_INDEP",
 		"A3_Characters_F_BLUFOR",
-		"a3_characters_f_beta",
+		"A3_Modules_F",
 		"a3_map_altis"
 	};
 	randomSeed=16091530;
