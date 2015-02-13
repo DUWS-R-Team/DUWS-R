@@ -51,31 +51,34 @@ if (!ismultiplayer) then {
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
-waitUntil {sleep 1; (player distance _pilot)<6 OR !(alive _pilot)};  // PLAYER IS WITH THE PILOT --
+// PLAYER IS WITH THE PILOT --
+waitUntil {sleep 1; (player distance _pilot)<6 OR !(alive _pilot)};
 
+// CHECK IF PILOT ALIVE
+if (!(alive _pilot)) exitWith {
+    deleteMarker str(_markername2);
+    deleteMarker str(_markername);
 
-if (!(alive _pilot)) exitWith { // CHECK IF PILOT ALIVE
-deleteMarker str(_markername2);
-deleteMarker str(_markername);
-
-player removeSimpleTask _taskhandle;
-["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
-}; // END IF FAILED
+    player removeSimpleTask _taskhandle;
+    ["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
+};
 
 _pilot setcaptive false;
 _pilot switchMove "AidlPknlMstpSrasWrflDnon_AI";
 [_pilot] joinSilent player;
-titleText ["Thanks sir, this place is crawling with OPFOR forces, bring me back to base", "PLAIN DOWN"]; 
+titleText ["Thanks sir, this place is crawling with OPFOR forces, bring me back to base", "PLAIN DOWN"];
 
-waitUntil {sleep 1; (_pilot distance _initpos)<50 OR !(alive _pilot)};  // PLAYER IS AT BASE WITH PILOT OR PILOT DEAD --
+// PLAYER IS AT BASE WITH PILOT OR PILOT DEAD --
+waitUntil {sleep 1; (_pilot distance _initpos)<50 OR !(alive _pilot)};
 
-if (!(alive _pilot)) exitWith { // CHECK IF PILOT ALIVE
-deleteMarker str(_markername2);
-deleteMarker str(_markername);
+// CHECK IF PILOT ALIVE
+if (!(alive _pilot)) exitWith {
+    deleteMarker str(_markername2);
+    deleteMarker str(_markername);
 
-player removeSimpleTask _taskhandle;
-["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
-}; // END IF FAILED
+    player removeSimpleTask _taskhandle;
+    ["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
+};
 
 // remove markers
 deleteMarker str(_markername2);
@@ -89,17 +92,17 @@ titleText ["Home, sweet home! Thanks for the rescue.", "PLAIN DOWN"];
 deleteVehicle _pilot;
 
 // Give cookies  (bonus & notifications)
+reward = (20 * cp_reward_multiplier);
 finishedMissionsNumber = finishedMissionsNumber + 1;
-publicvariable "finishedMissionsNumber";
+publicVariable "finishedMissionsNumber";
 ["TaskSucceeded",["",_mission_name]] call bis_fnc_showNotification;
-["cpaddedmission",[20]] call bis_fnc_showNotification;
+["cpaddedmission",[reward]] call bis_fnc_showNotification;
 WARCOM_blufor_ap = WARCOM_blufor_ap + 20;
-commandpointsblu1 = commandpointsblu1 + 20;
+commandpointsblu1 = commandpointsblu1 + reward;
 publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 missions_success = missions_success + 1;
 _operHandler = execVM "dialog\operative\operative_mission_complete.sqf"; 
-
 
 // ADD PERSISTENT STAT
 _addmission = [] execVM "persistent\persistent_stats_missions_total.sqf";

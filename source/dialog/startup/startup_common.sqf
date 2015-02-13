@@ -30,7 +30,7 @@ switch (_index) do {
     };
     case index_max_radius_4000: {
         zones_max_radius = 4000
-    };    
+    };
 };
 
 // MIN RADIUS
@@ -65,7 +65,7 @@ switch (_index) do {
     };
     case index_min_radius_3000: {
         zones_min_radius = 3000
-    };  
+    };
 };
 
 // ZONES NUMBER
@@ -130,12 +130,33 @@ switch (_index) do {
     };
     case index_amount_zones_20: {
         zones_number = 20
-    };    
+    };
 };
 
 // Starting CP
 _index = lbCurSel 2103;
 switch (_index) do {
+    case index_amount_cp_10000: {
+        commandpointsblu1 = 10000
+    };
+    case index_amount_cp_1000: {
+        commandpointsblu1 = 1000
+    };
+    case index_amount_cp_600: {
+        commandpointsblu1 = 600
+    };
+    case index_amount_cp_400: {
+        commandpointsblu1 = 400
+    };
+    case index_amount_cp_300: {
+        commandpointsblu1 = 300
+    };
+    case index_amount_cp_200: {
+        commandpointsblu1 = 200
+    };
+    case index_amount_cp_100: {
+        commandpointsblu1 = 100
+    };
     case index_amount_cp_60: {
         commandpointsblu1 = 60
     };
@@ -180,17 +201,19 @@ switch (_index) do {
     case index_weather_type_mediterranean: {
         weather_type = "mediterranean";
     };
+    case index_weather_type_varied: {
+        weather_type = "varied";
+    };
     case index_weather_type_disable: {
         dynamic_weather_enable = false;
-    };	
+    };
 };
 
 // AI opf Skill
 _index = lbCurSel 2107;
-switch (_index) do
-{
+switch (_index) do {
     case index_op_skill_elite: {
-        opfor_ai_skill = [0.8,1];
+        opfor_ai_skill = [0.8,1.0];
     };
     case index_op_skill_commando: {
         opfor_ai_skill = [0.6,0.8];
@@ -210,7 +233,7 @@ switch (_index) do
 _index = lbCurSel 2108;
 switch (_index) do {
     case index_blu_skill_elite: {
-        blufor_ai_skill = [0.8,1];
+        blufor_ai_skill = [0.8,1.0];
     };
     case index_blu_skill_commando: {
         blufor_ai_skill = [0.6,0.8];
@@ -244,6 +267,12 @@ switch (_index) do {
     case index_blufor_ap_110: {
         blufor_ap = 110;
     };
+    case index_blufor_ap_170: {
+        blufor_ap = 170;
+    };
+    case index_blufor_ap_200: {
+        blufor_ap = 200;
+    };
 };
 
 // ARMY POWER OPFOR
@@ -263,6 +292,12 @@ switch (_index) do {
     };
     case index_opfor_ap_110: {
         opfor_ap = 110;
+    };
+    case index_opfor_ap_170: {
+        opfor_ap = 170;
+    };
+    case index_opfor_ap_200: {
+        opfor_ap = 200;
     };
 };
 
@@ -291,8 +326,17 @@ switch (_index) do {
 // MAX DIST FROM HQ
 _index = lbCurSel 2188;
 switch (_index) do {
+    case index_max_dist_hq_20: {
+        zones_max_dist_from_hq = 2000;
+    };
     case index_max_dist_hq_25: {
         zones_max_dist_from_hq = 2500;
+    };
+    case index_max_dist_hq_30: {
+        zones_max_dist_from_hq = 3000;
+    };
+    case index_max_dist_hq_40: {
+        zones_max_dist_from_hq = 4000;
     };
     case index_max_dist_hq_50: {
         zones_max_dist_from_hq = 5000;
@@ -326,24 +370,31 @@ switch (_index) do {
     };
     case index_max_dist_hq_500: {
         zones_max_dist_from_hq = 50000;
-    };	
+    };
+};
+
+_index = lbCurSel 2189;
+switch (_index) do {
+    case index_cp_reward_multiplier_half:{
+        cp_reward_multiplier = 0.5;
+    };
+    case index_cp_reward_multiplier_one:{
+        cp_reward_multiplier = 1;
+    };
+    case index_cp_reward_multiplier_two:{
+        cp_reward_multiplier = 2;
+    };
+    case index_cp_reward_multiplier_five:{
+        cp_reward_multiplier = 5;
+    };
 };
 
  // CHECK IF MAX/MIN RADIUS PARAMETERS CORRECT
- if (zones_max_radius <= zones_min_radius) exitWith {Hint "Unable to generate campaign:\nMaximum radius of a zone\nmust be superior to\nMinimum radius of a zone"};
+if (zones_max_radius <= zones_min_radius) exitWith {Hint "Unable to generate campaign:\nMaximum radius of a zone\nmust be superior to\nMinimum radius of a zone"};
 
 zones_spacing = zones_max_radius + 200;
-chosen_settings = true;  //  Give the go ! BluHQinit.sqf can continue execution
-manually_chosen = false;
-publicVariable "chosen_settings";
 publicVariable "commandpointsblu1";
 publicVariable "weather_type";
 publicVariable "blufor_ai_skill";
 publicVariable "opfor_ai_skill";
 publicVariable "enableChopperFastTravel";
-publicVariable "manually_chosen";
-
-//	commandpointsblu1 = 9999999;
-//hint format["Max radius: %1\nMin radius: %2\nZones number: %3\nCommand points: %4\nBLU AP: %5\nOPF AP: %6\nWeather type: %7\nBLU AI skill: %8\nOPF AI skill: %9",zones_max_radius,zones_min_radius,zones_number,commandpointsblu1,opfor_ap,blufor_ap,weather_type,blufor_ai_skill,opfor_ai_skill];
-diag_log format["----- DUWS-R CHOSEN SETTINGS --------- Max radius: %1-------Min radius: %2-------Zones number: %3-------Command points: %4-------BLU AP: %5-------OPF AP: %6-------Weather type: %7-------BLU AI skill: %8-------OPF AI skill: %9",zones_max_radius,zones_min_radius,zones_number,commandpointsblu1,opfor_ap,blufor_ap,weather_type,blufor_ai_skill,opfor_ai_skill];
-closeDialog 0;

@@ -131,3 +131,10 @@ index_max_dist_hq_300 = lbAdd [2188, "30 km"];
 index_max_dist_hq_400 = lbAdd [2188, "40 km"];
 index_max_dist_hq_500 = lbAdd [2188, "50 km"];
 lbSetCurSel [2188, index_max_dist_hq_50];
+
+// CP Reward Multiplier
+index_cp_reward_multiplier_half = lbAdd [2189, "0.5"];
+index_cp_reward_multiplier_one = lbAdd [2189, "1"];
+index_cp_reward_multiplier_two = lbAdd [2189, "2"];
+index_cp_reward_multiplier_five = lbAdd [2189, "5"];
+lbSetCurSel [2189, index_cp_reward_multiplier_one];

@@ -59,16 +59,17 @@ player removeSimpleTask _taskhandle;
 sleep 1;
 
 // Give cookies  (bonus & notifications)
+reward = (20 * cp_reward_multiplier);
 ["TaskSucceeded",["",_mission_name]] call bis_fnc_showNotification;
-["cpaddedmission",[20]] call bis_fnc_showNotification;
+["cpaddedmission",[reward]] call bis_fnc_showNotification;
 WARCOM_blufor_ap = WARCOM_blufor_ap + 20;
 missions_success = missions_success + 1;
-commandpointsblu1 = commandpointsblu1 + 20;
+commandpointsblu1 = commandpointsblu1 + reward;
 opfor_ap = opfor_ap - 20;
 publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 finishedMissionsNumber = finishedMissionsNumber + 1;
-publicvariable "finishedMissionsNumber";
+publicVariable "finishedMissionsNumber";
 _operHandler = execVM "dialog\operative\operative_mission_complete.sqf";  
 
 // ADD PERSISTENT STAT
