@@ -86,9 +86,12 @@ switch (_index2) do {
             if (!support_armory_available) then {
                 commandpointsblu1 = commandpointsblu1 - 8;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
-                hq_blu1 addaction ["<t color='#ff1111'>Armory</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
-                lbSetColor [2103, 5, [0, 1, 0, 1]];
+                hq_blu1 addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
+                hq_blu1 addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","va.sqf", "", 0, true, true, "", "_this == player"];
+                lbSetColor [2103, 6, [0, 1, 0, 1]];
                 support_armory_available = true;
+                {_x addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"]} forEach (Array_of_FOBS);
+                {_x addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","va.sqf", "", 0, true, true, "", "_this == player"]} forEach (Array_of_FOBS);
                 playSound "loadgun";
                 publicVariable "support_armory_available";
                 ["armory",["Armory Unlocked","Access the armory at the HQ and at the dropped supply crates"]] call bis_fnc_showNotification;
