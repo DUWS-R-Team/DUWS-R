@@ -65,6 +65,8 @@ if(_return) then
 			_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
 		};
 	} foreach _data;
+	
+	lbSort _control;
 
 	_control = VAS_getControl(VAS_Main_Display,VAS_unit_list);
 	_info = [([] call VAS_fnc_fetchPlayerGear),_myfilter] call VAS_fnc_filter;

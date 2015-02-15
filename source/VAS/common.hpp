@@ -1,5 +1,3 @@
-
-
 /*
 	ArmA 3 Wasteland
 	Code extracted and adapted by Sa-Matra
@@ -183,10 +181,10 @@ class VAS_RscActiveText {
 	font = "PuristaLight";
 	color[] = {1, 1, 1, 1};
 	colorActive[] = {1, 0.2, 0.2, 1};
-	soundEnter[] = {"\A3\ui_f\data\sound\onover", 0.09, 1};
-	soundPush[] = {"\A3\ui_f\data\sound\new1", 0.0, 0};
-	soundClick[] = {"\A3\ui_f\data\sound\onclick", 0.07, 1};
-	soundEscape[] = {"\A3\ui_f\data\sound\onescape", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundEnter", 0.09, 1};
+	soundPush[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundPush", 0.0, 0};
+	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
+	soundEscape[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundEscape", 0.09, 1};
 	action = "";
 	text = "";
 };
@@ -213,10 +211,10 @@ class VAS_RscButton {
 	colorShadow[] = {0, 0, 0, 1};
 	colorBorder[] = {0, 0, 0, 1};
 	borderSize = 0.0;
-	soundEnter[] = {"\A3\ui_f\data\sound\onover", 0.09, 1};
-	soundPush[] = {"\A3\ui_f\data\sound\new1", 0.0, 0};
-	soundClick[] = {"\A3\ui_f\data\sound\onclick", 0.07, 1};
-	soundEscape[] = {"\A3\ui_f\data\sound\onescape", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundEnter", 0.09, 1};
+	soundPush[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundPush", 0.0, 0};
+	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
+	soundEscape[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundEscape", 0.09, 1};
 };
 
 class VAS_RscButtonTextOnly : VAS_RscButton {
@@ -229,43 +227,45 @@ class VAS_RscButtonTextOnly : VAS_RscButton {
 	borderSize = 0.0;
 };
 
-class VAS_RscShortcutButton {
+class VAS_RscShortcutButton 
+{
 	idc = -1;
 	style = 0;
 	default = 0;
 	shadow = 1;
 	w = 0.183825;
 	h = "(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
-	color[] = {1, 1, 1, 1.0};
-	color2[] = {0.95, 0.95, 0.95, 1};
-	colorDisabled[] = {1, 1, 1, 0.25};
-	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 1};
-	colorBackground2[] = {1, 1, 1, 1};
+	color[] = {1,1,1,1.0};
+	colorFocused[] = {1,1,1,1.0};
+	color2[] = {0.95,0.95,0.95,1};
+	colorDisabled[] = {1,1,1,0.25};
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",1};
+	colorBackgroundFocused[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",1};
+	colorBackground2[] = {1,1,1,1};
 	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureOver = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\over_ca.paa";
 	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\focus_ca.paa";
 	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\down_ca.paa";
-	textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
 	periodFocus = 1.2;
 	periodOver = 0.8;
-	
-	class HitZone {
+	class HitZone
+	{
 		left = 0.0;
 		top = 0.0;
 		right = 0.0;
 		bottom = 0.0;
 	};
-	
-	class ShortcutPos {
+	class ShortcutPos
+	{
 		left = 0;
 		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		w = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
 		h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	};
-	
-	class TextPos {
+	class TextPos
+	{
 		left = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
 		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		right = 0.005;
@@ -276,27 +276,47 @@ class VAS_RscShortcutButton {
 	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	text = "";
-	soundEnter[] = {"\A3\ui_f\data\sound\onover", 0.09, 1};
-	soundPush[] = {"\A3\ui_f\data\sound\new1", 0.0, 0};
-	soundClick[] = {"\A3\ui_f\data\sound\onclick", 0.07, 1};
-	soundEscape[] = {"\A3\ui_f\data\sound\onescape", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
+	soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
 	action = "";
-	
-	class Attributes {
+	class Attributes
+	{
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
 	};
-	
-	class AttributesImage {
+	class AttributesImage
+	{
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 	};
 };
 
-class VAS_RscButtonMenu : VAS_RscShortcutButton {
+class VAS_ScrollBar
+{
+	color[] = {1,1,1,0.6};
+	colorActive[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.3};
+	thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+	arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+	arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+	border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	shadow = 0;
+	scrollSpeed = 0.06;
+	width = 0;
+	height = 0;
+	autoScrollEnabled = 0;
+	autoScrollSpeed = -1;
+	autoScrollDelay = 5;
+	autoScrollRewind = 0;
+};
+
+class VAS_RscButtonMenu : VAS_RscShortcutButton 
+{
 	idc = -1;
 	type = 16;
 	style = "0x02 + 0xC0";
@@ -308,42 +328,52 @@ class VAS_RscButtonMenu : VAS_RscShortcutButton {
 	h = 0.039216;
 	animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
 	animTextureDisabled = "#(argb,8,8,3)color(1,1,1,1)";
-	animTextureOver = "#(argb,8,8,3)color(1,1,1,0.5)";
+	animTextureOver = "#(argb,8,8,3)color(1,1,1,1)";
 	animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
 	animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)";
 	animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
-	colorBackground[] = {0, 0, 0, 0.8};
-	colorBackground2[] = {1, 1, 1, 0.5};
-	color[] = {1, 1, 1, 1};
-	color2[] = {1, 1, 1, 1};
-	colorText[] = {1, 1, 1, 1};
-	colorDisabled[] = {1, 1, 1, 0.25};
+	colorBackground[] = {0,0,0,0.8};
+	colorBackgroundFocused[] = {1,1,1,1};
+	colorBackground2[] = {0.75,0.75,0.75,1};
+	color[] = {1,1,1,1};
+	colorFocused[] = {0,0,0,1};
+	color2[] = {0,0,0,1};
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.25};
 	period = 1.2;
 	periodFocus = 1.2;
 	periodOver = 1.2;
 	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	
-	class TextPos {
+	tooltipColorText[] = {1,1,1,1};
+	tooltipColorBox[] = {1,1,1,1};
+	tooltipColorShade[] = {0,0,0,0.65};
+	class TextPos
+	{
 		left = "0.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 		top = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		right = 0.005;
 		bottom = 0.0;
 	};
-	
-	class Attributes {
+	class Attributes
+	{
 		font = "PuristaLight";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "false";
 	};
-	
-	class ShortcutPos {
+	class ShortcutPos
+	{
 		left = "(6.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) - 0.0225 - 0.005";
 		top = 0.005;
 		w = 0.0225;
 		h = 0.03;
 	};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEnter",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundPush",0.09,1};
+	soundClick[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundClick",0.09,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEscape",0.09,1};
+	textureNoShortcut = "";
 };
 
 class VAS_RscShortcutButtonMain : VAS_RscShortcutButton {
@@ -386,10 +416,10 @@ class VAS_RscShortcutButtonMain : VAS_RscShortcutButton {
 	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
 	text = "";
-	soundEnter[] = {"\A3\ui_f\data\sound\onover", 0.09, 1};
-	soundPush[] = {"\A3\ui_f\data\sound\new1", 0.0, 0};
-	soundClick[] = {"\A3\ui_f\data\sound\onclick", 0.07, 1};
-	soundEscape[] = {"\A3\ui_f\data\sound\onescape", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundEnter", 0.09, 1};
+	soundPush[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundPush", 0.0, 0};
+	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
+	soundEscape[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundEscape", 0.09, 1};
 	action = "";
 	
 	class Attributes {
@@ -444,7 +474,8 @@ class VAS_RscProgress
 	colorBar[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])"};
 };
 
-class VAS_RscListBox {
+class VAS_RscListBox 
+{
 	style = 16;
 	idc = -1;
 	type = 5;
@@ -474,14 +505,10 @@ class VAS_RscListBox {
 	autoScrollDelay = 5;
 	autoScrollRewind = 0;
 	
-	class ScrollBar {
-		color[] = {1, 1, 1, 0.6};
-		colorActive[] = {1, 1, 1, 1};
-		colorDisabled[] = {1, 1, 1, 0.3};
-		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
-		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
-		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
-		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+	class ListScrollBar: VAS_ScrollBar
+	{
+		color[] = {1,1,1,1};
+		autoScrollEnabled = 1;
 	};
 };
 
@@ -1016,3 +1043,24 @@ class VAS_RscToolbox {
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
 };
 
+class VAS_ActiveTextPicture
+{
+    idc = -1;
+	type = 11;
+	style = 0x30 + 0x800;
+	x = 0;
+	y = 0;
+	h = 0.035;
+	w = 0.035;
+	font = "PuristaMedium";
+	shadow = 2;
+	text = "";
+	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	color[] = {1,1,1,1};
+	colorText[] = {1,1,1,1};
+	colorActive[] = {1,1,1,1};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
+    soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
+    soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
+    soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
+};

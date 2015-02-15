@@ -10,6 +10,8 @@
 #define VAS_filter_3 2582
 #define VAS_filter_4 2583
 #define VAS_filter_5 2584
+#define VAS_AccBG 2850
+#define VAS_AccList 2851
 
 //Define VAS Load idc's
 #define VAS_load_Display 2520
