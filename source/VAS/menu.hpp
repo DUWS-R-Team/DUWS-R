@@ -11,7 +11,8 @@ class VAS_Diag {
 	name= "Virtual_Ammobox_Sys";
 	movingEnable = 1;
 	enableSimulation = true;
-	onLoad = "['guns',false] spawn VAS_fnc_mainDisplay; ";
+	onLoad = "";
+	onUnload = "VAS_box_weapons = nil; VAS_box_magazines = nil; VAS_box_items = nil; VAS_box_backpacks = nil; VAS_box_goggles = nil;"; //When the dialog is gone set these back to nil.
 	
 	class controlsBackground {
 		class VAS_RscTitleBackground:VAS_RscText {
@@ -57,7 +58,7 @@ class VAS_Diag {
 		{
 			colorBackground[] = {0,0,0,0.7};
 			idc = 2950;
-			x = 0.905
+			x = 0.905;
 			y = 0.2 + (11 / 250);
 			w = 0.09;
 			h = 0.235 - (22 / 250);
@@ -75,11 +76,11 @@ class VAS_Diag {
 			y = 0.5 + (11 / 250);
 		};
 		
-		class VAS_UniformPicSlot : VAS_RscPicture
+		class VAS_UniformPicSlot : VAS_ActiveTextPicture
 		{
 			idc = 2960;
 			text = "";
-			onLBDrop = "(_this + 1) call VAS_fnc_quickAddDrag";
+			onLBDrop = "_this call VAS_fnc_quickAddDrag;";
 			x = 0.905;
 			y = 0.25;
 			w = "3 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -90,7 +91,7 @@ class VAS_Diag {
 		{
 			idc = 2961;
 			text = "";
-			onLBDrop = "(_this + 2) call VAS_fnc_quickAddDrag";
+			onLBDrop = "_this call VAS_fnc_quickAddDrag;";
 			y = 0.395;
 		};
 		
@@ -98,7 +99,7 @@ class VAS_Diag {
 		{
 			idc = 2962;
 			text = "";
-			onLBDrop = "(_this + 3) call VAS_fnc_quickAddDrag";
+			onLBDrop = " _this call VAS_fnc_quickAddDrag; ";
 			y = 0.55;
 		};
 		
@@ -143,6 +144,29 @@ class VAS_Diag {
 			h = 0.35 - (22 / 250);
 		};
 		
+		class AttachmentsBG : VAS_RscText
+		{
+			colorBackground[] = {0,0,0,0.7};
+			idc = 2850;
+			text = "";
+			x = -0.205;
+			y = 0.47 + (11 / 250);
+			w = 0.3;
+			h = 0.32 - (22 / 250);
+		};
+		
+		class AttachmentsList : VAS_RscListBox
+		{
+			colorBackground[] = {0,0,0,0};
+			idc = 2851;
+			text = "";
+			onLBDblClick = "_this call VAS_fnc_quickAttachment";
+			canDrag = 1;
+			sizeEx = 0.035;
+			x = -0.2; y = 0.47 + (11 / 250);
+			w = 0.29; h = 0.32 - (22 / 250);
+		};
+		
 		class gundetails : VAS_RscStructuredText
 		{
 			idc = 2508;
@@ -158,6 +182,7 @@ class VAS_Diag {
 			colorBackground[] = {0,0,0,0};
 			idc = 2509;
 			text = "";
+			canDrag = 1;
 			onLBDblClick = "_this spawn VAS_fnc_quickMag;";
 			sizeEx = 0.030;
 			
@@ -184,7 +209,6 @@ class VAS_Diag {
 			text = "";
 			sizeEx = 0.032;
 			onLBDblClick = "_this spawn VAS_fnc_qRemoveItem;";
-			onLBDrop = "(_this + 1) call VAS_fnc_quickAddDrag";
 			//onLBSelChanged = "[2502] execVM 'gear\selection.sqf'";
 			
 			x = 0.60; y = 0.31;
@@ -310,6 +334,12 @@ class VAS_Diag {
 			y = 0.2;
 			w = 0.8;
 			h = (1 / 25);
+		};
+		
+		class VersionNumber : Title {
+			idc = 2404;
+			style = 1;
+			text = "v2.6";
 		};
 
 		class ButtonAddG : VAS_RscButtonMenu

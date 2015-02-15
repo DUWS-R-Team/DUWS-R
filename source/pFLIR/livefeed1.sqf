@@ -12,8 +12,8 @@ BIS_liveFeed camPrepareFOV 0.2;
 BIS_liveFeed camCommitPrepared 0;
 
 pFlirActivated = true;
-player removeEventHandler ["respawn",PlayerKilledEH3];
-player removeAction pFlirEnable;
+player removeEventHandler ["respawn",PlayerRespawnEH2];
+player removeAction pFLIRenable;
 
 
 // Stance management init

@@ -41,5 +41,8 @@ class VAS
 		class transferSaveMenu {};
 		class transferSaveGear {};
 		class VASP {};
+		class quickAttachment {};
+		class accList {};
+		class test {};
 	};
 };

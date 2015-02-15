@@ -9,6 +9,8 @@ private["_cfg"];
 _cfg = [_this,0,"",[""]] call BIS_fnc_param;
 if(_cfg == "") exitWith {}; //Bad data passed, exit.
 
+diag_log format["VASP: %1",_cfg];
+
 switch(_cfg) do
 {
 	case "CfgWeapons":
