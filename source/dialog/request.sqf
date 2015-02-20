@@ -36,24 +36,40 @@ _index0 = lbAdd [2101, "Motorized scouts(28CP)"];          // 10
 _index0 = lbAdd [2101, "Mechanized squad(46CP)"];          // 11
 lbSetCurSel [2101, 0];
 
-// VEHICLES  
-_index1 = lbAdd [2102, "Hunter Unarmed(5CP)"];            // 0
-_index1 = lbAdd [2102, "Hunter HMG(18CP)"];               // 1
-_index1 = lbAdd [2102, "Hunter GMG(25CP)"];               // 2
-_index1 = lbAdd [2102, "AMV-7 Marshall(35CP)"];           // 3
-_index1 = lbAdd [2102, "HEMTT(2CP)"];                     // 4
-_index1 = lbAdd [2102, "AH-9 Pawnee (40CP)"];             // 5
-_index1 = lbAdd [2102, "AH-99 Blackfoot(75CP)"];          // 6
-_index1 = lbAdd [2102, "MH-9 Hummingbird(15CP)"];         // 7
-_index1 = lbAdd [2102, "MH-80 Ghosthawk(22CP)"];          // 8
-_index1 = lbAdd [2102, "IFV-6c Panther(35CP)"];           // 9
-_index1 = lbAdd [2102, "ATV(1CP)"];                       // 10
-_index1 = lbAdd [2102, "IFV-6c Cheetah(30CP)"];           // 11
-_index1 = lbAdd [2102, "M2A1 Slammer(55CP)"];             // 12
-_index1 = lbAdd [2102, "CRV-6e Bobcat(28CP)"];            // 13
-_index1 = lbAdd [2102, "SF SUV(2CP)"];      		      // 14
+// VEHICLES
+_index1 = lbAdd [2102, "Small Transport Truck 1 (seats 6 - 4CP)"];       // 0
+_index1 = lbAdd [2102, "Small Transport Truck 2 (seats 9 - 6CP)"];       // 1
+_index1 = lbAdd [2102, "Hunter Unarmed(5CP)"];            // 2
+_index1 = lbAdd [2102, "Hunter HMG(18CP)"];               // 3
+_index1 = lbAdd [2102, "Hunter GMG(25CP)"];               // 4
+_index1 = lbAdd [2102, "AMV-7 Marshall(35CP)"];           // 5
+_index1 = lbAdd [2102, "HEMTT Transport Covered(8CP)"];                     // 6
+_index1 = lbAdd [2102, "AH-9 Pawnee (25CP)"];             // 7
+_index1 = lbAdd [2102, "AH-99 Blackfoot(45CP)"];          // 8
+_index1 = lbAdd [2102, "MH-9 Hummingbird(15CP)"];         // 9
+_index1 = lbAdd [2102, "M-900 Civilian Copter(12CP)"];          // 10
+_index1 = lbAdd [2102, "Mi-290Black Taru Sling(18CP)"];          // 11
+_index1 = lbAdd [2102, "UH-80 Ghosthawk(22CP)"];          // 12
+_index1 = lbAdd [2102, "CH-67 Huron(26CP)"];          // 13
+_index1 = lbAdd [2102, "IFV-6c Panther(25CP)"];           // 14
+_index1 = lbAdd [2102, "ATV(1CP)"];                       // 15
+_index1 = lbAdd [2102, "IFV-6c Cheetah(30CP)"];           // 16
+_index1 = lbAdd [2102, "M2A1 Slammer(40CP)"];             // 17
+_index1 = lbAdd [2102, "CRV-6e Bobcat(28CP)"];            // 18
+_index1 = lbAdd [2102, "SF SUV(2CP)"];                    // 19
+_index1 = lbAdd [2102, "MLRS Artillary (75CP)"];                  // 20
+_index1 = lbAdd [2102, "Scorcher Artillary (75CP)"];                  // 21
+_index1 = lbAdd [2102, "Fuel Truck (10CP)"];                  // 22
+_index1 = lbAdd [2102, "BUY ONLY AT AIRPORTS A-164 CAS(45CP)"];     // 23
+_index1 = lbAdd [2102, "M2A4 SlammerUP(40CP)"];    // 24
+_index1 = lbAdd [2102, "Stomper RCWS Autonomous(20CP)"];    // 25
+_index1 = lbAdd [2102, "Stomper Autonomous Recon(10CP)"];    // 26
+_index1 = lbAdd [2102, "UAV GreyHawk w/ATG Missiles(15CP)"];    // 27
+_index1 = lbAdd [2102, "UAV GreyHawk w/Bombs(15CP)"];    // 28
+_index1 = lbAdd [2102, "UAV Darter(5CP)"];    // 29
 
 lbSetCurSel [2102, 0];
+
 
 // Supports  !!! CHECK TO ADD AT INIT
 index_support_supply = lbAdd [2103, "Supply drop(5CP)"];                // 0
