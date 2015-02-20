@@ -54,12 +54,17 @@ lbSetCurSel [2102, index_amount_zones_6];
 index_amount_cp_2 = lbAdd [2103, "2 (very hard start)"];
 index_amount_cp_5 = lbAdd [2103, "5"];
 index_amount_cp_10 = lbAdd [2103, "10"];
-index_amount_cp_20 = lbAdd [2103, "20 (default start)"];
+index_amount_cp_20 = lbAdd [2103, "20"];
 index_amount_cp_30 = lbAdd [2103, "30"];
 index_amount_cp_40 = lbAdd [2103, "40"];
 index_amount_cp_50 = lbAdd [2103, "50"];
-index_amount_cp_60 = lbAdd [2103, "60 (very easy start)"];
-lbSetCurSel [2103, index_amount_cp_20];
+index_amount_cp_60 = lbAdd [2103, "60"];
+index_amount_cp_100 = lbAdd [2103, "100"];
+index_amount_cp_200 = lbAdd [2103, "200 (default)"];
+index_amount_cp_300 = lbAdd [2103, "300"];
+index_amount_cp_400 = lbAdd [2103, "400 (large groups sharing in MP)"];
+index_amount_cp_600 = lbAdd [2103, "600 (open servers - max unlock points!)"];
+lbSetCurSel [2103, index_amount_cp_200];
 
 // BLUFOR AP
 index_blufor_ap_0 = lbAdd [2104, "0 (default start)"];
