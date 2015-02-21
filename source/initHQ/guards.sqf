@@ -11,7 +11,7 @@ _hqGuard1 setdir 270;
 _hqGuard2 = _groupGuard createUnit ["B_Soldier_F", _centerPos, [], 0, "FORM"]; 
 _hqGuard2 setpos [(_centerPos select 0)-6.5, (_centerPos select 1)-4.7];
 _hqGuard2 setdir 270;
-[_hqGuard2,"GUARD","FULL"] call BIS_fnc_ambientAnimCombat;
+[_hqGuard2,"STAND_IA","FULL"] call BIS_fnc_ambientAnimCombat;
 
 _hqGuard3 = _groupGuard createUnit ["B_Soldier_TL_F", _centerPos, [], 0, "FORM"]; 
 _hqGuard3 setpos [(_centerPos select 0), (_centerPos select 1)-7.58];

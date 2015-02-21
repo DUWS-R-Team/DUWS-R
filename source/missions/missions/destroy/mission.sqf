@@ -28,7 +28,6 @@ _tower = "Land_TTowerBig_1_F" createVehicle (_missionpos);
 _tower setdamage 0.85;
 _tower setVectorUp [0,0,1];
 
-
 // TASK AND NOTIFICATION
 _taskhandle = player createSimpleTask ["taskDestroy"];
 _taskhandle setSimpleTaskDescription ["We have detected a large amount of enemy trasmissions coming from this area. This is probably caused by a radio tower used by the enemy forces on the island. Destroy the tower. Be sure to take some satchels, which you can find in the armory. Armory can be unlocked at the HQ.",_mission_name,""];
@@ -41,18 +40,12 @@ if (!ismultiplayer) then {
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 // CREATE PATROLS
-      sleep 1;
-      [_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target
-      [_randompos, _radius] execvm "createoppatrol.sqf";
-      [_randompos, _radius] execvm "createopteam.sqf";
-      
-//      _group = createGroup east;
-//_unit = _group createUnit ["O_Soldier_SL_F", _missionpos, [], 0, "FORM"]; 
-//_unit = _group createUnit ["O_Soldier_LAT_F", _missionpos, [], 0, "FORM"];
-//_unit = _group createUnit ["O_soldier_F", _missionpos, [], 0, "FORM"];
+sleep 1;
+[_missionpos, 15] execvm "createoppatrol.sqf"; // <-- around target
+[_randompos, _radius] execvm "createoppatrol.sqf";
+[_randompos, _radius] execvm "createopteam.sqf";
 
-
-// MISSION COMPLETED --   ATTENDRE QUE LA TOUR SOIT KO 
+// MISSION COMPLETED --   ATTENDRE QUE LA TOUR SOIT KO
 waitUntil {sleep 1; !alive _tower};  
 
 // remove markers
@@ -62,18 +55,18 @@ deleteMarker str(_markername);
 player removeSimpleTask _taskhandle;
  
 // Give cookies  (bonus & notifications)
+reward = (30 * cp_reward_multiplier);
 ["TaskSucceeded",["",_mission_name]] call bis_fnc_showNotification;
-["cpaddedmission",[30]] call bis_fnc_showNotification;
-commandpointsblu1 = commandpointsblu1 + 30;
+["cpaddedmission",[reward]] call bis_fnc_showNotification;
+commandpointsblu1 = commandpointsblu1 + reward;
 missions_success = missions_success + 1;
 WARCOM_blufor_ap = WARCOM_blufor_ap + 30;
 opfor_ap = opfor_ap - 30;
 finishedMissionsNumber = finishedMissionsNumber + 1;
-publicvariable "finishedMissionsNumber";
+publicVariable "finishedMissionsNumber";
 publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 _operHandler = execVM "dialog\operative\operative_mission_complete.sqf"; 
 
 // ADD PERSISTENT STAT
 _addmission = [] execVM "persistent\persistent_stats_missions_total.sqf";
-                       

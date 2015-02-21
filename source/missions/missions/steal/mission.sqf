@@ -75,25 +75,25 @@ deleteMarker str(_markername);
 
 player removeSimpleTask _taskhandle;
 
-if (getdammage _truck1>0.95) exitWith
-{
-  ["TaskFailed",["","The enemy convoy is destroyed"]] call bis_fnc_showNotification;
+if (getdammage _truck1>0.95) exitWith {
+    ["TaskFailed",["","The enemy convoy is destroyed"]] call bis_fnc_showNotification;
 };
 
 // IF THE MISSION IS COMPLETE
 hint "Unloading the truck...";
  
 // Give cookies  (bonus & notifications)
+reward = (25 * cp_reward_multiplier);
 ["TaskSucceeded",["",_mission_name]] call bis_fnc_showNotification;
-["cpaddedmission",[25]] call bis_fnc_showNotification;
+["cpaddedmission",[reward]] call bis_fnc_showNotification;
 missions_success = missions_success + 1;
-commandpointsblu1 = commandpointsblu1 + 25;
+commandpointsblu1 = commandpointsblu1 + reward;
 WARCOM_blufor_ap = WARCOM_blufor_ap + 25;
 opfor_ap = opfor_ap - 25;
 publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 finishedMissionsNumber = finishedMissionsNumber + 1;
-publicvariable "finishedMissionsNumber";
+publicVariable "finishedMissionsNumber";
 _operHandler = execVM "dialog\operative\operative_mission_complete.sqf"; 
 
 // ADD PERSISTENT STAT

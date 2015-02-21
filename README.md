@@ -55,12 +55,12 @@ will be available at that time. `START-R` and `START-M` allow you to place enemy
 See our <a href="https://github.com/DUWS-R-Team/DUWS-R/issues">issue list</a> on GitHub for issue we currenty know about.
 
 ## Credits / Thanks
-Thanks to all the members of the DUWS-R Team for your hard work and contributions!
-DUWS Mission made by kibot.
-VAS script and TAW view distance by Tonic.
-Thanks to Kempco for the map size script.
-Thanks to FrankHH for correcting the typos.
-Thanks to FunkDooBiesT for his help and his time.
-Thanks to WolfFlight[TZW] and Amarak[TZW] for their help.
-Thanks to Aeroson for repetitive clean up and SET/GET loadout scripts.
-Thanks to timsk.
+* Thanks to all the members of the DUWS-R Team for your hard work and contributions!
+* DUWS Mission made by kibot.
+* VAS script and TAW view distance by Tonic.
+* Thanks to Kempco for the map size script.
+* Thanks to FrankHH for correcting the typos.
+* Thanks to FunkDooBiesT for his help and his time.
+* Thanks to WolfFlight[TZW] and Amarak[TZW] for their help.
+* Thanks to Aeroson for repetitive clean up and SET/GET loadout scripts.
+* Thanks to timsk.
