@@ -30,7 +30,7 @@ switch (_index) do {
     };
     case index_max_radius_4000: {
         zones_max_radius = 4000
-    };    
+    };
 };
 
 // MIN RADIUS
@@ -65,7 +65,7 @@ switch (_index) do {
     };
     case index_min_radius_3000: {
         zones_min_radius = 3000
-    };  
+    };
 };
 
 // ZONES NUMBER
@@ -130,36 +130,79 @@ switch (_index) do {
     };
     case index_amount_zones_20: {
         zones_number = 20
-    };    
+    };
 };
 
 // Starting CP
 _index = lbCurSel 2103;
-switch (_index) do {
-    case index_amount_cp_60: {
+switch (_index) do
+{
+
+    case index_amount_cp_600:
+    {
+        commandpointsblu1 = 600
+    };
+
+    case index_amount_cp_400:
+    {
+        commandpointsblu1 = 400
+    };
+
+    case index_amount_cp_300:
+    {
+        commandpointsblu1 = 300
+    };
+
+    case index_amount_cp_200:
+    {
+        commandpointsblu1 = 200
+    };
+
+    case index_amount_cp_100:
+    {
+        commandpointsblu1 = 100
+    };
+
+    case index_amount_cp_60:
+    {
         commandpointsblu1 = 60
     };
-    case index_amount_cp_50: {
+
+    case index_amount_cp_50:
+    {
         commandpointsblu1 = 50
     };
-    case index_amount_cp_40: {
+
+    case index_amount_cp_40:
+    {
         commandpointsblu1 = 40
     };
-    case index_amount_cp_30: {
+
+    case index_amount_cp_30:
+    {
         commandpointsblu1 = 30
     };
-    case index_amount_cp_20: {
+
+    case index_amount_cp_20:
+    {
         commandpointsblu1 = 20
     };
-    case index_amount_cp_10: {
+
+    case index_amount_cp_10:
+    {
         commandpointsblu1 = 10
     };
-    case index_amount_cp_5: {
+
+    case index_amount_cp_5:
+    {
         commandpointsblu1 = 5
     };
-    case index_amount_cp_2: {
+
+    case index_amount_cp_2:
+    {
         commandpointsblu1 = 2
     };
+
 };
 
 // Weather type
@@ -182,7 +225,7 @@ switch (_index) do {
     };
     case index_weather_type_disable: {
         dynamic_weather_enable = false;
-    };	
+    };
 };
 
 // AI opf Skill
@@ -326,7 +369,7 @@ switch (_index) do {
     };
     case index_max_dist_hq_500: {
         zones_max_dist_from_hq = 50000;
-    };	
+    };
 };
 
  // CHECK IF MAX/MIN RADIUS PARAMETERS CORRECT
