@@ -1,5 +1,5 @@
 // Super simple auto-save script.
-enableSaving true;
+enableSaving false;
 sleep 0.1;
 saveGame;
-enableSaving false;
+enableSaving true;
