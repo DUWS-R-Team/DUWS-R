@@ -136,50 +136,53 @@ switch (_index) do {
 // Starting CP
 _index = lbCurSel 2103;
 switch (_index) do {
-    case index_amount_cp_10000: {
-        commandpointsblu1 = 10000
-    };
-    case index_amount_cp_1000: {
-        commandpointsblu1 = 1000
-    };
-    case index_amount_cp_600: {
-        commandpointsblu1 = 600
-    };
-    case index_amount_cp_400: {
-        commandpointsblu1 = 400
-    };
-    case index_amount_cp_300: {
-        commandpointsblu1 = 300
-    };
-    case index_amount_cp_200: {
-        commandpointsblu1 = 200
-    };
-    case index_amount_cp_100: {
-        commandpointsblu1 = 100
-    };
-    case index_amount_cp_60: {
-        commandpointsblu1 = 60
-    };
-    case index_amount_cp_50: {
-        commandpointsblu1 = 50
-    };
-    case index_amount_cp_40: {
-        commandpointsblu1 = 40
-    };
-    case index_amount_cp_30: {
-        commandpointsblu1 = 30
-    };
-    case index_amount_cp_20: {
-        commandpointsblu1 = 20
+    case index_amount_cp_5: {
+        commandpointsblu1 = 5
     };
     case index_amount_cp_10: {
         commandpointsblu1 = 10
     };
-    case index_amount_cp_5: {
-        commandpointsblu1 = 5
+    case index_amount_cp_20: {
+        commandpointsblu1 = 20
     };
-    case index_amount_cp_2: {
-        commandpointsblu1 = 2
+    case index_amount_cp_30: {
+        commandpointsblu1 = 30
+    };
+    case index_amount_cp_40: {
+        commandpointsblu1 = 40
+    };
+    case index_amount_cp_50: {
+        commandpointsblu1 = 50
+    };
+    case index_amount_cp_60: {
+        commandpointsblu1 = 60
+    };
+    case index_amount_cp_70: {
+        commandpointsblu1 = 70
+    };
+    case index_amount_cp_80: {
+        commandpointsblu1 = 80
+    };
+    case index_amount_cp_90: {
+        commandpointsblu1 = 90
+    };
+    case index_amount_cp_100: {
+        commandpointsblu1 = 100
+    };
+    case index_amount_cp_200: {
+        commandpointsblu1 = 200
+    };
+    case index_amount_cp_300: {
+        commandpointsblu1 = 300
+    };
+    case index_amount_cp_400: {
+        commandpointsblu1 = 400
+    };
+    case index_amount_cp_500: {
+        commandpointsblu1 = 500
+    };
+    case index_amount_cp_600: {
+        commandpointsblu1 = 600
     };
 };
 
