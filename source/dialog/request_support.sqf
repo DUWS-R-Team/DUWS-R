@@ -90,8 +90,10 @@ switch (_index2) do {
                 support_armory_available = true;
                 hq_blu1 addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
                 hq_blu1 addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
-                { _x addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
-                  _x addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"]; } forEach (Array_of_FOBS);
+                {
+                    _x addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
+                    _x addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
+                } forEach (Array_of_FOBS);
 
                 playSound "loadgun";
                 publicVariable "support_armory_available";
