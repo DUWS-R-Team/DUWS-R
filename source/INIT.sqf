@@ -170,14 +170,22 @@ if (isMultiplayer) then {
 	_revive_activated = paramsArray select 0; // Revives, true or false
 	DUWSMP_CP_death_cost = paramsArray select 1;
 
-	if (support_armory_available) then {
-        hq_blu1 addaction ["<t color='#ff1111'>Armory</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
-	};
+        if (support_armory_available) then {
+            hq_blu1 addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
+            hq_blu1 addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
+            { _x addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
+              _x addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"]; } forEach (Array_of_FOBS);
+        };
 
 	if (_revive_activated == 1) then {execVM "duws_revive\reviveInit.sqf"};
 	PlayerKilledEH = player addEventHandler ["killed", {commandpointsblu1 = commandpointsblu1 - DUWSMP_CP_death_cost; publicVariable "commandpointsblu1"}];
 	"support_specialized_training_available" addPublicVariableEventHandler {lbSetColor [2103, 11, [0, 1, 0, 1]];};
-	"support_armory_available" addPublicVariableEventHandler {hq_blu1 addaction ["<t color='#ff1111'>Armory</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];lbSetColor [2103, 5, [0, 1, 0, 1]];};
+	"support_armory_available" addPublicVariableEventHandler {
+        hq_blu1 addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
+        hq_blu1 addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
+        { _x addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
+          _x addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"]; } forEach (Array_of_FOBS);
+        lbSetColor [2103, 5, [0, 1, 0, 1]];};
 	"commandpointsblu1" addPublicVariableEventHandler {ctrlSetText [1000, format["%1",commandpointsblu1]];}; // change the shown CP for request dialog
 	
 	// each time there is a new FOB
@@ -333,7 +341,7 @@ if (isMultiplayer) then {
 
     // WAIT UNTIL ALL ZONES ARE CAPTURED
     waitUntil {sleep 1; amount_zones_created > 0};
-    waitUntil {sleep 3; (zoneundercontrolblu >= amount_zones_created);}; // Toutes les zones sont capturÈes
+    waitUntil {sleep 3; (zoneundercontrolblu >= amount_zones_created);}; // Toutes les zones sont captur√©es
     persistent_stat_script_win = [] execVM "persistent\persistent_stats_win.sqf";
     ["TaskSucceeded",["","Island captured!"]] call bis_fnc_showNotification;
     capture_island_obj setTaskState "Succeeded";
