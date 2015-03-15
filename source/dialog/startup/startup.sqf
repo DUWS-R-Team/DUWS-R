@@ -51,15 +51,23 @@ index_amount_zones_1 = lbAdd [2102, "1"];
 lbSetCurSel [2102, index_amount_zones_6];
 
 // STARTING CP AVAILABLE
-index_amount_cp_2 = lbAdd [2103, "2 (very hard start)"];
 index_amount_cp_5 = lbAdd [2103, "5"];
 index_amount_cp_10 = lbAdd [2103, "10"];
-index_amount_cp_20 = lbAdd [2103, "20 (default start)"];
+index_amount_cp_20 = lbAdd [2103, "20"];
 index_amount_cp_30 = lbAdd [2103, "30"];
 index_amount_cp_40 = lbAdd [2103, "40"];
 index_amount_cp_50 = lbAdd [2103, "50"];
-index_amount_cp_60 = lbAdd [2103, "60 (very easy start)"];
-lbSetCurSel [2103, index_amount_cp_20];
+index_amount_cp_60 = lbAdd [2103, "60 (default)"];
+index_amount_cp_70 = lbAdd [2103, "70"];
+index_amount_cp_80 = lbAdd [2103, "80"];
+index_amount_cp_90 = lbAdd [2103, "90"];
+index_amount_cp_100 = lbAdd [2103, "100"];
+index_amount_cp_200 = lbAdd [2103, "200"];
+index_amount_cp_300 = lbAdd [2103, "300"];
+index_amount_cp_400 = lbAdd [2103, "400"];
+index_amount_cp_500 = lbAdd [2103, "500"];
+index_amount_cp_600 = lbAdd [2103, "600"];
+lbSetCurSel [2103, index_amount_cp_60];
 
 // BLUFOR AP
 index_blufor_ap_0 = lbAdd [2104, "0 (default start)"];
