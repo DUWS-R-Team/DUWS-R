@@ -66,6 +66,7 @@ calltaxi = {
     _helo animateDoor ['door_L', 1];
     };    
     
+    removeallactions _helo;
     _action = _helo addaction ["<t color='#00b7ff'>Give a LZ to the pilot</t>", "support\taxi\mapclickhelo.sqf", [_markerpickup, _helo, _helogroup, _pilot], 0, true, true, "", "_this == player"];
     
     waituntil {taxiCanTakeOff};
@@ -204,6 +205,7 @@ main = {
     taxiCanTakeOff = false;
     
     if (helipos distance _helo < 10) exitwith {
+        removeallactions _helo;
         _action = _helo addaction ["<t color='#00b7ff'>Give a LZ to the pilot</t>", "support\taxi\mapclickhelo.sqf", [_markerpickup, _helo, _helogroup, _pilot], 0, true, true, "", "_this == player"];
         _helo setfuel 0;
         _helo engineon false;
@@ -270,7 +272,7 @@ main = {
         }; 
         
         waituntil {(getposatl _helo select 2) <= 1};
-    
+        removeallactions _helo;
         _action = _helo addaction ["<t color='#00b7ff'>Give a LZ to the pilot</t>", "support\taxi\mapclickhelo.sqf", [_markerpickup, _helo, _helogroup, _pilot], 0, true, true, "", "_this == player"];
         _helo setfuel 0;
         _helo engineon false;
