@@ -7,7 +7,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 5;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _supplydrop = [player,"ammo"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 0, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_supply, [0, 1, 0, 1]];
                 playSound "boots";
                 support_supplydrop_available = true;
             } else {
@@ -23,7 +23,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 20;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _supplydrop = [player,"artillery"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 1, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_arty, [0, 1, 0, 1]];
                 playSound "boots";
                 support_arty_available = true;
             } else {
@@ -39,7 +39,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 10;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _supplydrop = [player,"mortar"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 2, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_mortar, [0, 1, 0, 1]];
                 playSound "boots";
                 support_mortar_available = true;
             } else {
@@ -55,7 +55,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 20;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _supplydrop = [player,"paradrop"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 3, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_paradrop, [0, 1, 0, 1]];
                 playSound "boots";
                 support_paradrop_available = true;
             } else {
@@ -71,7 +71,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 15;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _supplydrop = [player,"jdam"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 4, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_jdam, [0, 1, 0, 1]];
                 playSound "boots";
                 support_jdam_available = true;
             } else {
@@ -86,7 +86,7 @@ switch (_index2) do {
             if (!support_armory_available) then {
                 commandpointsblu1 = commandpointsblu1 - 8;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
-                lbSetColor [2103, 6, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_armory, [0, 1, 0, 1]];
                 support_armory_available = true;
                 hq_blu1 addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
                 hq_blu1 addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
@@ -111,7 +111,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 20;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 pFLIRenable = player addaction ["<t color='#a9ff59'>Activate FLIR</t>","pflir\livefeed.sqf","", 0,false,true,"","_target == _this"];
-                lbSetColor [2103, 6, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_pFLIR, [0, 1, 0, 1]];
                 support_pflir_available = true;
                 playSound "loadgun";
                 ["pflir",["Personal FLIR display","Toggle you personal FLIR display using the action menu"]] call bis_fnc_showNotification;
@@ -128,7 +128,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 10;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _uav_recon = [player,"uav_recon"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 7, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_uavrecon, [0, 1, 0, 1]];
                 playSound "boots";
                 support_uav_recon_available = true;
             } else {
@@ -144,7 +144,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 3;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _veh_refit = [player,"vehicle_refit"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 8, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_refit, [0, 1, 0, 1]];
                 playSound "loadgun";
                 support_veh_refit_available = true;
             } else {
@@ -160,7 +160,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 3;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _veh_refit = [player,"helo_taxi"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 9, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_helotaxi, [0, 1, 0, 1]];
                 playSound "boots";
                 support_helotaxi_available = true;
             } else {
@@ -176,7 +176,7 @@ switch (_index2) do {
                 commandpointsblu1 = commandpointsblu1 - 25;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 _cluster = [player1,"cluster"] call BIS_fnc_addCommMenuItem;
-                lbSetColor [2103, 10, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_cluster, [0, 1, 0, 1]];
                 playSound "boots";
                 support_cluster_available = true;
             } else {
@@ -193,7 +193,7 @@ switch (_index2) do {
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
                 ["inf_training",["Specialized Infantry training","Our troops are now more skilled in battle"]] call bis_fnc_showNotification;
                 blufor_ai_skill = [(blufor_ai_skill select 0)+0.3,(blufor_ai_skill select 1)+0.3];
-                lbSetColor [2103, 11, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_training, [0, 1, 0, 1]];
                 support_specialized_training_available = true;
                 publicVariable "support_specialized_training_available";
                 playSound "boots";
@@ -210,7 +210,7 @@ switch (_index2) do {
             if (!support_boattaxi_available) then {
                 commandpointsblu1 = commandpointsblu1 - 2;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
-                lbSetColor [2103, 12, [0, 1, 0, 1]];
+                lbSetColor [2103, index_support_boattaxi, [0, 1, 0, 1]];
                 support_boattaxi_available = true;
                 _supplydrop = [player,"boat_taxi"] call BIS_fnc_addCommMenuItem;
                 playSound "boots";

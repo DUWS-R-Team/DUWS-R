@@ -9,4 +9,4 @@ waitUntil {
     count _trigger < 1;
 }; 
 
-["location_leave",[_place]] call bis_fnc_showNotification;    
+["location_leave",[_place]] call bis_fnc_showNotification;
