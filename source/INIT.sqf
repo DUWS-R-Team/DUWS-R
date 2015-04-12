@@ -157,9 +157,7 @@ player allowDamage false;
 
 #include "dialog\supports_init.hpp"
 #include "dialog\squad_number_init.hpp"
-
-calltaxifrombase = false;
-
+	
 execVM "misc\gps_marker.sqf";
 if (!isMultiplayer) then {
 	getsize_script = [player] execVM "mapsize.sqf";

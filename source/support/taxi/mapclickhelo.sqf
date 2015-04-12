@@ -1,7 +1,7 @@
 _timer = 9999999;
 clicked = false;
-//_helo = (_this select 3) select 1;
-//_actionID = _this select 2;
+_helo = _this select 0;
+_actionID = _this select 2;
    /*
 // IF NOT ENOUGH PTS
 if (commandpointsblu1<3) exitWith {
@@ -17,10 +17,9 @@ _foundPickupPos = [_pos, 0,50,7,0,0.2,0] call BIS_fnc_findSafePos; // find a val
 if (_invalidPos select 0 == _foundPickupPos select 0 && _invalidPos select 1 == _foundPickupPos select 1) exitWith {player sidechat "There is no clear LZ near that location"};  
 */
   
-titleText ["Pilot: Click somewhere on your map to give me a LZ, I will see what I can do", "PLAIN DOWN"];
+titleText ["Pilot: Click somewhere on your map to give me a LZ, I'll see what i can do", "PLAIN DOWN"];
 OnMapSingleClick "ClickedTaxiPos = _pos; clicked = true;";
-//_helo removeAction _actionID;
-removeallactions helo;
+_helo removeAction _actionID;
 
 
 
