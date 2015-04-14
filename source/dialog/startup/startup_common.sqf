@@ -329,17 +329,8 @@ switch (_index) do {
 // MAX DIST FROM HQ
 _index = lbCurSel 2188;
 switch (_index) do {
-    case index_max_dist_hq_20: {
-        zones_max_dist_from_hq = 2000;
-    };
     case index_max_dist_hq_25: {
         zones_max_dist_from_hq = 2500;
-    };
-    case index_max_dist_hq_30: {
-        zones_max_dist_from_hq = 3000;
-    };
-    case index_max_dist_hq_40: {
-        zones_max_dist_from_hq = 4000;
     };
     case index_max_dist_hq_50: {
         zones_max_dist_from_hq = 5000;
