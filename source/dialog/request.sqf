@@ -56,19 +56,19 @@ _index1 = lbAdd [2102, "SF SUV(2CP)"];      		      // 14
 lbSetCurSel [2102, 0];
 
 // Supports  !!! CHECK TO ADD AT INIT
-index_support_supply = lbAdd [2103, "Supply drop(5CP)"];                // 0
-index_support_arty = lbAdd [2103, "Artillery strike(20CP)"];            // 1
-index_support_mortar = lbAdd [2103, "Mortar strike(10CP)"];             // 2
-index_support_paradrop = lbAdd [2103, "Airborne troops(20CP)"];         // 3
-index_support_jdam = lbAdd [2103, "JDAM strike(15CP)"];                 // 4
-index_support_armory = lbAdd [2103, "Armory(8CP)"];                     // 5
-index_support_pFLIR = lbAdd [2103, "Personal FLIR display(20CP)"];      // 6
-index_support_uavrecon = lbAdd [2103, "UAV Recon(10CP)"];               // 7
-index_support_refit = lbAdd [2103, "Vehicle Refit(3CP)"];               // 8
-index_support_helotaxi = lbAdd [2103, "Helicopter Taxi(3CP)"];          // 9
-index_support_cluster = lbAdd [2103, "Mk.20 II CBU(25CP)"];             // 10
-index_support_training = lbAdd [2103, "Specialized Infantry training(20CP)"];//11
-index_support_boattaxi = lbAdd [2103, "Boat Taxi(2CP)"];				  //12
+index_support_supply = lbAdd [2103, "Supply drop(5CP)"];                      // 0
+index_support_arty = lbAdd [2103, "Artillery strike(20CP)"];                  // 1
+index_support_mortar = lbAdd [2103, "Mortar strike(10CP)"];                   // 2
+index_support_paradrop = lbAdd [2103, "Airborne troops(20CP)"];               // 3
+index_support_jdam = lbAdd [2103, "JDAM strike(15CP)"];                       // 4
+index_support_armory = lbAdd [2103, "Armory(8CP)"];                           // 5
+index_support_pFLIR = lbAdd [2103, "Personal FLIR display(20CP)"];            // 6
+index_support_uavrecon = lbAdd [2103, "UAV Recon(10CP)"];                     // 7
+index_support_refit = lbAdd [2103, "Vehicle Refit(3CP)"];                     // 8
+index_support_helotaxi = lbAdd [2103, "Helicopter Taxi(3CP)"];                // 9
+index_support_cluster = lbAdd [2103, "Mk.20 II CBU(25CP)"];                   // 10
+index_support_training = lbAdd [2103, "Specialized Infantry training(20CP)"]; // 11
+index_support_boattaxi = lbAdd [2103, "Boat Taxi(2CP)"];                      // 12
 
 //  lbSetCurSel [2103, 0];
 if (support_supplydrop_available) then {
