@@ -83,8 +83,8 @@ _zones_array = [_zones_array, 0] call BIS_fnc_removeIndex;
 _warcom_init = [_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] execVM "WARCOM\WARCOM_init.sqf"; // 2700 is 40 mins
 waitUntil {scriptDone _warcom_init};
 sleep 0.1;
-//savegame;
-enableSaving [ false, false ];
+
+execVM "utilities\autoSave.sqf";
 sleep 1;
 
 [[format["MISSION INITIALIZATION COMPLETE!<br/>Campaign generated<br/>Welcome to %1, %2",_worldName,profilename]]] spawn BIS_fnc_typeText;  
