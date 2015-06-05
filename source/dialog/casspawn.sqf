@@ -19,3 +19,17 @@ waitUntil {(speed _plane) <= 0};
 _plane setDamage 0;
 deletevehicle _pilot;
 _plane setfuel 1;
+
+waitUntil {(speed _plane) <= 0};
+if (!alive _plane) then {hint "Your A-164 CAS has crashed"} else {
+	_pos2 = getPos _plane;
+	_marker = format["plane",_pos2]; // Define marker name
+	_markerstr = createMarker [str(_marker), _pos2];
+	_markerstr setMarkerShape "ICON";
+	str(_marker) setMarkerType "hd_end";
+	str(_marker) setMarkerColor "ColorGreen";
+	str(_marker) setMarkerText "A-164 CAS Lands Here";
+};
+
+waituntil {(speed _plane) > 0};
+deleteMarker str(_marker);
