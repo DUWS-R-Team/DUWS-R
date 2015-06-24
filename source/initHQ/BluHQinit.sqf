@@ -72,30 +72,24 @@ sleep 0.1;
 HQ_pos_found_generated = true;
 publicVariable "HQ_pos_found_generated";
 
-if (!zones_manually_placed) then {
+// SHOW THE STARTUP MENU
+if (!zones_created) then {
+    sleep 0.1;
+    _nill = [] execVM "dialog\startup\startup.sqf";
+    waitUntil {chosen_settings};  // WAIT UNTIL THE PLAYER HAS CHOSEN THE SETTINGS
+};
 
-    // SHOW THE STARTUP MENU
-    if (!zones_created) then {
-        sleep 0.1;
-        _nill = [] execVM "dialog\startup\startup.sqf";
-        waitUntil {chosen_settings};  // WAIT UNTIL THE PLAYER HAS CHOSEN THE SETTINGS
-    };
+// WEATHER INIT
+if (dynamic_weather_enable) then {
+    _weather_script = [] execVM "dialog\startup\weather.sqf";
+};
 
-    // WEATHER INIT
-    if (dynamic_weather_enable) then {
-        _weather_script = [] execVM "dialog\startup\weather.sqf";
-    };
-
-    // CALL ZONES GENERATION
-    waitUntil {!isNil {getsize_script}};  // WAIT UNTIL THE MAPSIZE SCRIPT IS DONE
-
-    // CHECK IF ZONES ARE PLACED...
-    // If not execute locatorZonesV1.sqf if the user wants them randomly placed. V2 if the user wants to place zones.
-    if (!zones_created && !manually_chosen) then {
-        _zones_create = [50, 0.2] execVM "initZones\locatorZonesV1.sqf";
-    } else {
-        _zones_create = [50, 0.2] execVM "initZones\locatorZonesV2.sqf";
-    };
+// CHECK IF ZONES ARE PLACED...
+// If not execute locatorZonesV1.sqf if the user wants them randomly placed. V2 if the user wants to place zones.
+if (!zones_created && !manually_chosen) then {
+    _zones_create = [50, 0.2] execVM "initZones\locatorZonesV1.sqf";
+} else {
+    _zones_create = [50, 0.2] execVM "initZones\locatorZonesV2.sqf";
 };
 
 player allowDamage true;

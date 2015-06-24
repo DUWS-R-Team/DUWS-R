@@ -1,11 +1,13 @@
 _unit = _this select 0;
 _debug = _this select 1;
 
+sleep 3;
+
 private ["_grid_size"];
 disableserialization;
 
 openMap [true, false];
-WaitUntil {visibleMap};
+WaitUntil {(visibleMap)};
 
 x_mapsize = 0;
 y_mapsize = 0;

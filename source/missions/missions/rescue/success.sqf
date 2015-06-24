@@ -14,7 +14,7 @@ private "_task";
 _taskgeneratedName = format ["rescue%1%2",round(_MissionPos select 0),round(_Missionpos select 1)]; // generate taskname/variable name
 call compile format["_task = %1",_taskgeneratedname]; // recall variable and inject it into handle
 
-player removeSimpleTask _task;
+[["_task", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP; 
 
 // IF SOLDIERS DEAD
 if (!(alive _sol1) && !(alive _sol2) && !(alive _sol3)) exitWith {
