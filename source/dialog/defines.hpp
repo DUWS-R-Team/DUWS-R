@@ -191,7 +191,7 @@ class RscCombo
     colorSelect[] = {0.023529,0,0.0313725,1};
     colorText[] = {0.023529,0,0.0313725,1};
     colorBackground[] = {0.95,0.95,0.95,1};
-    colorScrollbar[] = {0.023529,0,0.0313725,1};
+    colorComboScrollbar[] = {0.023529,0,0.0313725,1};
     soundSelect[] = {"",0.1,1};
     soundExpand[] = {"",0.1,1};
     soundCollapse[] = {"",0.1,1};
@@ -232,7 +232,7 @@ class RscListBox
     h = 0.4;
     rowHeight = 0;
     colorText[] = {0.8784,0.8471,0.651,1};
-    colorScrollbar[] = {0.95,0.95,0.95,1};
+    colorComboScrollbar[] = {0.95,0.95,0.95,1};
     colorSelect[] = {0.95,0.95,0.95,1};
     colorSelect2[] = {0.95,0.95,0.95,1};
     colorSelectBackground[] = {0,0,0,1};
