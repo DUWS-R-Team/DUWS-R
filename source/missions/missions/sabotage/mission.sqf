@@ -30,9 +30,7 @@ _tower addaction ["Sabotage", "missions\missions\sabotage\success.sqf",[_mission
 // TASK AND NOTIFICATION
 _VARtaskgeneratedName = format["tsksabot%1%2",round(_MissionPos select 0),round(_Missionpos select 1)]; // generate variable name for task
 
-_taskhandle = player createSimpleTask ["taskSabot"];
-_taskhandle setSimpleTaskDescription ["The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies.",_mission_name,""];
-_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+[west, "_taskhandle", ["taskDestroy.", "The enemy is using a power supply somewhere in this area. We need you to find it, walk up to it and 'sabotage' it USING YOUR ACTION MENU (DO NOT DESTROY IT WITH WEAPONS!). It will allow us to have a bit of better intel on our enemies.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
 if (!ismultiplayer) then {
     execVM "utilities\autoSave.sqf";

@@ -254,7 +254,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 45;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Plane_CAS_01_F" createVehicle _spawnPos;
+            _vehic = execVM "dialog\casspawn.sqf";
         } else {
             hint "Not enough command points";
         };
@@ -294,7 +294,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UAV_02_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            _vehic = execVM "dialog\UAV1.sqf";
         } else {
             hint "Not enough command points";
         };
@@ -304,7 +304,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UAV_02_CAS_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            _vehic = execVM "dialog\UAV2.sqf";
         } else {
             hint "Not enough command points";
         };
@@ -314,7 +314,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 5;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UAV_01_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            _vehic = execVM "dialog\UAV3.sqf";
         } else {
             hint "Not enough command points";
         };

@@ -5,7 +5,7 @@ _counter = 0;
 
 if (isnil ("Mission_timeout_request")) then {Mission_timeout_request = true;};
 if (!Mission_timeout_request) exitWith {PAPABEAR=[West,"HQ"]; PAPABEAR SideChat "We don't have any other missions for you right now.";};
-if (!isServer) exitWith {hint "Only the host can request side missions for now"};
+if (!((getPlayerUID player) in ["ENTER UID HERE QUOTES INCLUDED"])) exitWith {hint "Only the host can request side missions for now"};
 
 startLoadingScreen ["Loading zones..."];
 _kibot_pos_array_missionPos = [[-99999,-99999,-99999]];
