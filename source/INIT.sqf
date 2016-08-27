@@ -1,24 +1,24 @@
 diag_log format ["------------------ DUWS-R START ----v0------ player: %1", profileName];
 
 //////////////////////////////////////////////////////
-//  HOW TO MANUALLY CREATE THE MISSION:   
+//  HOW TO MANUALLY CREATE THE MISSION:
 //  1)YOU MUST PLACE THE HQ LOCATION
 //  2)DEFINE THE CAPTURABLE ZONES
 //  -- YOU CAN ALSO JUST PUT A HQ SOMEWHERE AND LET THE ZONES BEING RANDOMLY GENERATED
-//  -- YOU MUST PLACE MANUALLY THE HQ IF YOU ARE ALREADY PLACING THE ZONES BY HAND 
-//  3) DONT FORGET TO DEFINE THE VARIABLES BELOW. If you are ONLY placing the HQ by hand, you just need to put "hq_manually_placed" to 
+//  -- YOU MUST PLACE MANUALLY THE HQ IF YOU ARE ALREADY PLACING THE ZONES BY HAND
+//  3) DONT FORGET TO DEFINE THE VARIABLES BELOW. If you are ONLY placing the HQ by hand, you just need to put "hq_manually_placed" to
 //     "true" instead of "false". If you are also placing the zones by hand, make "zones_manually_placed" to "true".
 /////////////////////////////////////////////////////////////
-//  1) In the gamelogic, for the HQ( !! MAKE ONLY ONE HQ !!): _null=[getpos this] execVM "initHQ\BluHQinit.sqf" 
-// 
-//  2) In the init of gamelogic, to create a capturable enemy zone: 
+//  1) In the gamelogic, for the HQ( !! MAKE ONLY ONE HQ !!): _null=[getpos this] execVM "initHQ\BluHQinit.sqf"
+//
+//  2) In the init of gamelogic, to create a capturable enemy zone:
 //      _null = ["zone name",pts awarded upon capture, zone radius,getpos this,false/true,false/true] execvm "createzone.sqf";
 //        "zone name": name of the zone
 //        pts awarded upon capture: points you earn when you capture the zone. Also the amount of points of army power you take and receive
 //          from the enemy after capture
 //        zone radius: how large the zone is
 //        getpos this: It's the position of the zone. The gamelogic actually. You don't have to modify this.
-//        false/true: if the zone is fortified or not. If the zone is fortified, there will be a bit more enemies and they will be maning 
+//        false/true: if the zone is fortified or not. If the zone is fortified, there will be a bit more enemies and they will be maning
 //          static defences if there are any
 //        false/true: if the zone is selecting randomly a prefab base. Prefab is selected according to the zone radius. The bigger the zone,
 //          the bigger the prefab asset will be chosen.
@@ -38,32 +38,32 @@ if (isNil "blufor_ai_skill") then {blufor_ai_skill = [0.4,0.7];};
 // you must specify if you have manually placed HQ or not. false = HQ is randomly placed, true = you have manually placed the HQ
 hq_manually_placed = false;
 // you must specify if you have manually placed the zones or not. false = zones are randomly generated, true = you have manually placed the zones
-zones_manually_placed = false;  
+zones_manually_placed = false;
 zones_max_dist_from_hq = 7500;
-dynamic_weather_enable = true;		
+dynamic_weather_enable = true;
 maually_chosen = false;
 
 if (isNil "enable_fast_travel") then { enable_fast_travel = true; };
 // chopper taxi (support) will fast travel (teleport) or not
-if (isNil "enableChopperFastTravel") then { enableChopperFastTravel = true; };	
+if (isNil "enableChopperFastTravel") then { enableChopperFastTravel = true; };
 // Starting CP
 if (isNil "commandpointsblu1") then { commandpointsblu1 = 20; };
 // STARTING ARMY POWER
 if (isNil "blufor_ap") then {blufor_ap = 0;};
-opfor_ap = 0; 
+opfor_ap = 0;
 
 ///////////////////////////////////////////////////////
 // initialise variables
 //////////////////////////////////////////////////////
 // MOST OF THE VALUES ARE BEING OVERWRITTEN BY PLAYER INPUT AT THE BEGINNING
 //////////////////////////////////////////////////////
- 
+
 /////////////////////////////////////////////////////////////
 debugmode = false;  // Debug mode, kind of obsolete
 /// ------------- VALUES UNDER THIS ARE OVERWRITTEN
 zones_number = 9; // Number of capturables zones to create (when zones are created randomly)
 zones_spacing = 1200; // minimum space between 2 zones (in meters) // SOON OBSOLETE
-zones_max_radius = 1000;   // Determine the maximum radius a generated zone can have   
+zones_max_radius = 1000;   // Determine the maximum radius a generated zone can have
 zones_min_radius = 200; // Determine the minium radius a generated zone can have. SHOULD NOT BE UNDER 200.
 
 ///////////////////////////////////////////////////////
@@ -99,7 +99,7 @@ if (isNil "amount_zones_created") then {
 
 if (isNil "HQ_pos_found_generated") then {
     HQ_pos_found_generated = false;
-}; 	
+};
 
 if (isNil "chosen_settings") then {
     chosen_settings = false;
@@ -108,7 +108,7 @@ if (isNil "chosen_settings") then {
 if (isNil "chosen_hq_placement") then {
     chosen_hq_placement = false;
 };
-	
+
 if (isNil "zoneundercontrolblu") then {
 	zoneundercontrolblu = 0;
 };
@@ -117,23 +117,23 @@ if (isNil "amount_zones_captured") then {
 	amount_zones_captured = 0;
 };
 
-if (isNil "savegameNumber") then {	
+if (isNil "savegameNumber") then {
 	savegameNumber = 0;
 };
 
-if (isNil "capturedZonesNumber") then {	
+if (isNil "capturedZonesNumber") then {
 	capturedZonesNumber = 0;
-};	
+};
 
-if (isNil "finishedMissionsNumber") then {	
+if (isNil "finishedMissionsNumber") then {
 	finishedMissionsNumber = 0;
-};	
+};
 
-if (isNil "OvercastVar") then {	
+if (isNil "OvercastVar") then {
 	OvercastVar = 0;
-};	
+};
 
-if (isNil "FogVar") then {	
+if (isNil "FogVar") then {
 	FogVar = 0;
 };
 
@@ -152,17 +152,17 @@ else /// JIP for the client
 if (isNil "Array_of_FOBname") then {
 	Array_of_FOBname = [];
 };
-	
+
 player allowDamage false;
 
 #include "dialog\supports_init.hpp"
 #include "dialog\squad_number_init.hpp"
-	
+
 execVM "misc\gps_marker.sqf";
 if (!isMultiplayer) then {
 	getsize_script = [player] execVM "mapsize.sqf";
-};	
-	
+};
+
 // IF MP
 if (isMultiplayer) then {
 
@@ -170,11 +170,9 @@ if (isMultiplayer) then {
 	_revive_activated = paramsArray select 0; // Revives, true or false
 	DUWSMP_CP_death_cost = paramsArray select 1;
     if (support_armory_available) then {
-        hq_blu1 addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
-        hq_blu1 addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
+        hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
         {
-            _x addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
-            _x addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
+            _x addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
         } forEach (Array_of_FOBS);
     };
 
@@ -185,11 +183,9 @@ if (isMultiplayer) then {
     }];
 	"support_specialized_training_available" addPublicVariableEventHandler {lbSetColor [2103, 11, [0, 1, 0, 1]];};
     "support_armory_available" addPublicVariableEventHandler {
-        hq_blu1 addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
-        hq_blu1 addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
+        hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
         {
-            _x addaction ["<t color='#ff0066'>Armory 1 (VAS)</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
-            _x addaction ["<t color='#ff0066'>Armory 2 (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
+            _x addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
         } forEach (Array_of_FOBS);
         lbSetColor [2103, 5, [0, 1, 0, 1]];
     };
@@ -207,20 +203,20 @@ if (isMultiplayer) then {
 		_fobAmount = count Array_of_FOBS;
 		_fobIndex = _fobAmount - 1;
 		_createdFOB = Array_of_FOBS select _fobIndex;
-		
+
 		[missionNamespace, _createdFOB] call BIS_fnc_addRespawnPosition;
 	};
-	
+
 	if (!isServer) then {
         "savegameNumber" addPublicVariableEventHandler {[] execVM "savegameClient.sqf";};
 	};
 	if (!isServer) then {
-        "capturedZonesNumber" addPublicVariableEventHandler {[] execVM "persistent\persistent_stats_zones_add.sqf";}; // change the shown CP for request dialog	
+        "capturedZonesNumber" addPublicVariableEventHandler {[] execVM "persistent\persistent_stats_zones_add.sqf";}; // change the shown CP for request dialog
 	};
 	if (!isServer) then {
-        "finishedMissionsNumber" addPublicVariableEventHandler {[] execVM "persistent\persistent_stats_missions_total.sqf";}; // change the shown CP for request dialog	
-	};	
-	
+        "finishedMissionsNumber" addPublicVariableEventHandler {[] execVM "persistent\persistent_stats_missions_total.sqf";}; // change the shown CP for request dialog
+	};
+
     if (isServer) then { // SERVER INIT
         DUWS_host_start = false;
         publicVariable "DUWS_host_start";
@@ -232,17 +228,17 @@ if (isMultiplayer) then {
         // init High Command
         _handle = [] execVM "dialog\hc_init.sqf";
         waitUntil {scriptDone getsize_script};
-	}; 
+	};
 };
 
 if (isServer) then {
     _null = [] execVM "dialog\startup\hq_placement\placement.sqf";
-    waitUntil {chosen_hq_placement};	
+    waitUntil {chosen_hq_placement};
 
     // create random HQ
     if (!hq_manually_placed && !player_is_choosing_hqpos) then {
         hq_create = [20, 0.015] execVM "initHQ\locatorHQ.sqf";
-        waitUntil {scriptDone hq_create};	
+        waitUntil {scriptDone hq_create};
     };
 };
 
@@ -272,18 +268,18 @@ if (isServer) then {
    ] execVM 'repetitive_cleanup.sqf';
 };
 
-if (!isServer) then { 
+if (!isServer) then {
     // WHEN CLIENT CONNECTS INIT (might need sleep)
     waitUntil {isPlayer Player};
-    hintsilent "Waiting for the host to find an HQ...";	
+    hintsilent "Waiting for the host to find an HQ...";
     waitUntil {HQ_pos_found_generated && time > 0.1};
     player setpos [(getpos hq_blu1 select 0),(getpos hq_blu1 select 1)+10];
     _drawicon = [] execVM "inithq\drawIcon.sqf";
-    hintsilent "Waiting for the host to select the campaign parameters...";	
-    waitUntil {chosen_settings};	
+    hintsilent "Waiting for the host to select the campaign parameters...";
+    waitUntil {chosen_settings};
     [hq_blu1] execVM "initHQ\HQaddactions.sqf";
     sleep 1;
-    player setdamage 0;	
+    player setdamage 0;
     player allowDamage true;
     hintsilent format["Joined game, welcome to %1, %2",worldName,profileName];
 
@@ -308,7 +304,7 @@ _basepoint = [] execVM "zones_bonus.sqf";
 execVM "dialog\operative\operator_init.sqf";
 
 // Create help for DUWS
-_index = player createDiarySubject ["help","DUWS-R Manual"]; 
+_index = player createDiarySubject ["help","DUWS-R Manual"];
 player createDiaryRecord ["help", ["Feedback/bug report", "Internal team members: Use the ""issues"" section to report items."]];
 player createDiaryRecord ["help", ["Export to another island", "<font color='#FF0000'>How to export to another island:</font color><br />You just need to take the .pbo file and rename it with the name of the island you want to export the mission to. You don't have anything else to do<br /><br />Example:<br />SP_DUWS-R.stratis.pbo >>> SP_DUWS-R.chernarus.pbo"]];
 player createDiaryRecord ["help", ["Credits", "Many thanks goes out to everyone that worked on the original DUWS by kibot!"]];
@@ -382,7 +378,7 @@ if (mission_DUWS_firstlaunch) then {
     sleep 20;
     ["info",["DUWS Manual","Check the manual in the briefing for more info"]] call bis_fnc_showNotification;
 
-    profileNamespace setVariable ["profile_DUWS_firstlaunch", false]; 
+    profileNamespace setVariable ["profile_DUWS_firstlaunch", false];
     saveProfileNamespace;
 };
 
@@ -399,8 +395,8 @@ for[{_x = 2},{_x <= 20},{_x = _x + 1}] do {
 //Loading player position and gear.
 //TODO: Add bought supports.
 /*
-if(isServer) then 
-{	
+if(isServer) then
+{
 	execVM "persistent\missionSpecific\saveFuncs.sqf";
 	waitUntil {!isNil "saveFuncsLoaded"};
 
