@@ -29,12 +29,10 @@ disabledAI = 1;
 #include "params.hpp"
 #include "duws_revive\gui\duws_revive.hpp"
 
-// VAS INIT BEGIN --  ALSO TAW VIEWDISTANCE
-#include "taw_vd\dialog.hpp"       
-#include "VAS\menu.hpp"
+// TAW INIT BEGIN --
+#include "taw_vd\dialog.hpp"
 class CfgFunctions
 {
-    #include "VAS\cfgfunctions.hpp"
     #include "taw_vd\CfgFunctions.hpp"
 };
-// VAS INIT END --
+// TAW INIT END --
