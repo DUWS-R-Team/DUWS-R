@@ -38,9 +38,10 @@ _unit = _group createUnit ["O_soldier_F", _missionpos, [], 0, "FORM"];
 _unit = _group createUnit ["O_soldier_F", _missionpos, [], 0, "FORM"];
 
 // TASK AND NOTIFICATION
-_taskhandle = player createSimpleTask ["taskTarget"];
-_taskhandle setSimpleTaskDescription ["A high enemy target has been spotted somewhere in this location. Hunt him down.",_mission_name,""];
-_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+//_taskhandle = player createSimpleTask ["taskTarget"];
+//_taskhandle setSimpleTaskDescription ["A high enemy target has been spotted somewhere in this location. Hunt him down.",_mission_name,""];
+//_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+[west, "_taskhandle", ["taskDestroy.", "A high enemy target has been spotted somewhere in this location. Hunt him down.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
 if (!ismultiplayer) then {
     execVM "utilities\autoSave.sqf";
@@ -54,7 +55,8 @@ waitUntil {sleep 2; !alive _target};  // MISSION COMPLETED --
 deleteMarker str(_markername2);
 deleteMarker str(_markername);
 
-player removeSimpleTask _taskhandle;
+//player removeSimpleTask _taskhandle;
+[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
 
 sleep 1;
 

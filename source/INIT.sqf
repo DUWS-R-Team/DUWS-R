@@ -1,164 +1,21 @@
 diag_log format ["------------------ DUWS-R START ----v0------ player: %1", profileName];
 
-//////////////////////////////////////////////////////
-//  HOW TO MANUALLY CREATE THE MISSION:   
-//  1)YOU MUST PLACE THE HQ LOCATION
-//  2)DEFINE THE CAPTURABLE ZONES
-//  -- YOU CAN ALSO JUST PUT A HQ SOMEWHERE AND LET THE ZONES BEING RANDOMLY GENERATED
-//  -- YOU MUST PLACE MANUALLY THE HQ IF YOU ARE ALREADY PLACING THE ZONES BY HAND 
-//  3) DONT FORGET TO DEFINE THE VARIABLES BELOW. If you are ONLY placing the HQ by hand, you just need to put "hq_manually_placed" to 
-//     "true" instead of "false". If you are also placing the zones by hand, make "zones_manually_placed" to "true".
-/////////////////////////////////////////////////////////////
-//  1) In the gamelogic, for the HQ( !! MAKE ONLY ONE HQ !!): _null=[getpos this] execVM "initHQ\BluHQinit.sqf" 
-// 
-//  2) In the init of gamelogic, to create a capturable enemy zone: 
-//      _null = ["zone name",pts awarded upon capture, zone radius,getpos this,false/true,false/true] execvm "createzone.sqf";
-//        "zone name": name of the zone
-//        pts awarded upon capture: points you earn when you capture the zone. Also the amount of points of army power you take and receive
-//          from the enemy after capture
-//        zone radius: how large the zone is
-//        getpos this: It's the position of the zone. The gamelogic actually. You don't have to modify this.
-//        false/true: if the zone is fortified or not. If the zone is fortified, there will be a bit more enemies and they will be maning 
-//          static defences if there are any
-//        false/true: if the zone is selecting randomly a prefab base. Prefab is selected according to the zone radius. The bigger the zone,
-//          the bigger the prefab asset will be chosen.
-//
-//  EXAMPLE, in the init of a gamelogic you have placed on the map:
-//    _null=["OP Xander",20,200,getpos this,true,false] execvm "initZones\createzone.sqf"
-//
-//  3) Define these variables:
 
-// choose between "tropical" - "arid" - "temperate" - "temperate_cold" - "mediterranean"
-if (isNil "weather_type") then {weather_type = "tropical";};
-// set the skill range of ennemy AI
-if (isNil "opfor_ai_skill") then {opfor_ai_skill = [0.1,0.3];};
-// set the skill range of friendly AI, from 0 to 1 (0 being completely dumb)
-if (isNil "blufor_ai_skill") then {blufor_ai_skill = [0.4,0.7];};
+if (isServer) then { nul = [] execVM "serverinit.sqf"; };
+if (isDedicated) exitWith {};
+waitUntil {!isNull player};
 
-// you must specify if you have manually placed HQ or not. false = HQ is randomly placed, true = you have manually placed the HQ
-hq_manually_placed = false;
-// you must specify if you have manually placed the zones or not. false = zones are randomly generated, true = you have manually placed the zones
-zones_manually_placed = false;  
-zones_max_dist_from_hq = 7500;
-dynamic_weather_enable = true;		
-maually_chosen = false;
+player allowDamage false;
 
-if (isNil "enable_fast_travel") then { enable_fast_travel = true; };
-// chopper taxi (support) will fast travel (teleport) or not
-if (isNil "enableChopperFastTravel") then { enableChopperFastTravel = true; };	
-// Starting CP
-if (isNil "commandpointsblu1") then { commandpointsblu1 = 20; };
-// STARTING ARMY POWER
-if (isNil "blufor_ap") then {blufor_ap = 0;};
-opfor_ap = 0; 
-
-///////////////////////////////////////////////////////
-// initialise variables
-//////////////////////////////////////////////////////
-// MOST OF THE VALUES ARE BEING OVERWRITTEN BY PLAYER INPUT AT THE BEGINNING
-//////////////////////////////////////////////////////
- 
-/////////////////////////////////////////////////////////////
-debugmode = false;  // Debug mode, kind of obsolete
-/// ------------- VALUES UNDER THIS ARE OVERWRITTEN
-zones_number = 9; // Number of capturables zones to create (when zones are created randomly)
-zones_spacing = 1200; // minimum space between 2 zones (in meters) // SOON OBSOLETE
-zones_max_radius = 1000;   // Determine the maximum radius a generated zone can have   
-zones_min_radius = 200; // Determine the minium radius a generated zone can have. SHOULD NOT BE UNDER 200.
-
-///////////////////////////////////////////////////////
-// This mission will have a harder time generating stuff if a lot of the terrain of the island is sloped, meaning that valid locations
-// will be harder/take longer to find (side missions, mission init).
-// Keep that in mind when tweaking the zones amount/radius value.
-/////////////////////////////////////////////////////////
-// preprocess the qrf file for the EH
-QRF_test = compile preprocessFile "WARCOM\WARCOM_opf_qrf.sqf";
 persistent_stat_script_init = [] execVM "persistent\persistent_stats_init.sqf";
 waitUntil {scriptDone persistent_stat_script_init};
 execvm "dynamic_music\dyn_music_init.sqf";
 
-// nber of missions succes(!!dont touch!!)
-missions_success = 0;
-
-zones_created = false;
-blu_hq_created = false;
-can_get_mission = true;
-failsafe_zones_not_found = false;
-createcenter sideLogic;
-LogicGroup = createGroup SideLogic;
-PAPABEAR=[West,"HQ"];
-locator_hq_actived = false;
-op_zones_index = 0;
-clientisSync = false;
-fobSwitch = false;
-player_is_choosing_hqpos = false;
-
-if (isNil "amount_zones_created") then {
-    amount_zones_created = 0;
-};
-
-if (isNil "HQ_pos_found_generated") then {
-    HQ_pos_found_generated = false;
-}; 	
-
-if (isNil "chosen_settings") then {
-    chosen_settings = false;
-};
-
-if (isNil "chosen_hq_placement") then {
-    chosen_hq_placement = false;
-};
-	
-if (isNil "zoneundercontrolblu") then {
-	zoneundercontrolblu = 0;
-};
-
-if (isNil "amount_zones_captured") then {
-	amount_zones_captured = 0;
-};
-
-if (isNil "savegameNumber") then {	
-	savegameNumber = 0;
-};
-
-if (isNil "capturedZonesNumber") then {	
-	capturedZonesNumber = 0;
-};	
-
-if (isNil "finishedMissionsNumber") then {	
-	finishedMissionsNumber = 0;
-};	
-
-if (isNil "OvercastVar") then {	
-	OvercastVar = 0;
-};	
-
-if (isNil "FogVar") then {	
-	FogVar = 0;
-};
-
-// this is a special one (if/else)
-if (isNil "Array_of_FOBS") then {
-    // if the player is sp or server or no fobs have been created
-	Array_of_FOBS = [];
-}
-else /// JIP for the client
-{
-    {
-        [_x] execVM "support\FOBactions.sqf";
-    } forEach Array_of_FOBS;
-};
-
-if (isNil "Array_of_FOBname") then {
-	Array_of_FOBname = [];
-};
-	
-player allowDamage false;
 
 #include "dialog\supports_init.hpp"
 #include "dialog\squad_number_init.hpp"
 	
-execVM "misc\gps_marker.sqf";
+if (hasInterface) then { execVM "misc\gps_marker.sqf";};
 if (!isMultiplayer) then {
 	getsize_script = [player] execVM "mapsize.sqf";
 };	
@@ -218,32 +75,41 @@ if (isMultiplayer) then {
 	if (!isServer) then {
         "finishedMissionsNumber" addPublicVariableEventHandler {[] execVM "persistent\persistent_stats_missions_total.sqf";}; // change the shown CP for request dialog	
 	};	
+		
+	player globalChat format ["gamemaster: %1", game_master];
+	player globalChat format ["HQ_pos_found_generated: %1", HQ_pos_found_generated];
 	
-    if (isServer) then { // SERVER INIT
-        DUWS_host_start = false;
-        publicVariable "DUWS_host_start";
-        waitUntil {time > 0.1};
-        getsize_script = [player] execVM "mapsize.sqf";
-        DUWS_host_start = true;
-        publicVariable "DUWS_host_start";
+	if (!isDedicated && !HQ_pos_found_generated) then { // SERVER INIT
+		if (((vehiclevarname player) in game_master)) then {
+			DUWS_host_start = false;
+			publicVariable "DUWS_host_start";
+			waitUntil {time > 0.1};
+			getsize_script = [player] execVM "mapsize.sqf";
+			DUWS_host_start = true;
+			publicVariable "DUWS_host_start";
 
-        // init High Command
-        _handle = [] execVM "dialog\hc_init.sqf";
-        waitUntil {scriptDone getsize_script};
-	}; 
+			// init High Command
+			_handle = [] execVM "dialog\hc_init.sqf";
+			waitUntil {scriptDone getsize_script};
+		};
+	};
 };
 
-if (isServer) then {
-    _null = [] execVM "dialog\startup\hq_placement\placement.sqf";
-    waitUntil {chosen_hq_placement};	
-
-    // create random HQ
-    if (!hq_manually_placed && !player_is_choosing_hqpos) then {
-        hq_create = [20, 0.015] execVM "initHQ\locatorHQ.sqf";
-        waitUntil {scriptDone hq_create};	
-    };
+if (!isDedicated && !HQ_pos_found_generated) then {
+	if (((vehiclevarname player) in game_master)) then {
+		_null = [] execVM "dialog\startup\hq_placement\placement.sqf";
+		waitUntil {chosen_hq_placement};	
+		player globalChat format ["hq_manually_placed: %1", hq_manually_placed];
+		player globalChat format ["player_is_choosing_hqpos: %1", player_is_choosing_hqpos];
+		// create random HQ
+		if (!hq_manually_placed && !player_is_choosing_hqpos) then {
+			player globalChat "lance recherche position...";
+			hq_create = [20, 0.015] execVM "initHQ\locatorHQ.sqf";
+			waitUntil {scriptDone hq_create};	
+		};
+	};
 };
-
+	
 /*
 //////// DEBUG LOOP /////////////
 [] spawn {
@@ -270,7 +136,7 @@ if (isServer) then {
    ] execVM 'repetitive_cleanup.sqf';
 };
 
-if (!isServer) then { 
+if (hasInterface) then { 
     // WHEN CLIENT CONNECTS INIT (might need sleep)
     waitUntil {isPlayer Player};
     hintsilent "Waiting for the host to find an HQ...";	
@@ -294,13 +160,9 @@ if (!isMultiplayer) then {
     _handle = [] execVM "dialog\hc_init.sqf";
 };
 
-if (isServer) then {
-    // initialise the ressources per zone bonus
-    _basepoint = [] execVM "zonesundercontrol.sqf";
-};
 
-// init the bonuses you get when capturing zones
-_basepoint = [] execVM "zones_bonus.sqf";
+
+
 
 // INIT the operative list
 execVM "dialog\operative\operator_init.sqf";
@@ -357,11 +219,7 @@ if (isMultiplayer) then {
     ["island_captured_win",true,true] call BIS_fnc_endMission;
 };
 
-if (zones_manually_placed) then {
-    waitUntil {!isNil ("Array_of_OPFOR_zones")};
-    sleep 1;
-    _warcom_init = [Array_of_OPFOR_zones, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 1500] execVM "WARCOM\WARCOM_init.sqf";
-};
+
 
 if (mission_DUWS_firstlaunch) then {
     waitUntil {chosen_settings};
