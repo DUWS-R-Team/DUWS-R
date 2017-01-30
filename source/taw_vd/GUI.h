@@ -1,6 +1,6 @@
 #include "defines.h"
 
-class RscEdit {
+class RscEdit_taw {
 	type = 2;
 	style = 0x00 + 0x40;
 	font = "PuristaMedium";
@@ -16,7 +16,7 @@ class RscEdit {
 	canModify = 1;
 };
 
-class RscListBox {
+class RscListBox_taw {
 	style = 16;
 	idc = -1;
 	type = 5;
@@ -51,7 +51,7 @@ class RscListBox {
 	tooltipColorText[] = {1,1,1,1};
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
-	
+
 	class ListScrollBar {
 		color[] = {1,1,1,1};
 		colorActive[] = {1,1,1,1};
@@ -145,7 +145,7 @@ class RscXSliderH {
 	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
 };
 
-class RscText {
+class RscText_taw {
 	x = 0;
 	y = 0;
 	h = 0.037;
@@ -162,14 +162,14 @@ class RscText {
 	linespacing = 1;
 };
 
-class RscTitle:RscText {
+class RscTitle:RscText_taw {
 	style = 0;
 	shadow = 0;
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	colorText[] = {0.95, 0.95, 0.95, 1};
 };
 
-class RscShortcutButton {
+class RscShortcutButton_taw {
 	idc = -1;
 	style = 0;
 	default = 0;
@@ -234,7 +234,7 @@ class RscShortcutButton {
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
-	};	
+	};
 };
 
 class RscControlsGroup {
@@ -258,7 +258,7 @@ class RscControlsGroup {
 		shadow = 0;
 		scrollSpeed = 0.05;
 	};
-	
+
 	class VScrollbar:ScrollBar {
 		width = 0.021;
 		autoScrollSpeed = -1;
@@ -267,15 +267,15 @@ class RscControlsGroup {
 		shadow = 0;
 		color[] = {1, 1, 1, 0.6};
 	};
-	
+
 	class HScrollbar:ScrollBar {
 		height = 0.028;
 		shadow = 0;
 		color[] = {1, 1, 1, 0.6};
 	};
-	
+
 	//class ListScrollBar : ScrollBar {};
-	
+
 	class Controls {};
 };
 
@@ -283,13 +283,13 @@ class RscControlsGroupNoScrollbars : RscControlsGroup {
 	class VScrollbar : VScrollbar {
 		width = 0;
 	};
-	
+
 	class HScrollbar : HScrollbar {
 		height = 0;
 	};
 };
 
-class RscButtonMenu:RscShortcutButton {
+class RscButtonMenu:RscShortcutButton_taw {
 	idc = -1;
 	type = 16;
 	style = "0x02 + 0xC0";
@@ -354,11 +354,11 @@ class TAW_VDMenu {
 	name = "TAW_VDMenu";
 	movingEnabled = 0;
 	enableSimulation = 1;
-	
+
 	onLoad = "((_this select 0) displayCtrl 2999) ctrlSetFade 1; ((_this select 0) displayCtrl 2999) ctrlCommit 0;";
 
 	class controlsBackground {
-		class TitleBackground : RscText {
+		class TitleBackground : RscText_taw {
 			colorBackground[] = { "(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])" };
 			idc = -1;
 			x = .3;
@@ -367,7 +367,7 @@ class TAW_VDMenu {
 			h = (1 / 25);
 		};
 
-		class MainBackground : RscText {
+		class MainBackground : RscText_taw {
 			colorBackground[] = { 0, 0, 0, .7 };
 			idc = -1;
 			x = .3;
@@ -375,7 +375,7 @@ class TAW_VDMenu {
 			w = .5;
 			h = .57 - (22 / 250);
 		};
-		
+
 		class Title : RscTitle {
 			colorBackround[] = { 0, 0, 0, 0 };
 			idc = -1;
@@ -386,7 +386,7 @@ class TAW_VDMenu {
 			h = (1 / 25);
 		};
 
-		class OnFootText : RscText {
+		class OnFootText : RscText_taw {
 			idc = -1;
 			text = "Infantry:";
 			x = .32;
@@ -409,7 +409,7 @@ class TAW_VDMenu {
 			text = "Object:";
 			y = .655;
 		};
-		
+
 		class DroneText : OnFootText {
 			text = "Drone:";
 			y = .405;
@@ -435,7 +435,7 @@ class TAW_VDMenu {
 			w = (6.25 / 40);
 			h = (1 / 25);
 		};
-		
+
 		class SaveManagerBtn:ButtonClose {
 			text = "Saves";
 			onButtonClick = "[] call tawvd_fnc_openSaveManager;";
@@ -477,7 +477,7 @@ class TAW_VDMenu {
 			onSliderPosChanged = "[3, _this select 1] call TAWVD_fnc_onSliderChanged;";
 			y = .7 - (1 / 25);
 		};
-		
+
 		class VD_Drone_slider:VD_onFoot_slider {
 			idc = DRONE_SLIDER;
 			toolTip = "View distance while operating a UAV/UGV";
@@ -486,7 +486,7 @@ class TAW_VDMenu {
 		}
 
 		//Values (RscEdit Butons)
-		class VD_onFoot_Edit : RscEdit {
+		class VD_onFoot_Edit : RscEdit_taw {
 			idc = INFANTRY_EDIT;
 			text = "";
 			onKeyUp = "[_this select 0, _this select 1, 'ground',true] call TAWVD_fnc_onChar;";
@@ -508,7 +508,7 @@ class TAW_VDMenu {
 			onKeyUp = "[_this select 0, _this select 1, 'air',true] call TAWVD_fnc_onChar;";
 			y = .36;
 		};
-		
+
 		class VD_inDrone_Edit:VD_onFoot_Edit {
 			idc = DRONE_EDIT;
 			onKeyUp = "[_this select 0, _this select 1, 'drone',true] call TAWVD_fnc_onChar;";
@@ -570,32 +570,32 @@ class TAW_VDMenu {
 			tooltip = "Sync object rendering with view rendering";
 			onCheckedChanged = "if((_this select 1) == 1) then {tawvd_syncObject = true;ctrlEnable [2941,false]; ctrlEnable [2942,false];} else {tawvd_syncObject = false; ctrlEnable [2942,true]; ctrlEnable [2941,true];};";
 			w = 1 * GUI_GRID_CENTER_W;
-			h = 1 * GUI_GRID_CENTER_H; 
+			h = 1 * GUI_GRID_CENTER_H;
 		};
 
-		class ObjectSynctext : RscText {
+		class ObjectSynctext : RscText_taw {
 			idc = -1;
 			text = "Sync with view";
 			x = .345; y = .596;
 			w = .35; h = .04;
 		};
-		
+
 		class Manager:RscControlsGroup {
 			idc = MANAGER_GROUP;
-			
+
 			x = -0.21; y = .2;
 			w = .5; h = 3;
 			class Controls {
 				class SaveLoadGroup:RscControlsGroupNoScrollbars {
 					idc = SAVELOAD_GROUP;
-					
+
 					x = 0;
 					y = 0;
 					w = .5;
 					h = 3;
-					
+
 					class Controls {
-						class MyTitleBackground:RscText {
+						class MyTitleBackground:RscText_taw {
 							colorBackground[] = { "(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])" };
 							idc = -1;
 							x = 0;
@@ -603,7 +603,7 @@ class TAW_VDMenu {
 							w = .5;
 							h = (1 / 25);
 						};
-						
+
 						class Title : RscTitle {
 							colorBackround[] = { 0, 0, 0, 0 };
 							idc = -1;
@@ -613,8 +613,8 @@ class TAW_VDMenu {
 							w = .8;
 							h = (1 / 25);
 						};
-						
-						class MainBackground:RscText {
+
+						class MainBackground:RscText_taw {
 							colorBackground[] = { 0, 0, 0, .7 };
 							idc = -1;
 							x = 0;
@@ -622,27 +622,27 @@ class TAW_VDMenu {
 							w = .5;
 							h = .57 - (22 / 250);
 						};
-						
-						class SaveList:RscListBox {
+
+						class SaveList:RscListBox_taw {
 							idc = SAVES_LIST;
 							sizeEx = 0.04;
 							colorBackground[] = {0.1,0.1,0.1,0.9};
 							x = 0; y = 0 + (11 / 250);
 							w = .5; h = .49 - (22 / 250);
-							
+
 							onLBSelChanged = "_this call TAWVD_fnc_onSaveSelectionChanged;";
 						};
-						
+
 						class SaveSlotName:VD_onFoot_Edit {
 							idc = SLOT_NAME;
 							text = "SAVE NAME";
 							colorBackground[] = {0,0,0,0.6};
 							onKeyUp = "";
-							
+
 							x = .025; y = .42 + (11 / 250);
 							w = .45;
 						};
-						
+
 						class SaveButton:RscButtonMenu {
 							text = "Save";
 							onButtonClick = "[] call TAWVD_fnc_onSavePressed;";
@@ -651,7 +651,7 @@ class TAW_VDMenu {
 							w = (6.25 / 40);
 							h = (1 / 25);
 						};
-						
+
 						class HideButton:RscButtonMenu {
 							text = "Hide";
 							onButtonClick = "((findDisplay 2900) displayCtrl 2999) ctrlSetFade 1; ((findDisplay 2900) displayCtrl 2999) ctrlCommit 0.3;";
