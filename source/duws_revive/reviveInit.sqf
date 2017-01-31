@@ -5,13 +5,13 @@ DUWS_revive_addaction = {
 		if (!DUWS_player_injured) then {
 		_this addaction ["<t color='#ff00ff'>Revive</t>","duws_revive\playerRevived.sqf", "", 0, true, true, "", "((_target distance _this) < 3"];
 		};
-};	
+};
 
 DUWS_revive_respawned = {
 		if (!DUWS_player_injured) then {
-		removeAllActions _this;
+		//removeAllActions _this;
 		};
-};	
+};
 
 DUWS_revive_revived = {
 		if (_this == player) then {
@@ -38,18 +38,17 @@ DUWS_sync_animhealing = {
 		_this switchmove "AinvPknlMstpSlayWpstDnon_medic";
 		};
 
-		
+
 // Compile scripts
 getLoadout = compile preprocessFileLineNumbers 'duws_revive\get_loadout.sqf';
 setLoadout = compile preprocessFileLineNumbers 'duws_revive\set_loadout.sqf';
-                                                
+
 // Save loadout every 5 seconds
 [] spawn {
     while{true} do {
         if(alive player) then {
             saved_loadout = [player] call getLoadout;
         };
-    sleep 5;  
+    sleep 5;
     };
 };
-		
