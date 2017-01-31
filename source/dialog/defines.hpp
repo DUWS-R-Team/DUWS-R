@@ -197,7 +197,7 @@ class RscCombo
     soundCollapse[] = {"",0.1,1};
     maxHistoryDelay = 1;
 
-    class ScrollBar
+    class ComboScrollBar
     {
         color[] = {1,1,1,0.6};
         colorActive[] = {1,1,1,1};
@@ -243,7 +243,7 @@ class RscListBox
     arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
     colorDisabled[] = {};
 
-    class ScrollBar
+    class ComboScrollBar
     {
         color[] = {1,1,1,0.6};
         colorActive[] = {1,1,1,1};
