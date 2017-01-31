@@ -255,6 +255,8 @@ class RscListBox
         border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
     };
 
+    class ListScrollBar {};
+
     style = 16;
     font = "Puristamedium";
     shadow = 2;
