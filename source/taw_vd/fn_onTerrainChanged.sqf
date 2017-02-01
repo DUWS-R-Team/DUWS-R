@@ -1,16 +1,15 @@
+
 /*
-	File: fn_onTerrainChange.sqf
 	Author: Bryan "Tonic" Boardwine
 	
 	Description:
 	Updates the players terraingrid when called.
 */
-private["_type"];
-_type = [_this,0,"",[""]] call BIS_fnc_param;
+private "_type";
+_type = param [0,"",[""]];
 if(_type == "") exitWith {};
 	
-switch (_type) do
-{
+switch (_type) do {
 	case "none": {if(isNil "tawvd_disablenone") then {setTerrainGrid 50;};};
 	case "low": {setTerrainGrid 30;};
 	case "norm": {setTerrainGrid 12.5;};

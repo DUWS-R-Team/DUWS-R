@@ -52,7 +52,7 @@ while {!_found} do
 			_posDeMeilleurTruc = [center_of_map, 0,half_of_map,5,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
 			if (_posDeMeilleurTruc select 0 != 0 && _posDeMeilleurTruc select 1 != 0) then {_Posfound=true;};
 		};
-		_playerDistance = _posDeMeilleurTruc distance player;
+		_playerDistance = _posDeMeilleurTruc distance hq_blu1;
 		
 		
 		
@@ -91,7 +91,7 @@ while {!_found} do
 
      player globalChat format["Zone location #%1 found !",_i];
 	 player globalChat format["Generating zone #%1",_i];
-	 waituntil {scriptdone _generatezonescript};
+	 //waituntil {scriptdone _generatezonescript};
      }; // END OF THIRD LOOP     
    };  // END SECOND LOOP
 };  // END WHILE LOOP --- LOCATION FOUND
@@ -111,8 +111,10 @@ sleep 20;
 _zones_array = [_zones_array, 0] call BIS_fnc_removeIndex;
 
 //player globalchat format["%1",_zones_array];
-_warcom_init = [_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] execVM "WARCOM\WARCOM_init.sqf"; // 2700 is 40 mins
-waitUntil {scriptDone _warcom_init};
+serv_zones_array = [] + _zones_array;
+publicVariable "serv_zones_array";
+//_warcom_init = [_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] execVM "WARCOM\WARCOM_init.sqf"; // 2700 is 40 mins
+//waitUntil {scriptDone _warcom_init};
 savegame;
 sleep 1;
 [[format["Campaign generated<br />Welcome to %1, %2",_worldName,profilename]]] spawn BIS_fnc_typeText;  

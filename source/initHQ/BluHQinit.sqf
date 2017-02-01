@@ -38,7 +38,6 @@ publicVariable "hq_blu1";
 _hq setpos [_hqblu select 0, _hqblu select 1, 0.59]; 
 _hq disableAI "AUTOTARGET";
 _hq setdir 0;
-_handle = [hq_blu1] execVM "initHQ\HQaddactions.sqf";
 removeallweapons _hq;
 _hq switchMove "acts_StandingSpeakingUnarmed";
 _handle = [_hq] execVM "sounds\radiochatter.sqf";
@@ -59,6 +58,11 @@ _handle = [(getpos hq_blu1), _hq] execVM "initHQ\fortify.sqf";
     sleep 6;
     ["officerkilled",false,true] call BIS_fnc_endMission;
 };
+
+//CREATE PATROL
+_handle = [getpos hq_blu1] execVM "initHQ\guardsHQ.sqf";
+_handle = [getpos hq_blu1] execVM "initHQ\guardsHQ.sqf";
+
 // IF THE OFFICER IS DEAD -- End OF "SPAWN"
 
 // TELEPORT PLAYER
@@ -88,14 +92,16 @@ if (!zones_manually_placed) then {
 
     // CALL ZONES GENERATION
     waitUntil {!isNil {getsize_script}};  // WAIT UNTIL THE MAPSIZE SCRIPT IS DONE
+    createzone_server = true;
+    publicVariable "createzone_server";
 
     // CHECK IF ZONES ARE PLACED...
     // If not execute locatorZonesV1.sqf if the user wants them randomly placed. V2 if the user wants to place zones.
-    if (!zones_created && !manually_chosen) then {
-        _zones_create = [50, 0.2] execVM "initZones\locatorZonesV1.sqf";
-    } else {
-        _zones_create = [50, 0.2] execVM "initZones\locatorZonesV2.sqf";
-    };
+    // if (!zones_created && !manually_chosen) then {
+    //     _zones_create = [50, 0.2] execVM "initZones\locatorZonesV1.sqf";
+    // } else {
+    //     _zones_create = [50, 0.2] execVM "initZones\locatorZonesV2.sqf";
+    // };
 };
 
 player allowDamage true;
