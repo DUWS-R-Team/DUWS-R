@@ -39,6 +39,8 @@ lbSetCurSel [2101, 0];
 // VEHICLES
 _index1 = lbAdd [2102, "Small Transport Truck 1 (seats 6 - 4CP)"];       // 0
 _index1 = lbAdd [2102, "Small Transport Truck 2 (seats 9 - 6CP)"];       // 1
+_index1 = lbAdd [2102, "Prowler Unarmed (xxCP)"];                        // 30
+_index1 = lbAdd [2102, "Prowler Armed (xxCP)"];                          // 31
 _index1 = lbAdd [2102, "Hunter Unarmed(5CP)"];                           // 2
 _index1 = lbAdd [2102, "Hunter HMG(18CP)"];                              // 3
 _index1 = lbAdd [2102, "Hunter GMG(25CP)"];                              // 4
@@ -66,7 +68,11 @@ _index1 = lbAdd [2102, "Stomper RCWS Autonomous(20CP)"];                 // 25
 _index1 = lbAdd [2102, "Stomper Autonomous Recon(10CP)"];                // 26
 _index1 = lbAdd [2102, "UAV GreyHawk w/ATG Missiles(15CP)"];             // 27
 _index1 = lbAdd [2102, "UAV GreyHawk w/Bombs(15CP)"];                    // 28
+_index1 = lbAdd [2102, "UAV VTOL Falcon (xxCP)"];                        // 37
 _index1 = lbAdd [2102, "UAV Darter(5CP)"];                               // 29
+_index1 = lbAdd [2102, "Blackfish Infantry (xxCP)"];                     // 34
+_index1 = lbAdd [2102, "Blackfish Vehicle (xxCP)"];                      // 35
+_index1 = lbAdd [2102, "Blackfish Armed (xxCP)"];                        // 36
 lbSetCurSel [2102, 0];
 
 // Supports  !!! CHECK TO ADD AT INIT
