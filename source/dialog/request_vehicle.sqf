@@ -5,7 +5,7 @@ _spawnPos = getpos player;
 _spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1];
 
 switch (_index) do {
-    case 0: {
+    case 0: { // Small Truck 1
         if (commandpointsblu1 >= 4) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 4;
@@ -15,7 +15,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 1: {
+    case 1: { // Small Truck 2
         if (commandpointsblu1 >= 6) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 6;
@@ -25,7 +25,27 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 2: {
+    case 2: { // Prowler Unarmed
+        if (commandpointsblu1 >= 5) then {
+            hint "Vehicle ready !";
+            commandpointsblu1 = commandpointsblu1 - 100;
+            ctrlSetText [1000, format["%1",commandpointsblu1]];
+            _vehic = "B_T_LSV_01_unarmed_F" createVehicle _spawnPos;
+        } else {
+            hint "Not enough command points";
+        };
+    };
+    case 3: { // Prowler Armed
+        if (commandpointsblu1 >= 100) then {
+            hint "Vehicle ready !";
+            commandpointsblu1 = commandpointsblu1 - 100;
+            ctrlSetText [1000, format["%1",commandpointsblu1]];
+            _vehic = "B_T_LSV_01_armed_F" createVehicle _spawnPos;
+        } else {
+            hint "Not enough command points";
+        };
+    };
+    case 4: { // Hunter Unarmed
         if (commandpointsblu1 >= 5) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 5;
@@ -35,7 +55,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 3: {
+    case 5: { // Hunter HMG
         if (commandpointsblu1 >= 18) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 18;
@@ -45,7 +65,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 4: {
+    case 6: { // Hunter GMG
         if (commandpointsblu1 >= 25) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 25;
@@ -55,7 +75,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 5: {
+    case 7: { // Marshall
         if (commandpointsblu1 >= 35) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 35;
@@ -65,7 +85,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 6: {
+    case 8: { //HEMETT Transport Covered
         if (commandpointsblu1 >= 8) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 8;
@@ -75,7 +95,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 7: {
+    case 9: { // Pawnee
         if (commandpointsblu1 >= 25) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 25;
@@ -85,7 +105,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 8: {
+    case 10: { // Blackfoot
         if (commandpointsblu1 >= 45) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 45;
@@ -95,7 +115,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 9: {
+    case 11: { // HummingBird
         if (commandpointsblu1 >= 15) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
@@ -105,7 +125,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 10: {
+    case 12: { // M-900 Civ.
         if (commandpointsblu1 >= 12) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 12;
@@ -116,7 +136,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 11: {
+    case 13: { // Taru Empty
         if (commandpointsblu1 >= 18) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 18;
@@ -127,7 +147,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 12: {
+    case 14: { // GhostHawk
         if (commandpointsblu1 >= 22) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 22;
@@ -137,7 +157,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 13: {
+    case 15: { // Huron
         if (commandpointsblu1 >= 26) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 26;
@@ -147,7 +167,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 14: {
+    case 16: { // Panther IFV
         if (commandpointsblu1 >= 25) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 25;
@@ -157,7 +177,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 15: {
+    case 17: { // ATV Quad
         if (commandpointsblu1 >= 1) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 1;
@@ -167,7 +187,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 16: {
+    case 18: { // Cheetah AA
         if (commandpointsblu1 >= 30) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 30;
@@ -177,7 +197,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 17: {
+    case 19: { // Slammer
         if (commandpointsblu1 >= 40) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 40;
@@ -187,7 +207,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 18: {
+    case 20: { // Bobcat
         if (commandpointsblu1 >= 28) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 28;
@@ -197,7 +217,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 19: {
+    case 21: { // SF SUV
         if (commandpointsblu1 >= 2) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 2;
@@ -219,7 +239,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 20: {
+    case 22: { // MLRS Artillery
         if (commandpointsblu1 >= 75) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 75;
@@ -229,7 +249,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 21: {
+    case 23: { // Scorcher Artillery
         if (commandpointsblu1 >= 75) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 75;
@@ -239,7 +259,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 22: {
+    case 24: { // Fuel Truck (van)
         if (commandpointsblu1 >= 10) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 10;
@@ -249,7 +269,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 23: {
+    case 25: { // Wipeout CAS
         if (commandpointsblu1 >= 45) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 45;
@@ -259,7 +279,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 24: {
+    case 26: { // Slammer Urban Purpose
         if (commandpointsblu1 >= 40) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 40;
@@ -269,7 +289,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 25: {
+    case 27: { // Stomper RCWS
         if (commandpointsblu1 >= 20) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 20;
@@ -279,7 +299,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 26: {
+    case 28: { // Stomper Scout
         if (commandpointsblu1 >= 10) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 10;
@@ -289,7 +309,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 27: {
+    case 29: { // Greyhawk ATG
         if (commandpointsblu1 >= 15) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
@@ -299,7 +319,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 28: {
+    case 30: { // Greyhawk CAS
         if (commandpointsblu1 >= 15) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
@@ -309,7 +329,17 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 29: {
+    case 31: { // MQ-12 Falcon
+        if (commandpointsblu1 >= 100) then {
+            hint "Vehicle ready !";
+            commandpointsblu1 = commandpointsblu1 - 100;
+            ctrlSetText [1000, format["%1",commandpointsblu1]];
+            _vehic = "B_T_UAV_03_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+        } else {
+            hint "Not enough command points";
+        };
+    };
+    case 32: { // Darter UAV
         if (commandpointsblu1 >= 5) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 5;
@@ -319,47 +349,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 30: { // Prowler Unarmed
-        if (commandpointsblu1 >= 5) then {
-            hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
-            ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_LSV_01_unarmed_F" createVehicle _spawnPos;
-        } else {
-            hint "Not enough command points";
-        };
-    };
-    case 31: { // Prowler Armed
-        if (commandpointsblu1 >= 100) then {
-            hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
-            ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_LSV_01_armed_F" createVehicle _spawnPos;
-        } else {
-            hint "Not enough command points";
-        };
-    };
-    case 32: {
-        if (commandpointsblu1 >= 100) then {
-            hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
-            ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_LSV_01_armed_F" createVehicle _spawnPos;
-        } else {
-            hint "Not enough command points";
-        };
-    };
-    case 33: {
-        if (commandpointsblu1 >= 100) then {
-            hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
-            ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_LSV_01_armed_F" createVehicle _spawnPos;
-        } else {
-            hint "Not enough command points";
-        };
-    };
-    case 34: { // Blackfish (Infantry)
+    case 33: { // Blackfish (Infantry)
         if (commandpointsblu1 >= 100) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 100;
@@ -369,7 +359,7 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 35: { // Blackfish (Vehicle)
+    case 34: { // Blackfish (Vehicle)
         if (commandpointsblu1 >= 100) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 100;
@@ -379,22 +369,12 @@ switch (_index) do {
             hint "Not enough command points";
         };
     };
-    case 36: { // Blackfish (Armed)
+    case 35: { // Blackfish (Armed)
         if (commandpointsblu1 >= 100) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 100;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_T_VTOL_01_armed_F" createVehicle _spawnPos;
-        } else {
-            hint "Not enough command points";
-        };
-    };
-    case 37: { // MQ-12 Falcon
-        if (commandpointsblu1 >= 100) then {
-            hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
-            ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_UAV_03_F" createVehicle _spawnPos; createVehicleCrew _vehic;
         } else {
             hint "Not enough command points";
         };
