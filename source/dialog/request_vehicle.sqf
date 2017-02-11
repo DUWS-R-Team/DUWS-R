@@ -28,7 +28,7 @@ switch (_index) do {
     case 2: { // Prowler Unarmed
         if (commandpointsblu1 >= 5) then {
             hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
+            commandpointsblu1 = commandpointsblu1 - 5;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_T_LSV_01_unarmed_F" createVehicle _spawnPos;
         } else {
@@ -36,9 +36,9 @@ switch (_index) do {
         };
     };
     case 3: { // Prowler Armed
-        if (commandpointsblu1 >= 100) then {
+        if (commandpointsblu1 >= 13) then {
             hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
+            commandpointsblu1 = commandpointsblu1 - 13;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_T_LSV_01_armed_F" createVehicle _spawnPos;
         } else {
@@ -330,9 +330,9 @@ switch (_index) do {
         };
     };
     case 31: { // MQ-12 Falcon
-        if (commandpointsblu1 >= 100) then {
+        if (commandpointsblu1 >= 60) then {
             hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
+            commandpointsblu1 = commandpointsblu1 - 60;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_T_UAV_03_F" createVehicle _spawnPos; createVehicleCrew _vehic;
         } else {
@@ -350,9 +350,9 @@ switch (_index) do {
         };
     };
     case 33: { // Blackfish (Infantry)
-        if (commandpointsblu1 >= 100) then {
+        if (commandpointsblu1 >= 40) then {
             hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
+            commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_T_VTOL_01_infantry_F" createVehicle _spawnPos;
         } else {
@@ -360,9 +360,9 @@ switch (_index) do {
         };
     };
     case 34: { // Blackfish (Vehicle)
-        if (commandpointsblu1 >= 100) then {
+        if (commandpointsblu1 >= 45) then {
             hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
+            commandpointsblu1 = commandpointsblu1 - 45;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_T_VTOL_01_vehicle_F" createVehicle _spawnPos;
         } else {
@@ -370,9 +370,9 @@ switch (_index) do {
         };
     };
     case 35: { // Blackfish (Armed)
-        if (commandpointsblu1 >= 100) then {
+        if (commandpointsblu1 >= 60) then {
             hint "Vehicle ready !";
-            commandpointsblu1 = commandpointsblu1 - 100;
+            commandpointsblu1 = commandpointsblu1 - 60;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_T_VTOL_01_armed_F" createVehicle _spawnPos;
         } else {
