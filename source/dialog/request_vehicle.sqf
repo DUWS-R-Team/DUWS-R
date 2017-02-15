@@ -81,6 +81,12 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 35;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Wheeled_01_cannon_F" createVehicle _spawnPos;
+            _vehic addEventHandler ["IncomingMissile", {
+                playSound "alarmCar";
+                _azi = player getDir (_this select 3);
+                titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+                }
+            ];
         } else {
             hint "Not enough command points";
         };
@@ -173,6 +179,12 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 25;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Tracked_01_rcws_F" createVehicle _spawnPos;
+            _vehic addEventHandler ["IncomingMissile", {
+                playSound "alarmCar";
+                _azi = player getDir (_this select 3);
+                titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+                }
+            ];
         } else {
             hint "Not enough command points";
         };
@@ -193,6 +205,12 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 30;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Tracked_01_AA_F" createVehicle _spawnPos;
+            _vehic addEventHandler ["IncomingMissile", {
+                playSound "alarmCar";
+                _azi = player getDir (_this select 3);
+                titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+                }
+            ];
         } else {
             hint "Not enough command points";
         };
@@ -203,6 +221,12 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_MBT_01_cannon_F" createVehicle _spawnPos;
+            _vehic addEventHandler ["IncomingMissile", {
+                playSound "alarmCar";
+                _azi = player getDir (_this select 3);
+                titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+                }
+            ];
         } else {
             hint "Not enough command points";
         };
@@ -213,6 +237,12 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 28;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Tracked_01_CRV_F" createVehicle _spawnPos;
+            _vehic addEventHandler ["IncomingMissile", {
+                playSound "alarmCar";
+                _azi = player getDir (_this select 3);
+                titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+                }
+            ];
         } else {
             hint "Not enough command points";
         };
@@ -285,6 +315,12 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_MBT_01_TUSK_F" createVehicle _spawnPos;
+            _vehic addEventHandler ["IncomingMissile", {
+                playSound "alarmCar";
+                _azi = player getDir (_this select 3);
+                titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+                }
+            ];
         } else {
             hint "Not enough command points";
         };
