@@ -4,6 +4,20 @@ _index = lbCurSel 2102;
 _spawnPos = getpos player;
 _spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1];
 
+_addEWS_EH = {
+    (_this select 0) addEventHandler ["IncomingMissile", {
+        _target = _this select 0;
+        _attacker = _this select 3;
+
+        if(player in crew (_target)) then {
+            _target say3D ["alarmCar", 1,1];
+            _azi = (_target) getDir (_attacker);
+
+            titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+        };
+    }];
+};
+
 switch (_index) do {
     case 0: { // Small Truck 1
         if (commandpointsblu1 >= 4) then {
@@ -81,6 +95,7 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 35;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Wheeled_01_cannon_F" createVehicle _spawnPos;
+            [_vehic] spawn _addEWS_EH;
         } else {
             hint "Not enough command points";
         };
@@ -173,6 +188,7 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 25;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Tracked_01_rcws_F" createVehicle _spawnPos;
+            [_vehic] spawn _addEWS_EH;
         } else {
             hint "Not enough command points";
         };
@@ -193,6 +209,7 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 30;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Tracked_01_AA_F" createVehicle _spawnPos;
+            [_vehic] spawn _addEWS_EH;
         } else {
             hint "Not enough command points";
         };
@@ -203,6 +220,7 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_MBT_01_cannon_F" createVehicle _spawnPos;
+            [_vehic] spawn _addEWS_EH;
         } else {
             hint "Not enough command points";
         };
@@ -213,6 +231,7 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 28;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_APC_Tracked_01_CRV_F" createVehicle _spawnPos;
+            [_vehic] spawn _addEWS_EH;
         } else {
             hint "Not enough command points";
         };
@@ -285,6 +304,7 @@ switch (_index) do {
             commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
             _vehic = "B_MBT_01_TUSK_F" createVehicle _spawnPos;
+            [_vehic] spawn _addEWS_EH;
         } else {
             hint "Not enough command points";
         };
