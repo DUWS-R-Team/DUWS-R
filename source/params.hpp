@@ -17,6 +17,6 @@ class Params {
         title = "Stamina System";
         values[] = {1,0};
         texts[] = {"On","Off"};
-        default = true;
+        default = 1;
     };
 }

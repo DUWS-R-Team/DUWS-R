@@ -27,9 +27,13 @@ if (isMultiplayer) then {
 	_revive_activated = paramsArray select 0; // Revives, true or false
 	DUWSMP_CP_death_cost = paramsArray select 1;
 
-    if(paramsArray select 2 == 0) then {
+    // Setup stamina system
+    staminaEnabled = ["Stamina", 0] call BIS_fnc_getParamValue;
+    if(staminaEnabled == 0) then {
         staminaEnabled = false;
-    } else { staminaEnabled = true; };
+    } else {
+        staminaEnabled = true;
+    };
 
     if (support_armory_available) then {
         hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
