@@ -4,13 +4,13 @@ _index = lbCurSel 2102;
 _spawnPos = getpos player;
 _spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1];
 
-_addEWS_EH = {
+addEWS_EH = {
     (_this select 0) addEventHandler ["IncomingMissile", {
         _target = _this select 0;
         _attacker = _this select 3;
 
         if(player in crew (_target)) then {
-            _target say3D ["alarmCar", 1,1];
+            _target say3D ["alarmCar", 2, 1];
             _azi = (_target) getDir (_attacker);
 
             titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
@@ -18,13 +18,15 @@ _addEWS_EH = {
     }];
 };
 
+vehic = nil;
+
 switch (_index) do {
     case 0: { // Small Truck 1
         if (commandpointsblu1 >= 4) then {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 4;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "I_G_Offroad_01_F" createVehicle _spawnPos;
+            vehic = "I_G_Offroad_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -34,7 +36,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 6;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "I_G_Van_01_transport_F" createVehicle _spawnPos;
+            vehic = "I_G_Van_01_transport_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -44,7 +46,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 5;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_LSV_01_unarmed_F" createVehicle _spawnPos;
+            vehic = "B_T_LSV_01_unarmed_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -54,7 +56,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 13;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_LSV_01_armed_F" createVehicle _spawnPos;
+            vehic = "B_T_LSV_01_armed_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -64,7 +66,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 5;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_MRAP_01_F" createVehicle _spawnPos;
+            vehic = "B_MRAP_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -74,7 +76,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 18;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_MRAP_01_hmg_F" createVehicle _spawnPos;
+            vehic = "B_MRAP_01_hmg_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -84,7 +86,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 25;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_MRAP_01_gmg_F" createVehicle _spawnPos;
+            vehic = "B_MRAP_01_gmg_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -94,8 +96,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 35;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_APC_Wheeled_01_cannon_F" createVehicle _spawnPos;
-            [_vehic] spawn _addEWS_EH;
+            vehic = "B_APC_Wheeled_01_cannon_F" createVehicle _spawnPos;
+            [vehic] remoteExec ["addEWS_EH", 0, true];
         } else {
             hint "Not enough command points";
         };
@@ -105,7 +107,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 8;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Truck_01_covered_F" createVehicle _spawnPos;
+            vehic = "B_Truck_01_covered_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -115,7 +117,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 25;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Heli_Light_01_armed_F" createVehicle _spawnPos;
+            vehic = "B_Heli_Light_01_armed_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -125,7 +127,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 45;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Heli_Attack_01_F" createVehicle _spawnPos;
+            vehic = "B_Heli_Attack_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -135,7 +137,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Heli_Light_01_F" createVehicle _spawnPos;
+            vehic = "B_Heli_Light_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -145,8 +147,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 12;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "C_Heli_Light_01_civil_F" createVehicle _spawnPos;
-            _vehic setVariable ["color",13];
+            vehic = "C_Heli_Light_01_civil_F" createVehicle _spawnPos;
+            vehic setVariable ["color",13];
         } else {
             hint "Not enough command points";
         };
@@ -156,8 +158,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 18;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "O_Heli_Transport_04_F" createVehicle _spawnPos;
-            null = [_vehic] execVM "\a3\Air_F_Heli\Heli_Transport_04\Scripts\Heli_Transport_04_basic_black.sqf";
+            vehic = "O_Heli_Transport_04_F" createVehicle _spawnPos;
+            null = [vehic] execVM "\a3\Air_F_Heli\Heli_Transport_04\Scripts\Heli_Transport_04_basic_black.sqf";
         } else {
             hint "Not enough command points";
         };
@@ -167,7 +169,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 22;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Heli_Transport_01_F" createVehicle _spawnPos;
+            vehic = "B_Heli_Transport_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -177,7 +179,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 26;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Heli_Transport_03_F" createVehicle _spawnPos;
+            vehic = "B_Heli_Transport_03_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -187,8 +189,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 25;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_APC_Tracked_01_rcws_F" createVehicle _spawnPos;
-            [_vehic] spawn _addEWS_EH;
+            vehic = "B_APC_Tracked_01_rcws_F" createVehicle _spawnPos;
+            [vehic] remoteExec ["addEWS_EH", 0, true];
         } else {
             hint "Not enough command points";
         };
@@ -198,7 +200,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 1;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Quadbike_01_F" createVehicle _spawnPos;
+            vehic = "B_Quadbike_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -208,8 +210,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 30;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_APC_Tracked_01_AA_F" createVehicle _spawnPos;
-            [_vehic] spawn _addEWS_EH;
+            vehic = "B_APC_Tracked_01_AA_F" createVehicle _spawnPos;
+            [vehic] remoteExec ["addEWS_EH", 0, true];
         } else {
             hint "Not enough command points";
         };
@@ -219,8 +221,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_MBT_01_cannon_F" createVehicle _spawnPos;
-            [_vehic] spawn _addEWS_EH;
+            vehic = "B_MBT_01_cannon_F" createVehicle _spawnPos;
+            [vehic] remoteExec ["addEWS_EH", 0, true];
         } else {
             hint "Not enough command points";
         };
@@ -230,8 +232,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 28;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_APC_Tracked_01_CRV_F" createVehicle _spawnPos;
-            [_vehic] spawn _addEWS_EH;
+            vehic = "B_APC_Tracked_01_CRV_F" createVehicle _spawnPos;
+            [vehic] remoteExec ["addEWS_EH", 0, true];
         } else {
             hint "Not enough command points";
         };
@@ -241,19 +243,19 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 2;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "C_Offroad_01_F" createVehicle _spawnPos;
+            vehic = "C_Offroad_01_F" createVehicle _spawnPos;
             sleep 1;
-            _vehic setObjectTexture [0, "#(argb,8,8,3)color(0.141,0.118,0.082,1)"];
-            _vehic animate ["Hidepolice", 1];
-            _vehic animate ["Hideservices", 1];
-            _vehic animate ["Hidebackpacks", 0];
-            _vehic animate ["Hidebumper1", 0];
-            _vehic animate ["Hidebumper2", 0];
-            _vehic animate ["Hideconstruction", 0];
-            _vehic animate ["Hidedoor1", 1];
-            _vehic animate ["Hidedoor2", 1];
-            _vehic animate ["Hidedoor3", 1];
-            _vehic animate ["Hideglass2", 1];
+            vehic setObjectTexture [0, "#(argb,8,8,3)color(0.141,0.118,0.082,1)"];
+            vehic animate ["Hidepolice", 1];
+            vehic animate ["Hideservices", 1];
+            vehic animate ["Hidebackpacks", 0];
+            vehic animate ["Hidebumper1", 0];
+            vehic animate ["Hidebumper2", 0];
+            vehic animate ["Hideconstruction", 0];
+            vehic animate ["Hidedoor1", 1];
+            vehic animate ["Hidedoor2", 1];
+            vehic animate ["Hidedoor3", 1];
+            vehic animate ["Hideglass2", 1];
         } else {
             hint "Not enough command points";
         };
@@ -263,7 +265,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 75;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_MBT_01_mlrs_F" createVehicle _spawnPos;
+            vehic = "B_MBT_01_mlrs_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -273,7 +275,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 75;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_MBT_01_arty_F" createVehicle _spawnPos;
+            vehic = "B_MBT_01_arty_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -283,7 +285,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 10;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_G_Van_01_fuel_F" createVehicle _spawnPos;
+            vehic = "B_G_Van_01_fuel_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -293,7 +295,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 45;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_Plane_CAS_01_F" createVehicle _spawnPos;
+            vehic = "B_Plane_CAS_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -303,8 +305,8 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_MBT_01_TUSK_F" createVehicle _spawnPos;
-            [_vehic] spawn _addEWS_EH;
+            vehic = "B_MBT_01_TUSK_F" createVehicle _spawnPos;
+            [vehic] remoteExec ["addEWS_EH", 0, true];
         } else {
             hint "Not enough command points";
         };
@@ -314,7 +316,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 20;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UGV_01_rcws_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            vehic = "B_UGV_01_rcws_F" createVehicle _spawnPos; createVehicleCrew vehic;
         } else {
             hint "Not enough command points";
         };
@@ -324,7 +326,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 10;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UGV_01_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            vehic = "B_UGV_01_F" createVehicle _spawnPos; createVehicleCrew vehic;
         } else {
             hint "Not enough command points";
         };
@@ -334,7 +336,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UAV_02_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            vehic = "B_UAV_02_F" createVehicle _spawnPos; createVehicleCrew vehic;
         } else {
             hint "Not enough command points";
         };
@@ -344,7 +346,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 15;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UAV_02_CAS_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            vehic = "B_UAV_02_CAS_F" createVehicle _spawnPos; createVehicleCrew vehic;
         } else {
             hint "Not enough command points";
         };
@@ -354,7 +356,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 60;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_UAV_03_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            vehic = "B_T_UAV_03_F" createVehicle _spawnPos; createVehicleCrew vehic;
         } else {
             hint "Not enough command points";
         };
@@ -364,7 +366,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 5;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_UAV_01_F" createVehicle _spawnPos; createVehicleCrew _vehic;
+            vehic = "B_UAV_01_F" createVehicle _spawnPos; createVehicleCrew vehic;
         } else {
             hint "Not enough command points";
         };
@@ -374,7 +376,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 40;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_VTOL_01_infantry_F" createVehicle _spawnPos;
+            vehic = "B_T_VTOL_01_infantry_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -384,7 +386,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 45;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_VTOL_01_vehicle_F" createVehicle _spawnPos;
+            vehic = "B_T_VTOL_01vehicle_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
@@ -394,11 +396,12 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 60;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            _vehic = "B_T_VTOL_01_armed_F" createVehicle _spawnPos;
+            vehic = "B_T_VTOL_01_armed_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };
     };
 };
+vehic = nil;
 publicVariable "commandpointsblu1";
 //hint format["index: %1",_index];
