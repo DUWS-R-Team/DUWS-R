@@ -202,8 +202,8 @@ game_master = ["player1"];publicVariable "game_master";
      if (!zones_created) then {      // CHECK IF ZONES ARE PLACED, IF NOT EXECUTE locatorZonesV1.sqf
      _zones_create = {[50,0.2] execVM "initZones\locatorZonesV2.sqf"} remoteExec ["bis_fnc_spawn", game_master select 0];   // CHECK IF ZONES HAVE ALREADY BEEN PLACED
      };
- }
-
+ };
+ 
 waitUntil { !isNil "serv_zones_array" };
 diag_log format ["serv_zones_array: %1", serv_zones_array];
 _warcom_init = [serv_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] execVM "WARCOM\WARCOM_init.sqf"; // 2700 is 40 mins
