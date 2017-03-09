@@ -6,5 +6,8 @@ DUWS_player_injured = false;
 player setpos [getpos hq_blu1 select 0, (getpos hq_blu1 select 1)+10];
 player allowdamage true;
 
-closedialog 0;
+if(!staminaEnabled) then {
+    player enableStamina false;
+};
 
+closedialog 0;
