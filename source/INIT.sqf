@@ -24,8 +24,16 @@ if (!isMultiplayer) then {
 if (isMultiplayer) then {
 
 	// Get the variables from the parameters lobby
-	_revive_activated = paramsArray select 0; // Revives, true or false
-	DUWSMP_CP_death_cost = paramsArray select 1;
+	_revive_activated = ["Revive", 1] call BIS_fnc_getParamValue;
+	DUWSMP_CP_death_cost = ["DeathPenalty", 1] call BIS_fnc_getParamValue;
+    staminaEnabled = ["Stamina", 0] call BIS_fnc_getParamValue;
+
+    if(staminaEnabled == 0) then {
+        staminaEnabled = false;
+    } else {
+        staminaEnabled = true;
+    };
+
     if (support_armory_available) then {
         hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
         {
@@ -152,6 +160,10 @@ if (hasInterface) then {
     // init High Command
     _handle = [] execVM "dialog\hc_init.sqf";
     [] execVM "dialog\startup\weather_client.sqf";
+
+    if(!staminaEnabled) then {
+        player enableStamina false;
+    };
 };
 
 if (!isMultiplayer) then {
