@@ -203,7 +203,16 @@ game_master = ["player1"];publicVariable "game_master";
      _zones_create = {[50,0.2] execVM "initZones\locatorZonesV2.sqf"} remoteExec ["bis_fnc_spawn", game_master select 0];   // CHECK IF ZONES HAVE ALREADY BEEN PLACED
      };
  };
- 
+
+//FIX ME: Execution Order requires zone bonus and reward be before WARCOM INIT
+ if (isServer) then {
+     // initialise the ressources per zone bonus
+     _basepoint = [] execVM "zonesundercontrol.sqf";
+ };
+
+ // init the bonuses you get when capturing zones
+ _basepoint = [] execVM "zones_bonus.sqf";
+
 waitUntil { !isNil "serv_zones_array" };
 diag_log format ["serv_zones_array: %1", serv_zones_array];
 _warcom_init = [serv_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] execVM "WARCOM\WARCOM_init.sqf"; // 2700 is 40 mins
@@ -221,13 +230,6 @@ if (isServer) then {
 };
 
 
-if (isServer) then {
-    // initialise the ressources per zone bonus
-    _basepoint = [] execVM "zonesundercontrol.sqf";
-};
-
-// init the bonuses you get when capturing zones
-_basepoint = [] execVM "zones_bonus.sqf";
 
 if (zones_manually_placed) then {
     waitUntil {!isNil ("Array_of_OPFOR_zones")};
