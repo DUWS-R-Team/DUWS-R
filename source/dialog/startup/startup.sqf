@@ -67,6 +67,7 @@ index_amount_cp_300 = lbAdd [2103, "300"];
 index_amount_cp_400 = lbAdd [2103, "400"];
 index_amount_cp_500 = lbAdd [2103, "500"];
 index_amount_cp_600 = lbAdd [2103, "600"];
+index_amount_cp_100000 = lbAdd [2103, "100000"];
 lbSetCurSel [2103, index_amount_cp_60];
 
 // BLUFOR AP
