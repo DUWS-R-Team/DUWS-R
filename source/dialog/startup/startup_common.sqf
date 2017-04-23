@@ -184,6 +184,9 @@ switch (_index) do {
     case index_amount_cp_600: {
         commandpointsblu1 = 600
     };
+    case index_amount_cp_100000: {
+        commandpointsblu1 = 100000
+    };
 };
 
 // Weather type
