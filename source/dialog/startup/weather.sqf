@@ -1,18 +1,18 @@
 //0 setFog [0.1, 0.09, 10]
-// 1ère valeur: --> INTENSITE BROUILLARD
-// 2ème valeur: rester entre 0.01(haut) et 0.1(bas)  --> hauteur brouillard
-// 3ème valeur: mieux vaut rester à 10 --> hauteur de base
+// 1ï¿½re valeur: --> INTENSITE BROUILLARD
+// 2ï¿½me valeur: rester entre 0.01(haut) et 0.1(bas)  --> hauteur brouillard
+// 3ï¿½me valeur: mieux vaut rester ï¿½ 10 --> hauteur de base
 
 //  fog
-// tropical --> intensité (0.3 - 0.9) Hauteur totalement variable
-// mediter  --> intensité (0.5 - 0.0)
-// tempéré  --> intensité (0.75 - 0.0)
-// tempéré froid  --> intensité (0.75 - 0.0)
+// tropical --> intensitï¿½ (0.3 - 0.9) Hauteur totalement variable
+// mediter  --> intensitï¿½ (0.5 - 0.0)
+// tempï¿½rï¿½  --> intensitï¿½ (0.75 - 0.0)
+// tempï¿½rï¿½ froid  --> intensitï¿½ (0.75 - 0.0)
 // aride 0
 
 // 0 setOvercast 0.9
-// tempéré 0.3 - 0.8
-// tempéré froid 0.4 - 0.8
+// tempï¿½rï¿½ 0.3 - 0.8
+// tempï¿½rï¿½ froid 0.4 - 0.8
 // tropical 0 - 1
 // medit 0 - 0.6
 // aride 0 - 0.3
@@ -135,6 +135,24 @@ switch (weather_type) do {
             _overcast_intensity = (_overcast_intensity / 10); // transforme en dixi?mes
             20 setOvercast _overcast_intensity;
             diag_log format ["DUWS-R DEBUG: %3 setOvercast %1", _overcast_intensity];
+
+            _wait_total = _fog_time + _wait_after;
+            _wait_total_minute = _wait_total / 60;
+            sleep (_wait_total);
+        }; //end while
+    };
+    case "none": { //TODO Expand on this
+        while {_weather_loop} do {
+            _wait_after = random 1800;
+
+            _fog_time = 0;
+            _fog_intensity = 0;
+            _fog_height = 0;
+            diag_log format ["DUWS-R DEBUG: %3 setFog [%1, %2, 10]", _fog_intensity, _fog_height, _fog_time];
+            _fog_time setFog [_fog_intensity, _fog_height, 10];
+
+            _overcast_intensity = 0;
+            20 setOvercast _overcast_intensity;
 
             _wait_total = _fog_time + _wait_after;
             _wait_total_minute = _wait_total / 60;

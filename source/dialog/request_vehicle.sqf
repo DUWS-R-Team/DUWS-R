@@ -386,7 +386,7 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 45;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
-            vehic = "B_T_VTOL_01vehicle_F" createVehicle _spawnPos;
+            vehic = "B_T_VTOL_01_vehicle_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
         };

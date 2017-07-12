@@ -184,6 +184,9 @@ switch (_index) do {
     case index_amount_cp_600: {
         commandpointsblu1 = 600
     };
+    case index_amount_cp_100000: {
+        commandpointsblu1 = 100000
+    };
 };
 
 // Weather type
@@ -204,10 +207,8 @@ switch (_index) do {
     case index_weather_type_mediterranean: {
         weather_type = "mediterranean";
     };
-    case index_weather_type_varied: {
-        weather_type = "varied";
-    };
     case index_weather_type_disable: {
+        weather_type = "none";
         dynamic_weather_enable = false;
     };
 };
