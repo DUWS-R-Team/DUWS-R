@@ -1,7 +1,7 @@
 _index = lbCurSel 2102;
 
-
-_spawnPos = getpos player;
+//_spawnPos = getpos player; Blocked by Tuxu
+_spawnPos = [getpos hq_blu1, 100, 250, 20, 0, 20, 0] call BIS_fnc_findSafePos; //changed by tuxu
 _spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1];
 
 addEWS_EH = {
