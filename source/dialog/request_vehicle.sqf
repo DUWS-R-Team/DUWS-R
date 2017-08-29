@@ -1,8 +1,8 @@
 _index = lbCurSel 2102;
 
-//_spawnPos = getpos player; Blocked by Tuxu
-_spawnPos = [getpos hq_blu1, 100, 250, 20, 0, 20, 0] call BIS_fnc_findSafePos; //changed by tuxu
-_spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1];
+//findEmptyPosition example
+_spawnPos = (getpos hq_blu1) findEmptyPosition [40, 120]
+_spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1]
 
 addEWS_EH = {
     (_this select 0) addEventHandler ["IncomingMissile", {
@@ -26,6 +26,10 @@ switch (_index) do {
             hint "Vehicle ready !";
             commandpointsblu1 = commandpointsblu1 - 4;
             ctrlSetText [1000, format["%1",commandpointsblu1]];
+            //Might want refactor this next bit so it isn't repeated
+            //In fact might want to refactor each case!
+            _spawnPos = (getpos hq_blu1) findEmptyPosition [40, 120, vehicleType]
+            _spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1]
             vehic = "I_G_Offroad_01_F" createVehicle _spawnPos;
         } else {
             hint "Not enough command points";
