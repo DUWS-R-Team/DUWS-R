@@ -42,10 +42,23 @@ if (isMultiplayer) then {
     };
 
 	if (_revive_activated == 1) then {execVM "duws_revive\reviveInit.sqf"};
+    
 	PlayerKilledEH = player addEventHandler ["killed", {
         commandpointsblu1 = commandpointsblu1 - DUWSMP_CP_death_cost;
         publicVariable "commandpointsblu1";
     }];
+    
+    PlayerBetrayerEH = player addEventHandler ["HandleRating", {
+        // If playerRating is negative (traitor) then reset to zero
+        _playerRating = rating _this select 0;
+        if (_playerRating < 0) then {            
+            player addRating (0 - _playerRating);
+        };
+        // If final rating is positive, do not modify, else zero.
+        _rating = _this select 1;
+        [0,_rating] select (_playerRating - _rating) > 0);    
+    }];
+    
 	"support_specialized_training_available" addPublicVariableEventHandler {lbSetColor [2103, 11, [0, 1, 0, 1]];};
     "support_armory_available" addPublicVariableEventHandler {
         hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
