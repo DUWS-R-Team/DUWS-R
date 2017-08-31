@@ -1,7 +1,7 @@
 _index = lbCurSel 2102;
 
 //findEmptyPosition example
-_spawnPos = (getpos hq_blu1) findEmptyPosition [40, 120]
+_spawnPos = (getpos hq_blu1) findEmptyPosition [20, 70]
 _spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1]
 
 addEWS_EH = {
