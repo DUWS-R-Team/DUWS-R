@@ -56,7 +56,7 @@ if (isMultiplayer) then {
         };
         // If final rating is positive, do not modify, else zero.
         _rating = _this select 1;
-        [0,_rating] select (_playerRating - _rating) > 0);    
+        [0,_rating] select ((_playerRating - _rating) > 0);    
     }];
     
 	"support_specialized_training_available" addPublicVariableEventHandler {lbSetColor [2103, 11, [0, 1, 0, 1]];};
