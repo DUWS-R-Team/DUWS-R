@@ -117,6 +117,27 @@ switch (_index) do {
     case 35: { // Blackfish (Armed)
         [60, "B_T_VTOL_01_armed_F"] execVM "dialog\spawnVehicle.sqf";
     };
+    case 36: { //WASP
+        if (commandpointsblu1 >= 50) then {
+            hint "Vehicle ready !";
+            commandpointsblu1 = commandpointsblu1 - 50;
+            ctrlSetText [1000, format["%1",commandpointsblu1]];
+            vehic = "B_Plane_Fighter_01_F" createVehicle _spawnPos;
+        } else {
+            hint "Not enough command points";
+        };
+    };
+    
+    case 37: { //WASP (Stealth)
+        if (commandpointsblu1 >= 60) then {
+            hint "Vehicle ready !";
+            commandpointsblu1 = commandpointsblu1 - 60;
+            ctrlSetText [1000, format["%1",commandpointsblu1]];
+            vehic = "B_Plane_Fighter_01_Stealth_F" createVehicle _spawnPos;
+        } else {
+            hint "Not enough command points";
+        };
+    };
 };
 vehic = nil;
 publicVariable "commandpointsblu1";
