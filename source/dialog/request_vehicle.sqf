@@ -1,8 +1,10 @@
+diag_log "DUWS-R: dialog/request_vehicle.sqf running..."
+
 _index = lbCurSel 2102;
 
 //findEmptyPosition example
-_spawnPos = (getpos hq_blu1) findEmptyPosition [40, 120]
-_spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1]
+_spawnPos = (getpos hq_blu1) findEmptyPosition [20, 70];
+_spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1];
 
 addEWS_EH = {
     (_this select 0) addEventHandler ["IncomingMissile", {
