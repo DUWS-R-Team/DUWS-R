@@ -7,6 +7,19 @@ if (commandpointsblu1 >= _requiredPoints) then {
     _spawnPos = (getpos hq_blu1) findEmptyPosition [40, 120, _vehicleType];
     _spawnPos = [(_spawnPos select 0), _spawnPos select 1];
     vehic = _vehicleType createVehicle _spawnPos;
+
+    if(unitIsUAV vehic) then {
+        createVehicleCrew vehic;
+    };
+
+    if(vehic isKindOf "Tank") then {
+
+    };
+
+    if(vehic isKindOf "Wheeled_APC") then {
+
+    };
+
     hint "Vehicle ready !";
 } else {
     hint "Not enough command points";
