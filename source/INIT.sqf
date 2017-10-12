@@ -50,8 +50,8 @@ if (isMultiplayer) then {
     
     PlayerBetrayerEH = player addEventHandler ["HandleRating", {
         // If playerRating is negative (traitor) then reset to zero
-        _playerRating = rating _this select 0;
-        if (_playerRating < 0) then {            
+        _playerRating = rating (_this select 0);
+        if (_playerRating < 0) then {
             player addRating (0 - _playerRating);
         };
         // If final rating is positive, do not modify, else zero.
