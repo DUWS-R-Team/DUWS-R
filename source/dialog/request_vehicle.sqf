@@ -1,24 +1,10 @@
-diag_log "DUWS-R: dialog/request_vehicle.sqf running..."
+diag_log "DUWS-R: dialog/request_vehicle.sqf running...";
 
 _index = lbCurSel 2102;
 
 //findEmptyPosition example
 _spawnPos = (getpos hq_blu1) findEmptyPosition [20, 70];
 _spawnPos = [(_spawnPos select 0)+30, _spawnPos select 1];
-
-addEWS_EH = {
-    (_this select 0) addEventHandler ["IncomingMissile", {
-        _target = _this select 0;
-        _attacker = _this select 3;
-
-        if(player in crew (_target)) then {
-            _target say3D ["alarmCar", 2, 1];
-            _azi = (_target) getDir (_attacker);
-
-            titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
-        };
-    }];
-};
 
 vehic = nil;
 

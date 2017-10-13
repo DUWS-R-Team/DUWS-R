@@ -12,14 +12,18 @@ if (commandpointsblu1 >= _requiredPoints) then {
         createVehicleCrew vehic;
     };
 
-    if(vehic isKindOf "Tank") then {
-
+    if(vehic isKindOf "Tank" || vehic isKindOf "Wheeled_APC_F") then {
+        vehic addEventHandler ["IncomingMissile", {
+            _target = _this select 0;
+            _attacker = _this select 3;
+            diag_log format ["DUWS-R: MWS Event Fired for %1", _target];
+            if(player in crew (_target)) then {
+                _target say2D ["alarmCar", 100, 1];
+                _azi = (_target) getDir (_attacker);
+                titleText [format["Incoming Missile: Bearing %1", str floor _azi], "PLAIN", 0.4];
+            };
+        }];
     };
-
-    if(vehic isKindOf "Wheeled_APC") then {
-
-    };
-
     hint "Vehicle ready !";
 } else {
     hint "Not enough command points";
