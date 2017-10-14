@@ -18,21 +18,26 @@ execvm "dynamic_music\dyn_music_init.sqf";
 if (hasInterface) then { execVM "misc\gps_marker.sqf";};
 if (!isMultiplayer) then {
 	getsize_script = [player] execVM "mapsize.sqf";
-};	
-	
+};
+staminaEnabled = ["Stamina", false] call BIS_fnc_getParamValue;
+if(staminaEnabled == 0) then {
+    staminaEnabled = false;
+} else {
+    staminaEnabled = true;
+};
 // IF MP
 if (isMultiplayer) then {
 
 	// Get the variables from the parameters lobby
 	_revive_activated = ["Revive", 1] call BIS_fnc_getParamValue;
 	DUWSMP_CP_death_cost = ["DeathPenalty", 1] call BIS_fnc_getParamValue;
-    staminaEnabled = ["Stamina", 0] call BIS_fnc_getParamValue;
+    //staminaEnabled = ["Stamina", 0] call BIS_fnc_getParamValue;
 
-    if(staminaEnabled == 0) then {
+    /*if(staminaEnabled == 0) then {
         staminaEnabled = false;
     } else {
         staminaEnabled = true;
-    };
+    };*/
 
     if (support_armory_available) then {
         hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
