@@ -11,3 +11,5 @@ if (isServer) then {
 if (!isServer) then {
     _hq addaction ["<t color='#00b7ff'>Rest</t>","savegameClient.sqf", "", 0, true, true, "", "_this == player"];
 };
+
+_hq addaction ["<t color='#00FFFF'>RESET SQUAD LEADER</t>","utilities\groupReset.sqf", "", 0, true, true, "", "_this == player"];
