@@ -1,6 +1,9 @@
 _index = lbCurSel 2101;
 
-_spawnPos = getpos hq_blu1;
+//_spawnPos = getpos hq_blu1; blocked by Tuxu
+//center, minDist, maxDist, objDist, waterMode, maxGrad, shoreMode, blacklistPos, defaultPos
+//HQ, minDist=80,max =250, objdist = 20, landmode, maxgrad = 20, shoremode,
+_spawnPos = [getpos hq_blu1, 80, 250, 20, 0, 20, 0] call BIS_fnc_findSafePos;
 _spawnPos = [(_spawnPos select 0)+15, _spawnPos select 1];
 
 switch (_index) do

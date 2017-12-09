@@ -73,6 +73,8 @@ _index1 = lbAdd [2102, "UAV Darter(5CP)"];                               // 32
 _index1 = lbAdd [2102, "Blackfish Infantry (40CP)"];                     // 33
 _index1 = lbAdd [2102, "Blackfish Vehicle (45CP)"];                      // 34
 _index1 = lbAdd [2102, "Blackfish Armed (60CP)"];                        // 35
+_index1 = lbAdd [2102, "Black Wasp II (50CP)"];                             // 36
+_index1 = lbAdd [2102, "Black Wasp II (Stealth) (60CP)"];                   // 37
 lbSetCurSel [2102, 0];
 
 // Supports  !!! CHECK TO ADD AT INIT

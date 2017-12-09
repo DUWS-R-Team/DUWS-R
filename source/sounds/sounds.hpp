@@ -14,9 +14,9 @@ class CfgSounds
 		// how the sound is referred to in the editor (e.g. trigger effects)
 		name = "radiochatter4";
 		// filename, volume, pitch
-		sound[] = {"sounds\support\radiochatter4.ogg", 1, 1};
+		sound[] = {"sounds\radiochatter4.ogg", 1, 1};
 		titles[] = {};
-	};	
+	};
 	class loadgun
 	{
 		// how the sound is referred to in the editor (e.g. trigger effects)
