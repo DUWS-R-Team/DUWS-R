@@ -280,6 +280,9 @@ for[{_x = 2},{_x <= 20},{_x = _x + 1}] do {
     };
 };
 
+//DEBUG - REMOVE BEFORE MERGING
+player addAction ["Dynamic Support Menu", "dynamic_menu.sqf", [], 10, false, true];
+
 //Loading player position and gear.
 //TODO: Add bought supports.
 /*
