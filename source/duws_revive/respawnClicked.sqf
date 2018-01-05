@@ -10,4 +10,6 @@ if(!staminaEnabled) then {
     player enableStamina false;
 };
 
+player addAction ["Dynamic Support Menu", "dynamic_menu.sqf", [], 10, false, true];
+
 closedialog 0;
