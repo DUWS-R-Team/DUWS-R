@@ -36,7 +36,7 @@ class operativemaingui
             y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 5 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
-            action = "closeDialog 0";
+            action = "closeDialog 0; [] spawn {sleep 1;ctrlSetText [1000, format[""%1"",commandpointsblu1]]}";
         };
         class operative_recruit_button: RscButton
         {
