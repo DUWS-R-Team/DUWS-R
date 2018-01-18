@@ -1,6 +1,11 @@
 _timer = 60;
 clicked = false;
 
+// Guard against calling UAV Recon too often
+if(support_uav_rec_timeout > 0) exitWith {
+    ["info",["Support is on Cooldown","UAV Recon is on "]] call bis_fnc_showNotification;
+};
+
 // IF NOT ENOUGH PTS
 if (commandpointsblu1<3) exitWith {
     ["info",["Not enough command points","Not enough Command Points (3CP required)"]] call bis_fnc_showNotification;
@@ -15,7 +20,14 @@ while {_timer>0 AND !clicked} do {
 _timer = _timer-1; // remove 1 to timer
 sleep 1;
 };
-// TIMER ELLAPSED OR CLICKED
-sleep 80;
-_art = [player1,"uav_recon"] call BIS_fnc_addCommMenuItem;
+
+// TIMER ELAPSED OR CLICKED
 OnMapSingleClick "";
+
+// Tick down timeout guard
+support_uav_rec_timeout = 80;
+while {support_uav_rec_timeout > 0} do {
+    sleep 1;
+    support_uav_rec_timeout = support_uav_rec_timeout - 1;
+    publicVariable support_uav_rec_timeout;
+};
