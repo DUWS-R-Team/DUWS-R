@@ -87,7 +87,7 @@ if(support_supplydrop_available) then {
 };
 
 if(support_paradrop_available) then {
-    _text = ["Airborne troops (25 CP)", 3, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["Airborne troops (25 CP)", 3, '_null = [player] execVM ""support\paradrop.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
     _text = ["Airborne troops (N/A)", 3, '', 0] call menuItemFormatter;
@@ -103,7 +103,7 @@ if(support_pFLIR_available) then {
 };
 
 if(support_uav_recon_available) then {
-    _text = ["UAV Recon (3 CP)", 5, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["UAV Recon (3 CP)", 5, '_null = [player] execVM ""support\mapclickuav.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
     _text = ["UAV Recon (N/A)", 5, '', 0] call menuItemFormatter;
@@ -111,7 +111,7 @@ if(support_uav_recon_available) then {
 };
 
 if(support_veh_refit_available) then {
-    _text = ["Vehicle Refit (2 CP)", 6, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["Vehicle Refit (2 CP)", 6, '_null = [player] execVM ""support\veh_refit.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
     _text = ["Vehicle Refit (N/A)", 6, '', 0] call menuItemFormatter;
