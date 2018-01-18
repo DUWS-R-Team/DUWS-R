@@ -38,9 +38,9 @@ deleteVehicle _trg;
 
 if (_amountOPFOR > 0) exitWith {
     Hint "This position is not clear from enemies";
-    PAPABEAR sidechat "Request denied. Enemies are too close to this position.";
+    [west, "PAPA_BEAR"] sidechat format["Request denied. Enemies are too close to this position. We approximate %1 enemy unit(s) nearby!", _amountOPFOR];
     sleep 15;
-    _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
+    _art = [player,"fob_support"] call BIS_fnc_addCommMenuItem;
 };
 
 // Attempt to find a safe position 
@@ -48,7 +48,7 @@ _foundPickupPos = [_position, 0,50,10,0,0.2,0,[],[[0,0],[0,0]]] call BIS_fnc_fin
 if (0 == _foundPickupPos select 0 && 0 == _foundPickupPos select 1) exitWith {
     hint "No valid FOB pos nearby\nTry to go near a flat, object free zone.";
     sleep 5;
-    _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
+    _art = [player,"fob_support"] call BIS_fnc_addCommMenuItem;
 };
 
 
@@ -126,4 +126,4 @@ publicVariable "Array_of_FOBname";
 saveGame;
 
 sleep 600;
-_art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
+_art = [player,"fob_support"] call BIS_fnc_addCommMenuItem;
