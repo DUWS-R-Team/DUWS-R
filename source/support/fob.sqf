@@ -1,14 +1,30 @@
+/*
+    File: fob.sqf
+
+    Author: Kibot
+
+    Description:
+        Searches for a position and setups up Forward Operating Base
+
+    Parameter(s):
+        _this select 0 - OBJECT - A non-nil object with a physical location.
+
+    Usage:
+        _scriptHandle = [player] execVM 'fob.sqf';
+
+    Returns:
+        - Nil -
+*/
+
 _position = _this select 0;
 _size = _this select 1;
 
 if (commandpointsblu1 < 10) exitWith {
-  ["info",["Not enough command points","Not enough Command Points (10CP required)"]] call bis_fnc_showNotification;
-  sleep 15;
-  _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
+    ["info",["Not enough command points","Not enough Command Points (10CP required)"]] call bis_fnc_showNotification;
+    sleep 15;
+    _art = [player,"fob_support"] call BIS_fnc_addCommMenuItem;
 };
 
-// REGARDE SI LA ZONE EST OK
-Hint "Requesting a FOB...";
 player sidechat "Requesting a FOB on my position...";
 
 _trg=createTrigger["EmptyDetector",_position];
@@ -21,17 +37,20 @@ _amountOPFOR = count list _trg;
 deleteVehicle _trg;
 
 if (_amountOPFOR > 0) exitWith {
-Hint "This position is not clear from enemies";
-PAPABEAR sidechat "Request denied. Enemies are too close to this position.";
-sleep 15;
-  _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
+    Hint "This position is not clear from enemies";
+    PAPABEAR sidechat "Request denied. Enemies are too close to this position.";
+    sleep 15;
+    _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
 };
 
-// try to find a pos, if no pos is found exit the script
+// Attempt to find a safe position 
 _foundPickupPos = [_position, 0,50,10,0,0.2,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos; // find a valid pos
-if (0 == _foundPickupPos select 0 && 0 == _foundPickupPos select 1) exitWith {hint "No valid FOB pos nearby\nTry to go near a flat, object free zone."; sleep 5; _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;};
+if (0 == _foundPickupPos select 0 && 0 == _foundPickupPos select 1) exitWith {
+    hint "No valid FOB pos nearby\nTry to go near a flat, object free zone.";
+    sleep 5;
+    _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
+};
 
-// LA ZONE EST OK
 
 commandpointsblu1 = commandpointsblu1 - 10;
 publicVariable "commandpointsblu1";
@@ -49,18 +68,17 @@ str(_markername) setMarkerText format["FOB %1",_fobname];
 str(_markername) setMarkerSize [2.5, 2.5];
 
 
-
 sleep 5;
 
 
 _fob = "Land_Cargo_HQ_V1_F" createVehicle _foundPickupPos;
 
 DUWS_fnc_fob = {
-	_this addaction ["<t color='#ff00ff'>Player stats</t>","dialog\info\info.sqf", "", 0, true, true, "", "_this == player"];
-	_this addaction ["<t color='#15ff00'>Request ammobox drop(2CP)</t>","support\fob_ammobox.sqf", "", 0, true, true, "", "_this == player"];
-	_this addaction ["<t color='#ffb700'>Squad manager</t>","dialog\squad\squadmng.sqf", "", 0, true, true, "", "_this == player"];
-	_this addaction ["<t color='#ffb700'>FOB manager</t>","dialog\fob\FOBmanageropen.sqf", "", 0, true, true, "", "_this == player"];
-	if (support_armory_available) then {
+    _this addaction ["<t color='#ff00ff'>Player stats</t>","dialog\info\info.sqf", "", 0, true, true, "", "_this == player"];
+    _this addaction ["<t color='#15ff00'>Request ammobox drop(2CP)</t>","support\fob_ammobox.sqf", "", 0, true, true, "", "_this == player"];
+    _this addaction ["<t color='#ffb700'>Squad manager</t>","dialog\squad\squadmng.sqf", "", 0, true, true, "", "_this == player"];
+    _this addaction ["<t color='#ffb700'>FOB manager</t>","dialog\fob\FOBmanageropen.sqf", "", 0, true, true, "", "_this == player"];
+    if (support_armory_available) then {
         _this addaction ["<t color='#ff0066'>Armory (VA)</t>","bisArsenal.sqf", "", 0, true, true, "", "_this == player"];
     };
     if (isServer) then {
@@ -105,15 +123,7 @@ publicVariable "Array_of_FOBS";
 Array_of_FOBname = Array_of_FOBname + [_fobname];
 publicVariable "Array_of_FOBname";
 
-
-
-sleep 1;
-
 saveGame;
-
-sleep 1;
 
 sleep 600;
 _art = [player1,"fob_support"] call BIS_fnc_addCommMenuItem;
-
-// Land_Cargo_HQ_V1_F
