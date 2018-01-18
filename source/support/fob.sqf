@@ -54,7 +54,7 @@ if (0 == _foundPickupPos select 0 && 0 == _foundPickupPos select 1) exitWith {
 
 commandpointsblu1 = commandpointsblu1 - 10;
 publicVariable "commandpointsblu1";
-PAPABEAR sidechat "Roger that, the FOB is being deployed...";
+[west, "PAPA_BEAR"]  sidechat "Roger that, the FOB is being deployed...";
 
 _fobname = [1] call compile preprocessFile "random_name.sqf";
 // create marker on FOB
@@ -96,7 +96,7 @@ _fob addaction ["<t color='#ff0000'>Fortify FOB(4CP)</t>","inithq\fortifyFOB.sqf
 [_foundPickupPos, _size] execvm "createpatrol.sqf";
 [_foundPickupPos, _size] execvm "createpatrol.sqf";
 
-PAPABEAR sidechat "The FOB has been deployed.";
+[west, "PAPA_BEAR"]  sidechat "The FOB has been deployed.";
 
 _handle = [_foundPickupPos, _fob] execVM "initHQ\guardsFOB.sqf";
 
@@ -113,7 +113,7 @@ _trg23 setTriggerStatements["this", format["[""FOB %1"",thislist] execvm 'enterl
 _trgWarning=createTrigger["EmptyDetector",_foundPickupPos];
 _trgWarning setTriggerArea[300,300,0,false];
 _trgWarning setTriggerActivation["EAST","PRESENT",true];
-_trgWarning setTriggerStatements["this",format["PAPABEAR sidechat 'This is HQ, enemies have been reported around FOB %1'",_fobname], ""];
+_trgWarning setTriggerStatements["this",format["[west, ""PAPA_BEAR""]  sidechat 'This is HQ, enemies have been reported around FOB %1'",_fobname], ""];
 
 //ADD THE FOB TO Array_of_FOBS
 fobSwitch = true; // tell that this is the player who created the FOB (to avoid variableEventHandler to trigger)

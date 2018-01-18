@@ -14,11 +14,11 @@ str(_markername) setMarkerSize [_checkedRadius, _checkedRadius];
 str(_markername) setMarkerAlpha 0.5;
 
 
-PAPABEAR SideChat "The UAV has been sent at the designated coordinates, please standby for further intel.";
+[west, "PAPA_BEAR"] SideChat "The UAV has been sent at the designated coordinates, please standby for further intel.";
 sleep 20;
-PAPABEAR SideChat "Collecting data from the UAV...";
+[west, "PAPA_BEAR"] SideChat "Collecting data from the UAV...";
 sleep 7;
-PAPABEAR SideChat "We've sent the last known location of the enemy to your map. The UAV is returning to the base";
+[west, "PAPA_BEAR"] SideChat "We've sent the last known location of the enemy to your map. The UAV is returning to the base";
 
 
 /////////////////// THIS PART IS EAST /////

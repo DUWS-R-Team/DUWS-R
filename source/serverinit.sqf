@@ -86,7 +86,6 @@ can_get_mission = true;publicVariable "can_get_mission";
 failsafe_zones_not_found = false;publicVariable "failsafe_zones_not_found";
 createcenter sideLogic;
 LogicGroup = createGroup SideLogic;publicVariable "LogicGroup";
-PAPABEAR=[West,"HQ"];publicVariable "PAPABEAR";
 locator_hq_actived = false;publicVariable "locator_hq_actived";
 op_zones_index = 0;publicVariable "op_zones_index";
 clientisSync = false;publicVariable "clientisSync";
