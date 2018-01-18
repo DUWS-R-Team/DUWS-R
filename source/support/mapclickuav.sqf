@@ -3,9 +3,7 @@ clicked = false;
 
 // IF NOT ENOUGH PTS
 if (commandpointsblu1<3) exitWith {
-  ["info",["Not enough command points","Not enough Command Points (3CP required)"]] call bis_fnc_showNotification;
-  sleep 30;
-_art = [player1,"uav_recon"] call BIS_fnc_addCommMenuItem;
+    ["info",["Not enough command points","Not enough Command Points (3CP required)"]] call bis_fnc_showNotification;
 };
 
 hint "Click on your map to scan a location using the UAV";

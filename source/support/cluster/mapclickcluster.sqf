@@ -30,18 +30,6 @@ clicked = false;
 // IF NOT ENOUGH PTS
 if (commandpointsblu1<_cost) exitWith {
     ["info",["Support","You don't have enough command points"]] call bis_fnc_showNotification;
-    sleep 30;
-    if (_supportype==1) exitWith {
-        _art = [player1,"artillery"] call BIS_fnc_addCommMenuItem;
-    };
-
-    if (_supportype==2) exitWith {
-        _art = [player1,"mortar"] call BIS_fnc_addCommMenuItem;
-    };
-
-    if (_supportype==3) exitWith {
-        _art = [player1,"JDAM"] call BIS_fnc_addCommMenuItem;
-    };
 };
 
 _pos = [];
