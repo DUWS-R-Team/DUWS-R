@@ -15,10 +15,11 @@
 */
 menuItemFormatter = {
     format [
-        "[""%1"", [0], """", -5, [[""expression"", ""%2""]], ""1"", ""%3""]",
+        "[""%1"", [%2], """", -5, [[""expression"", ""%3""]], ""1"", ""%4""]",
         _this select 0,
         _this select 1,
-        _this select 2
+        _this select 2,
+        _this select 3
     ];
 };
 
@@ -35,34 +36,34 @@ _transportItems = [];
 
 //Offensive Submenu checks
 if(support_mortar_available) then {
-    _text = ["Mortar (2 CP)", '_null = [8, 50, 5, 3, 2, 2, ""grenade""] execVM ""support\mapclickarty.sqf""', 1] call menuItemFormatter;
+    _text = ["Mortar (2 CP)", 2, '_null = [8, 50, 5, 3, 2, 2, ""grenade""] execVM ""support\mapclickarty.sqf""', 1] call menuItemFormatter;
     _offensiveItems pushBack _text;
 } else {
-    _text = ["Mortar (N/A)", "", 0] call menuItemFormatter;
+    _text = ["Mortar (N/A)", 2, "", 0] call menuItemFormatter;
     _offensiveItems pushBack _text;
 };
 
 if(support_arty_available) then {
-    _text = ["Artillery Strike (4 CP)", '_null = [6, 100, 8, 3, 1, 4, ""R_80mm_HE""] execVM ""support\mapclickarty.sqf""', 1] call menuItemFormatter;
+    _text = ["Artillery Strike (4 CP)", 3, '_null = [6, 100, 8, 3, 1, 4, ""R_80mm_HE""] execVM ""support\mapclickarty.sqf""', 1] call menuItemFormatter;
     _offensiveItems pushBack _text;
 } else {
-    _text = ["Artillery Strike (N/A)", "", 0] call menuItemFormatter;
+    _text = ["Artillery Strike (N/A)", 3, "", 0] call menuItemFormatter;
     _offensiveItems pushBack _text;
 };
 
 if(support_cluster_available) then {
-    _text = ["Cluster Bomb (6 CP)", '_null = [1, 250, 1, 90, 1, 6, ""grenade""] execVM ""support\cluster\mapclickcluster.sqf""', 1] call menuItemFormatter;
+    _text = ["Cluster Bomb (6 CP)", 4, '_null = [1, 250, 1, 90, 1, 6, ""grenade""] execVM ""support\cluster\mapclickcluster.sqf""', 1] call menuItemFormatter;
     _offensiveItems pushBack _text;
 } else {
-    _text = ["Cluster Bomb (N/A)", "", 0] call menuItemFormatter;
+    _text = ["Cluster Bomb (N/A)", 4, "", 0] call menuItemFormatter;
     _offensiveItems pushBack _text;
 };
 
 if(support_jdam_available) then {
-    _text = ["JDAM Strike (1 CP)", '_null = [1, 2, 1, 1, 3, 1, ""Bo_Mk82""] execVM ""support\mapclickarty.sqf""', 1] call menuItemFormatter;
+    _text = ["JDAM Strike (1 CP)", 5, '_null = [1, 2, 1, 1, 3, 1, ""Bo_Mk82""] execVM ""support\mapclickarty.sqf""', 1] call menuItemFormatter;
     _offensiveItems pushBack _text;
 } else {
-    _text = ["JDAM (N/A)", "", 0] call menuItemFormatter;
+    _text = ["JDAM (N/A)", 5, "", 0] call menuItemFormatter;
     _offensiveItems pushBack _text;
 };
 
@@ -78,42 +79,42 @@ call _myCode;
 
 //Logistics Submenu Checks
 if(support_supplydrop_available) then {
-    _text = ["Supply Drop (2 CP)", '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["Supply Drop (2 CP)", 2, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
-    _text = ["Supply Drop ((N/A)", '', 0] call menuItemFormatter;
+    _text = ["Supply Drop ((N/A)", 2, '', 0] call menuItemFormatter;
     _logisticsItems pushBack _text;
 };
 
 if(support_paradrop_available) then {
-    _text = ["Airborne troops (25 CP)", '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["Airborne troops (25 CP)", 3, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
-    _text = ["Airborne troops (N/A)", '', 0] call menuItemFormatter;
+    _text = ["Airborne troops (N/A)", 3, '', 0] call menuItemFormatter;
     _logisticsItems pushBack _text;
 };
 
 if(support_pFLIR_available) then {
-    _text = ["Supply Drop (2 CP)", '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["Supply Drop (2 CP)", 4, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
-    _text = ["Supply Drop (N/A)", '', 0] call menuItemFormatter;
+    _text = ["Supply Drop (N/A)", 4, '', 0] call menuItemFormatter;
     _logisticsItems pushBack _text;
 };
 
 if(support_uav_recon_available) then {
-    _text = ["UAV Recon (3 CP)", '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["UAV Recon (3 CP)", 5, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
-    _text = ["UAV Recon (N/A)", '', 0] call menuItemFormatter;
+    _text = ["UAV Recon (N/A)", 5, '', 0] call menuItemFormatter;
     _logisticsItems pushBack _text;
 };
 
 if(support_veh_refit_available) then {
-    _text = ["Vehicle Refit (2 CP)", '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
+    _text = ["Vehicle Refit (2 CP)", 6, '_null = [player] execVM ""support\ammobox.sqf""', 1] call menuItemFormatter;
     _logisticsItems pushBack _text;
 } else {
-    _text = ["Vehicle Refit (N/A)", '', 0] call menuItemFormatter;
+    _text = ["Vehicle Refit (N/A)", 6, '', 0] call menuItemFormatter;
     _logisticsItems pushBack _text;
 };
 
@@ -129,18 +130,18 @@ call _myCode;
 
 //Transport Submenu check
 if(support_helotaxi_available) then {
-    _text = ["Helicopter taxi(1 CP)", '_nill = [getpos player,50] execVM ""support\taxi\helotaxi.sqf""', 1] call menuItemFormatter;
+    _text = ["Helicopter taxi(1 CP)", 2, '_nill = [getpos player,50] execVM ""support\taxi\helotaxi.sqf""', 1] call menuItemFormatter;
     _transportItems pushBack _text;
 } else {
-    _text = ["Helicopter taxi(N/A)", '', 0] call menuItemFormatter;
+    _text = ["Helicopter taxi(N/A)", 2, '', 0] call menuItemFormatter;
     _transportItems pushBack _text;
 };
 
 if(support_boattaxi_available) then {
-    _text = ["Boat taxi (1 CP)", '_null = [getpos player,10] execVM ""support\taxi\boattaxi.sqf""', 1] call menuItemFormatter;
+    _text = ["Boat taxi (1 CP)", 3, '_null = [getpos player,10] execVM ""support\taxi\boattaxi.sqf""', 1] call menuItemFormatter;
     _transportItems pushBack _text;
 } else {
-    _text = ["Boat taxi (N/A)", '', 0] call menuItemFormatter;
+    _text = ["Boat taxi (N/A)", 3, '', 0] call menuItemFormatter;
     _transportItems pushBack _text;
 };
 
