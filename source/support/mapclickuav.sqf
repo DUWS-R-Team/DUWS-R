@@ -2,8 +2,8 @@ _timer = 60;
 clicked = false;
 
 // Guard against calling UAV Recon too often
-if(support_uav_rec_timeout > 0) exitWith {
-    ["info",["Support is on Cooldown","UAV Recon is on "]] call bis_fnc_showNotification;
+if(support_uav_recon_timeout > 0) exitWith {
+    ["info",["Support is on Cooldown",format ["UAV Recon will be ready in %1 seconds", support_uav_recon_timeout]]] call bis_fnc_showNotification;
 };
 
 // IF NOT ENOUGH PTS
@@ -25,9 +25,9 @@ sleep 1;
 OnMapSingleClick "";
 
 // Tick down timeout guard
-support_uav_rec_timeout = 80;
-while {support_uav_rec_timeout > 0} do {
+support_uav_recon_timeout = 80;
+while {support_uav_recon_timeout > 0} do {
     sleep 1;
-    support_uav_rec_timeout = support_uav_rec_timeout - 1;
-    publicVariable support_uav_rec_timeout;
+    support_uav_recon_timeout = support_uav_recon_timeout - 1;
+    publicVariable "support_uav_recon_timeout";
 };
