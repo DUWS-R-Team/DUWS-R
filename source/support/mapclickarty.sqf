@@ -12,8 +12,8 @@
         _this select 2 - NUMBER - Interval between salvos (in seconds)
         _this select 3 - NUMBER - Number of ordinance rounds per salvo
         _this select 4 - NUMBER - Support type enumerator (1 - Artillery, 2 - Mortar Shell, 3 - JDAM)
-        _this select 6 - NUMBER - Cost of Support type
-        _this select 7 - STRING - Ammo type used for salvos
+        _this select 5 - NUMBER - Cost of Support type
+        _this select 6 - STRING - Ammo type used for salvos
 
     Returns: 
         - Nil -
@@ -24,7 +24,7 @@ _timer = 60;
 _pos = [];
 clicked = false;
 
-// Guard against calling UAV Recon too often
+// Guard against calling Artillery support too often
 if (_supportype == 1 && {support_arty_timeout > 0}) exitWith {
     ["info",["Support is on Cooldown",format ["Artillery will be ready to fire again in %1 seconds", support_arty_timeout]]] call bis_fnc_showNotification;
 };
