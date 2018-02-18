@@ -10,7 +10,6 @@ if(!staminaEnabled) then {
     player enableStamina false;
 };
 
-player addAction ["<t color='#ff0000' underline='true'>Dynamic Support Menu</t>", "dynamic_menu.sqf", [], 10, false, true];
 _dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
 
 closedialog 0;

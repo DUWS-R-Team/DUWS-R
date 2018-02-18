@@ -280,9 +280,7 @@ for[{_x = 2},{_x <= 20},{_x = _x + 1}] do {
     };
 };
 
-//DEBUG - REMOVE BEFORE MERGING
-//Note the space between Dynamic Support Menu is the char (ALT+255)
-player addAction ["<t color='#ff0000' underline='true'>Dynamic Support Menu</t>", "dynamic_menu.sqf", [], 10, false, true];
+
 _dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
 
 //Loading player position and gear.
