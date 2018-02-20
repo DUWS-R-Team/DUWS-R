@@ -4,7 +4,7 @@ _allFound = false;
 _counter = 0;
 
 if (isnil ("Mission_timeout_request")) then {Mission_timeout_request = true;};
-if (!Mission_timeout_request) exitWith {PAPABEAR=[West,"HQ"]; PAPABEAR SideChat "We don't have any other missions for you right now.";};
+if (!Mission_timeout_request) exitWith {[west, "PAPA_BEAR"] SideChat "We don't have any other missions for you right now.";};
 if (!((vehiclevarname player) in game_master)) exitWith {hint "Only the host can request side missions for now"};
 
 startLoadingScreen ["Loading zones..."];

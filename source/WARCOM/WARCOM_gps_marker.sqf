@@ -22,7 +22,7 @@ WARCOM_marker_num = WARCOM_marker_num + 1;
     if (_units_alive<=0) exitWith {  // IF ALL DEAD, EXIT.
     str(_markername) setMarkerColor "ColorRed";
     str(_markername) setMarkerType "waypoint";
-    PAPABEAR sidechat format["To all units, this is HQ, Task force %1 just got wiped out. Stay alert",_TFname];
+    [west, "PAPA_BEAR"]  sidechat format["To all units, this is HQ, Task force %1 just got wiped out. Stay alert",_TFname];
     sleep 600;
     deleteMarker str(_markername);
     };

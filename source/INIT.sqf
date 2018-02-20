@@ -280,6 +280,9 @@ for[{_x = 2},{_x <= 20},{_x = _x + 1}] do {
     };
 };
 
+
+_dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
+
 //Loading player position and gear.
 //TODO: Add bought supports.
 /*
