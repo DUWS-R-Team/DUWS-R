@@ -17,3 +17,18 @@ if (isNil "support_specialized_training_available") then {
 if (isNil "support_armory_available") then {
     support_armory_available = false;
 };
+
+/*
+    Support Timeout variables
+    Variables that hold the next VALID time to use that supports (in seconds)
+    Supports should set the next valid time as:
+    support_exampleSupport_timeout = *now* + xyz seconds;
+*/
+
+support_mortar_timeout = 0;
+support_jdam_timeout = 0;
+support_arty_timeout = 0;
+support_cluster_timeout = 0;
+support_uav_recon_timeout = 0;
+//support_helotaxi_timeout = 0; format may not be suitable
+//support_boattaxi_timeout = 0;

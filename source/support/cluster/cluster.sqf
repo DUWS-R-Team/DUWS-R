@@ -1,23 +1,28 @@
+/*
+    File: cluster.sqf
 
-// R_60mm_HE / R_80mm_HE /Bo_Air_LGB(no sounds)/ Grenade / Bo_Mk82
-//
-// _null = [1, 250, 1, 90, 1, 5, "grenade"] execVM "support\cluster\mapclickcluster.sqf"
-//
+    Author: Kibot
 
-_position = _this select 0;
-_salvos = _this select 1;
-_radius = _this select 2;
-_interval = _this select 3;
-_rps = _this select 4;
-_supportype = _this select 5; // 1 = arty, 2 = mortar, 3 = jdam
-_cost = _this select 6;
-_ammotype = _this select 7;
+    Description: 
+        Deploy a cluster of munitions at the specified location.
 
+    Parameter(s):
+        _this select 0 - POSITION - Center position of 'Strike Area'
+        _this select 1 - NUMBER - Number of ordinance salvos
+        _this select 2 - NUMBER - Radius of 'Strike Area'
+        _this select 3 - NUMBER - Interval between salvos (in seconds)
+        _this select 4 - NUMBER - Number of ordinance rounds per salvo
+        _this select 5 - NUMBER - Support type enumerator (1 - Artillery, 2 - Mortar Shell, 3 - JDAM)
+        _this select 6 - NUMBER - Cost of Support type
+        _this select 7 - STRING - Ammo type used for salvos
 
+    Returns: 
+        - Nil -
+*/
+
+params["_position", "_salvos", "_radius", "_interval", "_rps", "_supportype", "_cost", "_ammotype"];
 
 _rpsinit = _rps;
-
-//hint format["Position: %1\nSalvos:%2\nRadius:%3\nInterval:%4\nRPS:%5\nSupport type:%6\nCost:%7\nAmmo type:%8", _position, _salvos, _radius, _interval, _rps,_supportype,_cost,_ammotype];
 
 commandpointsblu1 = commandpointsblu1 - _cost;
 publicVariable "commandpointsblu1";
@@ -26,7 +31,6 @@ hint "Coordinates received !";
 
 // create marker on target
 _markername = format["clus%1%2",_position]; // Define marker name
-//hint _markername;
 _markerstr = createMarker [str(_markername), _position];
 _markerstr setMarkerShape "ELLIPSE";
 str(_markername) setMarkerColor "ColorGrey";
@@ -38,8 +42,6 @@ _trg5=createTrigger["EmptyDetector",_position];
 _trg5 setTriggerArea[_radius,_radius,0,false];
 _trg5 setTriggerActivation["ANY","PRESENT",true];
 _trg5 setTriggerStatements["this","", ""];
-
-
 
 
 // create unit for comms
@@ -59,8 +61,6 @@ _unit sidechat format["This is %1 %2-%3, we have the target in visual, CBUs rele
 sleep 30;
 _unit sidechat format["CBUs released, splash in 20 seconds."];
 sleep 20;
-
-
 
 
 // NUMBER OF SALVOS

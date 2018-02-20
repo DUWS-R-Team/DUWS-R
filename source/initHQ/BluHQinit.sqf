@@ -28,7 +28,7 @@ _trg5 setTriggerStatements["this", format["[""%1"",thislist] execvm 'enterlocati
 _trgWarning=createTrigger["EmptyDetector",_hqblu];
 _trgWarning setTriggerArea[300,300,0,false];
 _trgWarning setTriggerActivation["EAST","PRESENT",true];
-_trgWarning setTriggerStatements["this","PAPABEAR sidechat 'This is HQ, there are enemies near our main base!'", ""];
+_trgWarning setTriggerStatements["this","[west, ""PAPA_BEAR""] sidechat 'This is HQ, there are enemies near our main base!'", ""];
 
 // CREATE THE OFFICER
 _group = createGroup west;
