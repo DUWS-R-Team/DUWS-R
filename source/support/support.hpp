@@ -1,5 +1,15 @@
 class CfgCommunicationMenu
 {
+    class DynamicSupportMenu
+    {
+        text = "DUWS-R Support"; // Text displayed in the menu and in a notification
+        submenu = ""; // Submenu opened upon activation
+        expression = "_null = [] execVM 'dynamic_menu.sqf'"; // Code executed upon activation (ignored when the submenu is not empty)
+        icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"; // Icon displayed permanently next to the command menu
+        cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
+        enable = "1"; // Simple expression condition for enabling the item
+        removeAfterExpressionCall = 0; // 1 to remove the item after calling
+    };
     class artillery
     {
         text = "Artillery Strike (4 CP)"; // Text displayed in the menu and in a notification
@@ -120,7 +130,4 @@ class CfgCommunicationMenu
         enable = "1"; // Simple expression condition for enabling the item
         removeAfterExpressionCall = 1; // 1 to remove the item after calling
     };
-};                             
-
-
-
+};
