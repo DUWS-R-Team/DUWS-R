@@ -10,4 +10,6 @@ if(!staminaEnabled) then {
     player enableStamina false;
 };
 
+_dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
+
 closedialog 0;
