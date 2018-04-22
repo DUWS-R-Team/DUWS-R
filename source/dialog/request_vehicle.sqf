@@ -123,6 +123,12 @@ switch (_index) do {
     case 37: { //WASP (Stealth)
         [60, "B_Plane_Fighter_01_Stealth_F"] execVM "dialog\spawnVehicle.sqf";
     };
+    case 38: { //Rhino (Stealth)
+        [38, "B_AFV_Wheeled_01_cannon_F"] execVM "dialog\spawnVehicle.sqf";
+    };
+    case 39: { //Rhino UP (Stealth)
+        [42, "B_AFV_Wheeled_01_up_cannon_F"] execVM "dialog\spawnVehicle.sqf";
+    };
 };
 vehic = nil;
 publicVariable "commandpointsblu1";

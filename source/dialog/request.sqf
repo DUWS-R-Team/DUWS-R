@@ -4,7 +4,7 @@ ctrlSetText [1000, format["%1",commandpointsblu1]];
 ctrlSetText [1001, format["%1",zoneundercontrolblu]];
 ctrlSetText [1002, format["%1",WARCOM_blufor_ap]];
 
-// UNITS  
+// UNITS
 _index = lbAdd [2100, "Rifleman(2CP)"];                  // 0
 _index = lbAdd [2100, "Grenadier(3CP)"];                 // 1
 _index = lbAdd [2100, "Automatic Rifleman(3CP)"];        // 2
@@ -21,7 +21,7 @@ _index = lbAdd [2100, "Explosive specialist(4CP)"];      // 12
 
 lbSetCurSel [2100, 0];
 
-// SQUADS  
+// SQUADS
 _index0 = lbAdd [2101, "Fireteam(8CP)"];                   // 0
 _index0 = lbAdd [2101, "Rifle Squad(16CP)"];               // 1
 _index0 = lbAdd [2101, "Weapons Squad(18CP)"];             // 2
@@ -75,6 +75,8 @@ _index1 = lbAdd [2102, "Blackfish Vehicle (45CP)"];                      // 34
 _index1 = lbAdd [2102, "Blackfish Armed (60CP)"];                        // 35
 _index1 = lbAdd [2102, "Black Wasp II (50CP)"];                             // 36
 _index1 = lbAdd [2102, "Black Wasp II (Stealth) (60CP)"];                   // 37
+_index1 = lbAdd [2102, "Rhino MGS (40CP)"];                                 // 38
+_index1 = lbAdd [2102, "Rhino MGS UP (42CP)"];                              // 39
 lbSetCurSel [2102, 0];
 
 // Supports  !!! CHECK TO ADD AT INIT
