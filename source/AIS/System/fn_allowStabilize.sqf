@@ -4,10 +4,10 @@
  * Check Unit if Revive is possible. If yes, Revive-Action is shown up.
  
  * Arguments:
-	0: Unit (Object)
+    0: Unit (Object)
  
  * Return value:
-	Bool
+    Bool
  */
 
 private _target = _this;
@@ -22,14 +22,14 @@ _noDraging = isNull (player getVariable ['ais_DragDrop_Torso', objNull]);
 
 _return = if (
 
-	_isUnc &&
-	{!_isStabil} &&
-	{!_isUncHealer} &&
-	{alive _target} &&
-	{_noHealer} &&
-	{_noDrag} &&
-	{_noDraging}
-	
+    _isUnc &&
+    {!_isStabil} &&
+    {!_isUncHealer} &&
+    {alive _target} &&
+    {_noHealer} &&
+    {_noDrag} &&
+    {_noDraging}
+    
 ) then {true} else {false};
 
 

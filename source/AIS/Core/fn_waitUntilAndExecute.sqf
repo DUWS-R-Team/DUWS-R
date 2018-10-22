@@ -25,9 +25,9 @@ Author:
 ---------------------------------------------------------------------------- */
 
 params [
-	["_condition", {}, [{}]],
-	["_statement", {}, [{}]],
-	["_args", []]
+    ["_condition", {}, [{}]],
+    ["_statement", {}, [{}]],
+    ["_args", []]
 ];
 
 AIS_waitUntilAndExecArray pushBack [_condition, _statement, _args];

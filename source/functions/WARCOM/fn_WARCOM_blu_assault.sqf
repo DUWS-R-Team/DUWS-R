@@ -6,7 +6,7 @@ WARCOM_blu_attack_wave_avalaible = false;
 // Type of attack wave
 [] spawn {
           //WARCOM_blu_attack_wave_type = [Blufor_Teamleader,Blufor_Rifleman];
-		diag_log format ["WARCOM_blufor_ap_assault: %1", WARCOM_blufor_ap];
+        diag_log format ["WARCOM_blufor_ap_assault: %1", WARCOM_blufor_ap];
           waitUntil {sleep 1; WARCOM_blufor_ap>=10};
           [West,"HQ"] sidechat "This is HQ, BLUFOR troops just arrived on the island, we'll soon be able to push through the enemy lines";
           WARCOM_blu_attack_wave_avalaible = true;

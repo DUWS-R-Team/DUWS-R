@@ -218,7 +218,7 @@ class CfgNotifications
         duration = 8; // How many seconds will the notification be displayed
         priority = 0; // Priority; higher number = more important; tasks in queue are selected by priority
         difficulty[] = {}; // Required difficulty settings. All listed difficulties has to be enabled
-    };	
+    };    
 
     class operator_healed
     {
@@ -230,5 +230,5 @@ class CfgNotifications
         duration = 8; // How many seconds will the notification be displayed
         priority = 0; // Priority; higher number = more important; tasks in queue are selected by priority
         difficulty[] = {}; // Required difficulty settings. All listed difficulties has to be enabled
-    };	
+    };    
 };

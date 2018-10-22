@@ -4,10 +4,10 @@
  * Stop to drag another unit.
  
  * Arguments:
-	0: Unit (Object)
+    0: Unit (Object)
  
  * Return value:
-	-
+    -
 */
 
 params ["_unit"];
@@ -25,9 +25,9 @@ detach _unit;
 detach _target;
 
 if (alive _target) then {
-	[_target, "AinjPpneMstpSnonWrflDb_release"] remoteExec ["switchMove", 0];
-	//[_target, _pos] call AIS_Core_fnc_setPosAGLS;
-	_target setPos _pos;
+    [_target, "AinjPpneMstpSnonWrflDb_release"] remoteExec ["switchMove", 0];
+    //[_target, _pos] call AIS_Core_fnc_setPosAGLS;
+    _target setPos _pos;
 };
 
 

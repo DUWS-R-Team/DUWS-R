@@ -4,9 +4,9 @@ profileNamespace setVariable ["profile_number_of_zones_captured", mission_number
 saveProfileNamespace; // sauvegarde le profil
 
 if (isMultiplayer) then {
-	if (isServer) then {
-		capturedZonesNumber = capturedZonesNumber + 1;
-		publicVariable "capturedZonesNumber";
-		};
-	};
-	
+    if (isServer) then {
+        capturedZonesNumber = capturedZonesNumber + 1;
+        publicVariable "capturedZonesNumber";
+        };
+    };
+    

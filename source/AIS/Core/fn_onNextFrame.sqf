@@ -9,19 +9,19 @@ Parameters:
     _args     - Parameters passed to the function executing. This will be the same array every execution. [optional] <ANY>
 Returns:
     Nothing
-	
+    
 Examples:
     (begin example)
         [{player sideChat format ["This is frame %1, not %2", diag_frameno, _this select 0];}, [diag_frameno]] call AIS_Core_fnc_onNextFrame;
     (end)
-	
+    
 Author:
     esteldunedain and PabstMirror, donated from ACE3
 ---------------------------------------------------------------------------- */
 
 params [
-	["_function", {}, [{}]],
-	["_args", []]
+    ["_function", {}, [{}]],
+    ["_args", []]
 ];
 
 if (diag_frameno != AIS_nextFrameNo) then {

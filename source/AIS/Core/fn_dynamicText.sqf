@@ -1,5 +1,5 @@
 ﻿/*
-	["Mein Text"] call AIS_Core_fnc_dynamicText;
+    ["Mein Text"] call AIS_Core_fnc_dynamicText;
 */
 
 _text = _this param [0,"",["",{}]];

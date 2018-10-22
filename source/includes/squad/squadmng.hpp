@@ -1,7 +1,7 @@
 class squad_mng_dialog
 {
-	idd = -1;
-	movingenable = true;
+    idd = -1;
+    movingenable = true;
     //  onLoad = "_this call FRAME_01_Load";
 
     class controls

@@ -22,21 +22,21 @@ switch (_actualStance) do
 {
     case "STAND":
     {
-		BIS_liveFeed attachTo [player,[0,1,1.68]];
-		trucPIPtarget attachTo [player,[0,2000,1.68]];
+        BIS_liveFeed attachTo [player,[0,1,1.68]];
+        trucPIPtarget attachTo [player,[0,2000,1.68]];
     };
 
     case "CROUCH":
     {
-		BIS_liveFeed attachTo [player,[0,1,0.85]];
-		trucPIPtarget attachTo [player,[0,2000,0.85]];
+        BIS_liveFeed attachTo [player,[0,1,0.85]];
+        trucPIPtarget attachTo [player,[0,2000,0.85]];
     };
-	
+    
     case "PRONE":
     {
-		BIS_liveFeed attachTo [player,[0,1,0.25]];
-		trucPIPtarget attachTo [player,[0,2000,0.25]];
-    };	
+        BIS_liveFeed attachTo [player,[0,1,0.25]];
+        trucPIPtarget attachTo [player,[0,2000,0.25]];
+    };    
 
 };
 
@@ -51,26 +51,26 @@ PlayerKilledEH2 = player addEventHandler ["killed", {[] spawn duws_fnc_livefeede
 while {pFlirActivated} do {
 waitUntil {(_actualStance != stance player) or !pFlirActivated};
 if (!pFlirActivated) exitWith {};
-	_actualStance = stance player;
-	switch (_actualStance) do
-	{
-		case "STAND":
-		{
-			BIS_liveFeed attachTo [player,[0,1,1.68]];
-			trucPIPtarget attachTo [player,[0,2000,1.68]];
-		};
+    _actualStance = stance player;
+    switch (_actualStance) do
+    {
+        case "STAND":
+        {
+            BIS_liveFeed attachTo [player,[0,1,1.68]];
+            trucPIPtarget attachTo [player,[0,2000,1.68]];
+        };
 
-		case "CROUCH":
-		{
-			BIS_liveFeed attachTo [player,[0,1,0.85]];
-			trucPIPtarget attachTo [player,[0,2000,0.85]];
-		};
-		
-		case "PRONE":
-		{
-			BIS_liveFeed attachTo [player,[0,1,0.25]];
-			trucPIPtarget attachTo [player,[0,2000,0.25]];
-		};	
+        case "CROUCH":
+        {
+            BIS_liveFeed attachTo [player,[0,1,0.85]];
+            trucPIPtarget attachTo [player,[0,2000,0.85]];
+        };
+        
+        case "PRONE":
+        {
+            BIS_liveFeed attachTo [player,[0,1,0.25]];
+            trucPIPtarget attachTo [player,[0,2000,0.25]];
+        };    
 
-	};
+    };
 };

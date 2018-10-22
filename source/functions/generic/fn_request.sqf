@@ -15,15 +15,15 @@ _index = lbAdd [2100, "Repair Specialist(4CP)"];         // 6
 _index = lbAdd [2100, "AT Specialist(4CP)"];             // 7
 _index = lbAdd [2100, "SF Diver(3CP)"];                  // 8
 _index = lbAdd [2100, "Marksman(3CP)"];                  // 9
-_index = lbAdd [2100, "Sniper(4CP)"]; 	                 // 10
+_index = lbAdd [2100, "Sniper(4CP)"];                      // 10
 _index = lbAdd [2100, "Spotter(3CP)"];                   // 11
 _index = lbAdd [2100, "Explosive specialist(4CP)"];      // 12*/
 
 {
-	_unit = _x select 0;
-	_cost = _x select 1;
-	_displayName = getText (configfile >> "CfgVehicles" >> _unit >> "displayName");
-	lbAdd [2100, format ["%1 (%2 CP)",_displayName,_cost]];
+    _unit = _x select 0;
+    _cost = _x select 1;
+    _displayName = getText (configfile >> "CfgVehicles" >> _unit >> "displayName");
+    lbAdd [2100, format ["%1 (%2 CP)",_displayName,_cost]];
 } forEach blufor_unit_array;
 
 lbSetCurSel [2100, 0];
@@ -42,10 +42,10 @@ _index0 = lbAdd [2101, "Medical Team(10CP)"];              // 9
 _index0 = lbAdd [2101, "Motorized scouts(28CP)"];          // 10
 _index0 = lbAdd [2101, "Mechanized squad(46CP)"];          // 11*/
 {
-	_cfgGroup = _x select 1;
-	_cost = _x select 0;
-	_displayName = [_cfgGroup, "name"] call BIS_fnc_returnConfigEntry;
-	lbAdd [2101, format ["%1 (%2 CP)",_displayName,_cost]];
+    _cfgGroup = _x select 1;
+    _cost = _x select 0;
+    _displayName = [_cfgGroup, "name"] call BIS_fnc_returnConfigEntry;
+    lbAdd [2101, format ["%1 (%2 CP)",_displayName,_cost]];
 } forEach blufor_cfgGroup_array;
 
 lbSetCurSel [2101, 0];
@@ -92,10 +92,10 @@ _index1 = lbAdd [2102, "Black Wasp II (Stealth) (60CP)"];                   // 3
 _index1 = lbAdd [2102, "Rhino MGS (40CP)"];                                 // 38
 _index1 = lbAdd [2102, "Rhino MGS UP (42CP)"];                              // 39*/
 {
-	_vehicle = _x select 1;
-	_cost = _x select 0;
-	_displayName = getText (configfile >> "CfgVehicles" >> _vehicle >> "displayName");
-	lbAdd [2102, format ["%1 (%2 CP)",_displayName,_cost]];
+    _vehicle = _x select 1;
+    _cost = _x select 0;
+    _displayName = getText (configfile >> "CfgVehicles" >> _vehicle >> "displayName");
+    lbAdd [2102, format ["%1 (%2 CP)",_displayName,_cost]];
 } forEach blufor_vehicle_array;
 
 lbSetCurSel [2102, 0];

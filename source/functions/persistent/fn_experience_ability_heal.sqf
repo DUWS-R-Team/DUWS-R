@@ -27,7 +27,7 @@ deleteVehicle _trg;
 
     titleText [format["%1, patching you up...",_ability_name], "PLAIN DOWN"];
     /// -----   ABILITY IS ACTIVATED
-	player playmove "AinvPknlMstpSlayWrflDnon_medic";
+    player playmove "AinvPknlMstpSlayWrflDnon_medic";
     sleep 4;
     player setdamage 0;
     /// ----   ABILITY IS ACTIVATED

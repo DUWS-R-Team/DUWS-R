@@ -155,8 +155,8 @@ call _myCode;
 //Construct and show Support Menu root
 supportMenu =
 [
-	["Support Menu",false],
-	["Offensive", [2], "#USER:offensive_SubMenu", -5, [["expression", ""]], "1", "1"],
+    ["Support Menu",false],
+    ["Offensive", [2], "#USER:offensive_SubMenu", -5, [["expression", ""]], "1", "1"],
     ["Logistics", [3], "#USER:logistic_SubMenu", -5, [["expression", ""]], "1", "1"],
     ["Transport", [4], "#USER:transport_SubMenu", -5, [["expression", ""]], "1", "1"]
 ];

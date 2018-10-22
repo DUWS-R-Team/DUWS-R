@@ -4,11 +4,11 @@
  * Load a unit into a vehicles cargo or turret seat.
  
  * Arguments:
-	0: Unit (Object)
-	1: Vehicle (Object)
+    0: Unit (Object)
+    1: Vehicle (Object)
  
  * Return value:
-	-
+    -
 */
 
 params ["_unit", "_vehicle"];

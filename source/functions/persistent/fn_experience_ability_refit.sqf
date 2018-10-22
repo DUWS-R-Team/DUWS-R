@@ -30,8 +30,8 @@ deleteVehicle _trg;
     titleText [format["%1 activated, the vehicle is being fixed...",_ability_name], "PLAIN DOWN"];
     /// -----   ABILITY IS ACTIVATED
     sleep 10;
-	_actualFuel = fuel _veh;
-	_veh setFuel (_actualFuel + 0.1);
+    _actualFuel = fuel _veh;
+    _veh setFuel (_actualFuel + 0.1);
     _veh setdamage 0;
     /// ----   ABILITY IS ACTIVATED
     titleText [format["%1 done\nCooldown: 1 hour",_ability_name,_cooldown], "PLAIN DOWN"];

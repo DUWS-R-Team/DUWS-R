@@ -4,10 +4,10 @@
  * Check Unit if carrying is possible/allowed. If yes, drag-action is shown up.
  
  * Arguments:
-	0: Unit (Object)
+    0: Unit (Object)
  
  * Return value:
-	Bool
+    Bool
  */
 
 private _target = _this;
@@ -21,12 +21,12 @@ _Draging = !(isNull (player getVariable ['ais_DragDrop_Torso', objNull]));
 
 _return = if (
 
-	_isUnc &&
-	!_isUncHealer &&
-	{alive _target} &&
-	{_Drag} &&
-	{_Draging}
-	
+    _isUnc &&
+    !_isUncHealer &&
+    {alive _target} &&
+    {_Drag} &&
+    {_Draging}
+    
 ) then {true} else {false};
 
 

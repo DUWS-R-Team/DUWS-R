@@ -11,11 +11,11 @@ _sitrep = "";
 _sitrepFormat = "<t align='left' shadow='1'>" + _title + ":%1</t>";
 
 for "_i" from 0 to (count _sitrepArray - 1) do {
-	_letter = _sitrepArray select _i;
-	_delay = if (_letter == "|") then {_letter = "<br />"; 1} else {0.02};
-	_sitrep = _sitrep + _letter;
-	_text = parseText format [_sitrepFormat, _sitrep + "_"];
+    _letter = _sitrepArray select _i;
+    _delay = if (_letter == "|") then {_letter = "<br />"; 1} else {0.02};
+    _sitrep = _sitrep + _letter;
+    _text = parseText format [_sitrepFormat, _sitrep + "_"];
 
-	_progressTitle ctrlSetText str(_text);
-	sleep _delay;
+    _progressTitle ctrlSetText str(_text);
+    sleep _delay;
 };

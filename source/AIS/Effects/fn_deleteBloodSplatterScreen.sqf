@@ -4,10 +4,10 @@
  * Remove post process blood effects.
  
  * Arguments:
-	-
+    -
  
  * Return value:
-	-
+    -
 */
 disableSerialization;
 params ["_texLower", "_texMiddle", "_texUpper"];

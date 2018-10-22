@@ -128,7 +128,7 @@ class CfgIdentities
         glasses="none";
         speaker="Male13ENG";
         pitch=0.9;
-    };	
+    };    
 
     class reynolds
     {
@@ -148,7 +148,7 @@ class CfgIdentities
         glasses="G_Tactical_Clear";
         speaker="Male07ENG";
         pitch=0.9;
-    };	
+    };    
 
     class mckendrick
     {
@@ -158,7 +158,7 @@ class CfgIdentities
         glasses="none";
         speaker="Male04ENG";
         pitch=1;
-    };		
+    };        
 
     class snake
     {
@@ -178,7 +178,7 @@ class CfgIdentities
         glasses="G_Tactical_Clear";
         speaker="Male06ENG";
         pitch=1;
-    };	
+    };    
 
     class fox
     {
@@ -188,7 +188,7 @@ class CfgIdentities
         glasses="none";
         speaker="Male01ENG";
         pitch=1.05;
-    };		
+    };        
 
     class martinez
     {
@@ -198,7 +198,7 @@ class CfgIdentities
         glasses="G_Combat";
         speaker="Male06ENG";
         pitch=1;
-    };		
+    };        
 
     class stranger
     {
@@ -208,7 +208,7 @@ class CfgIdentities
         glasses="none";
         speaker="Male04ENGB";
         pitch=0.9;
-    };	
+    };    
 
     class dixon
     {
@@ -218,5 +218,5 @@ class CfgIdentities
         glasses="none";
         speaker="Male010ENG";
         pitch=0.9;
-    };	
+    };    
 };

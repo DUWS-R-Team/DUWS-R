@@ -4,13 +4,13 @@
  * Chck if the unit is a medic. Also units which set manually to a medic will be found. (setUnitTrait)
  
  * Arguments:
-	0: Unit (Object)
+    0: Unit (Object)
  
  * Return value:
-	Nothing
-	
+    Nothing
+    
  * Example:
-	player call AIS_System_fnc_isMedic;
+    player call AIS_System_fnc_isMedic;
  */
 
 

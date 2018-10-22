@@ -44,7 +44,7 @@ hq_manually_placed = false;publicVariable "hq_manually_placed";
 // you must specify if you have manually placed the zones or not. false = zones are randomly generated, true = you have manually placed the zones
 zones_manually_placed = false;publicVariable "zones_manually_placed";
 zones_max_dist_from_hq = 7500;publicVariable "zones_max_dist_from_hq";
-dynamic_weather_enable = true;publicVariable "dynamic_weather_enable";	
+dynamic_weather_enable = true;publicVariable "dynamic_weather_enable";    
 manually_chosen = false;publicVariable "manually_chosen";
 
 if (isNil "enable_fast_travel") then { enable_fast_travel = true; };publicVariable "enable_fast_travel";
@@ -101,7 +101,7 @@ publicVariable "amount_zones_created";
 
 if (isNil "HQ_pos_found_generated") then {
     HQ_pos_found_generated = false;
-}; 	
+};     
 
 publicVariable "HQ_pos_found_generated";
 
@@ -114,59 +114,59 @@ publicVariable "chosen_settings";
 if (isNil "chosen_hq_placement") then {
     chosen_hq_placement = false;
 };
-	
+    
 publicVariable "chosen_hq_placement";
-	
+    
 if (isNil "zoneundercontrolblu") then {
-	zoneundercontrolblu = 0;
+    zoneundercontrolblu = 0;
 };
 
 publicVariable "zoneundercontrolblu";
 
 if (isNil "amount_zones_captured") then {
-	amount_zones_captured = 0;
+    amount_zones_captured = 0;
 };
 
 publicVariable "amount_zones_captured";
 
-if (isNil "savegameNumber") then {	
-	savegameNumber = 0;
+if (isNil "savegameNumber") then {    
+    savegameNumber = 0;
 };
 
 publicVariable "savegameNumber";
 
-if (isNil "capturedZonesNumber") then {	
-	capturedZonesNumber = 0;
-};	
+if (isNil "capturedZonesNumber") then {    
+    capturedZonesNumber = 0;
+};    
 
 publicVariable "capturedZonesNumber";
 
-if (isNil "finishedMissionsNumber") then {	
-	finishedMissionsNumber = 0;
-};	
+if (isNil "finishedMissionsNumber") then {    
+    finishedMissionsNumber = 0;
+};    
 
 publicVariable "finishedMissionsNumber";
 
-if (isNil "OvercastVar") then {	
-	OvercastVar = 0;
-};	
+if (isNil "OvercastVar") then {    
+    OvercastVar = 0;
+};    
 
 publicVariable "OvercastVar";
 
-if (isNil "FogVar") then {	
-	FogVar = 0;
+if (isNil "FogVar") then {    
+    FogVar = 0;
 };
 
 publicVariable "FogVar";
 
-if (isNil "createzone_server") then {	
-	createzone_server = false;
+if (isNil "createzone_server") then {    
+    createzone_server = false;
 };
 
 publicVariable "createzone_server";
 
-if (isNil "mission_number_of_zones_captured") then {	
-	mission_number_of_zones_captured = 0;
+if (isNil "mission_number_of_zones_captured") then {    
+    mission_number_of_zones_captured = 0;
 };
 
 publicVariable "mission_number_of_zones_captured";
@@ -174,7 +174,7 @@ publicVariable "mission_number_of_zones_captured";
 // this is a special one (if/else)
 if (isNil "Array_of_FOBS") then {
     // if the player is sp or server or no fobs have been created
-	Array_of_FOBS = [];
+    Array_of_FOBS = [];
 }
 else /// JIP for the client
 {
@@ -184,7 +184,7 @@ else /// JIP for the client
 };
 
 if (isNil "Array_of_FOBname") then {
-	Array_of_FOBname = [];
+    Array_of_FOBname = [];
 };
 
 publicVariable "Array_of_FOBS";
@@ -195,7 +195,7 @@ game_master = ["player1"];publicVariable "game_master";
  waitUntil {chosen_settings && createzone_server};
 
  if (!manually_chosen) then {
-	    if (!zones_created) then {      // CHECK IF ZONES ARE PLACED, IF NOT EXECUTE locatorZonesV1.sqf
+        if (!zones_created) then {      // CHECK IF ZONES ARE PLACED, IF NOT EXECUTE locatorZonesV1.sqf
         _zones_create = [50, 0.2] spawn duws_fnc_locatorzonesV1;   // CHECK IF ZONES HAVE ALREADY BEEN PLACED
     };
  } else {
@@ -225,7 +225,7 @@ if (isServer) then {
         60*60, // seconds to delete dropped weapons (0 means don't delete)
         0, // seconds to deleted planted explosives (0 means don't delete)
         60*60 // seconds to delete dropped smokes/chemlights (0 means don't delete)
-    ] spawn duws_fnc_repetitive_cleanup;	
+    ] spawn duws_fnc_repetitive_cleanup;    
 };
 
 

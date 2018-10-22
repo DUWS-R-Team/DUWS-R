@@ -46,18 +46,18 @@ while {!_found} do
         };     // END OF FAILSAFE EXECUTION, RESET OVER.
         
 
-		_Posfound = false;
-		_posDeMeilleurTruc = [];
-		while {!_Posfound} do {
-			_posDeMeilleurTruc = [center_of_map, 0,half_of_map,5,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
-			if (_posDeMeilleurTruc select 0 != 0 && _posDeMeilleurTruc select 1 != 0) then {_Posfound=true;};
-		};
-		_playerDistance = _posDeMeilleurTruc distance hq_blu1;
-		
-		
-		
-		
-		
+        _Posfound = false;
+        _posDeMeilleurTruc = [];
+        while {!_Posfound} do {
+            _posDeMeilleurTruc = [center_of_map, 0,half_of_map,5,0,0.1,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos;
+            if (_posDeMeilleurTruc select 0 != 0 && _posDeMeilleurTruc select 1 != 0) then {_Posfound=true;};
+        };
+        _playerDistance = _posDeMeilleurTruc distance hq_blu1;
+        
+        
+        
+        
+        
 
 
     if (_playerDistance>(zones_max_radius + 500) && (hq_blu1 distance _posDeMeilleurTruc)<=zones_max_dist_from_hq)  then {  // VERIFIE SI ELOIGNE DU JOUEUR ET REGARDE LA DISTANCE DES AUTRES ZONES. REGARDE AUSSI LA DISTANCE PAR RAPPORT AU QG
@@ -90,8 +90,8 @@ while {!_found} do
      _zones_array = _zones_array + [_MissionPos]; 
 
      player globalChat format["Zone location #%1 found !",_i];
-	 player globalChat format["Generating zone #%1",_i];
-	 //waituntil {scriptdone _generatezonescript};
+     player globalChat format["Generating zone #%1",_i];
+     //waituntil {scriptdone _generatezonescript};
      }; // END OF THIRD LOOP     
    };  // END SECOND LOOP
 };  // END WHILE LOOP --- LOCATION FOUND

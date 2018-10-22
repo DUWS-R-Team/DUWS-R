@@ -4,16 +4,16 @@
  * Diary entry.
  
  * Arguments:
-	-
+    -
  
  * Return value:
-	Bool
+    Bool
  */
 
 private _who_can_revive = switch (AIS_MEDICAL_EDUCATION) do {
-	case (0) : {"Everyone can revive"};
-	case (1) : {"Everybody with a First Aid Kit or Medkit"};
-	case (2) : {"Only medics can revive"};
+    case (0) : {"Everyone can revive"};
+    case (1) : {"Everybody with a First Aid Kit or Medkit"};
+    case (2) : {"Only medics can revive"};
 };
 private _revive_guaranty = if (AIS_REVIVE_GUARANTY) then {"You are protected from insta-death"} else {"Heavy damage can end in insta-death"};
 private _revive_heal = if (AIS_REVIVE_HEAL) then {"completely healed"} else {"separately healing action needed"};

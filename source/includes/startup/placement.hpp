@@ -1,8 +1,8 @@
 class startup_hq_placement_dialog
 {
-	idd = -1;
-	movingenable = false;
-	onUnload = "[] spawn duws_fnc_placement_closed"; //UI event handler
+    idd = -1;
+    movingenable = false;
+    onUnload = "[] spawn duws_fnc_placement_closed"; //UI event handler
     //  onLoad = "_this call FRAME_01_Load";
 
     class controls

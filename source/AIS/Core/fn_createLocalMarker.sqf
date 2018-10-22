@@ -1,15 +1,15 @@
 ﻿// ["my marker",  position player, "ICON", "ColorRed", [0.5,0.5]] call AIS_Core_fnc_createLocalMarker;
 
 params [
-	["_name","",[""]],
-	["_pos",[0,0],[[]]],
-	["_shape","ICON",[""]],
-	["_color","Default",[""]],
-	["_size",[1,1],[[]]],
-	["_text","",[""]],
-	["_dir",0,[0]],
-	["_type","mil_dot",[""]],
-	["_brush","",[""]]
+    ["_name","",[""]],
+    ["_pos",[0,0],[[]]],
+    ["_shape","ICON",[""]],
+    ["_color","Default",[""]],
+    ["_size",[1,1],[[]]],
+    ["_text","",[""]],
+    ["_dir",0,[0]],
+    ["_type","mil_dot",[""]],
+    ["_brush","",[""]]
 ];
 
 private _marker = createMarkerLocal [_name, _pos];

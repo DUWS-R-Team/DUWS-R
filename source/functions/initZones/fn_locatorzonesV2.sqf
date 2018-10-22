@@ -24,10 +24,10 @@ for [{_i=1}, {_i<=zones_number}, {_i=_i+1}] do  // BEGIN "FOR" LOOP --
         _zone_radius = round _random_zones_max_radius;   
         _points_zone = round (_zone_radius/10);
     };
-	
+    
     while {!_found} do {
         clicked = false;
-        OnMapSingleClick "ClickedPos = _pos; clicked = true;";	
+        OnMapSingleClick "ClickedPos = _pos; clicked = true;";    
         _found_distance = false;
         _missionPos = [];
 
@@ -61,7 +61,7 @@ for [{_i=1}, {_i<=zones_number}, {_i=_i+1}] do  // BEGIN "FOR" LOOP --
 };
 
 openMap [false, false]; 
-		
+        
 //hintSilent format["All zones found\nWelcome to %1\nHave fun !\nDUWS by kibot",_worldName];
 player globalChat format["All zones found. Welcome to %1, %2",_worldName,profileName];
 

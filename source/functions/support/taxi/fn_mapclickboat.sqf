@@ -29,15 +29,15 @@ while {_timer>0} do {
     _foundPickupPos = [ClickedTaxiPos, 0,50,10,2,5,0,[],[[0,0],[0,0]]] call BIS_fnc_findSafePos; // find a valid pos
 
     if (0 == _foundPickupPos select 0 && 0 == _foundPickupPos select 1) then {
-		if (ClickedTaxiPos distance player < 100) exitWith {
-		clicked = false;
-		titleText ["Driver: This is too close from our position", "PLAIN DOWN"];
-		};
-	clicked = false;
-	titleText ["Driver: I can't go there", "PLAIN DOWN"];
-	}
-	else
-	{onMapSingleClick "";_timer = 0;taxiCanTakeOff = true;}  
+        if (ClickedTaxiPos distance player < 100) exitWith {
+        clicked = false;
+        titleText ["Driver: This is too close from our position", "PLAIN DOWN"];
+        };
+    clicked = false;
+    titleText ["Driver: I can't go there", "PLAIN DOWN"];
+    }
+    else
+    {onMapSingleClick "";_timer = 0;taxiCanTakeOff = true;}  
     
     };
   _timer = _timer-1; // remove 1 to timer

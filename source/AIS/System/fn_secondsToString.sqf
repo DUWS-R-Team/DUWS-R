@@ -5,10 +5,10 @@
  * Convert seconds to formatted string.
  
  * Arguments:
-	_this select 0: <scalar> time in seconds
+    _this select 0: <scalar> time in seconds
  
  * Return value:
-	String
+    String
 */
 
 _sec = _this param [0, 0, [0]];

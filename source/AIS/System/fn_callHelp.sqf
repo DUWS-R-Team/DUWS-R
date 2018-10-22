@@ -4,10 +4,10 @@
  * Call for help and also start to check if a AI can help you.
  
  * Arguments:
-	0: Unit (Object)
+    0: Unit (Object)
  
  * Return value:
-	BOOL (true if help is called, false if not)
+    BOOL (true if help is called, false if not)
 */
 
 params ["_unit"];

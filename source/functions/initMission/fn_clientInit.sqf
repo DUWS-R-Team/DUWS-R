@@ -11,10 +11,10 @@ player allowDamage false;
 
 #include "..\..\includes\supports_init.hpp"
 #include "..\..\includes\squad_number_init.hpp"
-	
+    
 if (hasInterface) then {[] spawn duws_fnc_gps_marker;};
 if (!isMultiplayer) then {
-	getsize_script = [player] spawn duws_fnc_mapsize;
+    getsize_script = [player] spawn duws_fnc_mapsize;
 };
 staminaEnabled = ["Stamina", false] call BIS_fnc_getParamValue;
 if(staminaEnabled == 0) then {
@@ -25,9 +25,9 @@ if(staminaEnabled == 0) then {
 // IF MP
 if (isMultiplayer) then {
 
-	// Get the variables from the parameters lobby
-	_revive_activated = ["Revive", 1] call BIS_fnc_getParamValue;
-	DUWSMP_CP_death_cost = ["DeathPenalty", 1] call BIS_fnc_getParamValue;
+    // Get the variables from the parameters lobby
+    _revive_activated = ["Revive", 1] call BIS_fnc_getParamValue;
+    DUWSMP_CP_death_cost = ["DeathPenalty", 1] call BIS_fnc_getParamValue;
     //staminaEnabled = ["Stamina", 0] call BIS_fnc_getParamValue;
 
     /*if(staminaEnabled == 0) then {
@@ -43,7 +43,7 @@ if (isMultiplayer) then {
         } forEach (Array_of_FOBS);
     };
     
-	PlayerKilledEH = player addEventHandler ["killed", {
+    PlayerKilledEH = player addEventHandler ["killed", {
         commandpointsblu1 = commandpointsblu1 - DUWSMP_CP_death_cost;
         publicVariable "commandpointsblu1";
     }];
@@ -59,7 +59,7 @@ if (isMultiplayer) then {
         [0,_rating] select ((_playerRating - _rating) > 0);    
     }];
     
-	"support_specialized_training_available" addPublicVariableEventHandler {lbSetColor [2103, 11, [0, 1, 0, 1]];};
+    "support_specialized_training_available" addPublicVariableEventHandler {lbSetColor [2103, 11, [0, 1, 0, 1]];};
     "support_armory_available" addPublicVariableEventHandler {
         hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>",{[] call duws_fnc_bisArsenal}, "", 0, true, true, "", "_this == player"];
         {
@@ -71,71 +71,71 @@ if (isMultiplayer) then {
     // change the shown CP for request dialog
     "commandpointsblu1" addPublicVariableEventHandler {ctrlSetText [1000, format["%1",commandpointsblu1]]; };
 
-	// each time there is a new FOB
-	"Array_of_FOBS" addPublicVariableEventHandler {
+    // each time there is a new FOB
+    "Array_of_FOBS" addPublicVariableEventHandler {
         if (!fobSwitch) then {
             [] spawn duws_fnc_FOBreceiveaction;
         };
-		fobSwitch = false;
-		//Add the FoB to the list of revive locations.
-		_fobAmount = count Array_of_FOBS;
-		_fobIndex = _fobAmount - 1;
-		_createdFOB = Array_of_FOBS select _fobIndex;
-		
-		[missionNamespace, _createdFOB] call BIS_fnc_addRespawnPosition;
-	};
-	
-	if (!isServer) then {
+        fobSwitch = false;
+        //Add the FoB to the list of revive locations.
+        _fobAmount = count Array_of_FOBS;
+        _fobIndex = _fobAmount - 1;
+        _createdFOB = Array_of_FOBS select _fobIndex;
+        
+        [missionNamespace, _createdFOB] call BIS_fnc_addRespawnPosition;
+    };
+    
+    if (!isServer) then {
         "savegameNumber" addPublicVariableEventHandler {[] spawn duws_fnc_savegameClient};
-	};
-	if (!isServer) then {
-        "capturedZonesNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_zones_add;}; // change the shown CP for request dialog	
-	};
-	if (!isServer) then {
-        "finishedMissionsNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_missions_total;}; // change the shown CP for request dialog	
-	};	
-		
-	player globalChat format ["gamemaster: %1", game_master];
-	player globalChat format ["HQ_pos_found_generated: %1", HQ_pos_found_generated];
-	
-	if (!isDedicated && !HQ_pos_found_generated) then { // SERVER INIT
-		if (((vehiclevarname player) in game_master)) then {
-			DUWS_host_start = false;
-			publicVariable "DUWS_host_start";
-			waitUntil {time > 0.1};
-			getsize_script = [player] spawn duws_fnc_mapsize;
-			DUWS_host_start = true;
-			publicVariable "DUWS_host_start";
+    };
+    if (!isServer) then {
+        "capturedZonesNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_zones_add;}; // change the shown CP for request dialog    
+    };
+    if (!isServer) then {
+        "finishedMissionsNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_missions_total;}; // change the shown CP for request dialog    
+    };    
+        
+    player globalChat format ["gamemaster: %1", game_master];
+    player globalChat format ["HQ_pos_found_generated: %1", HQ_pos_found_generated];
+    
+    if (!isDedicated && !HQ_pos_found_generated) then { // SERVER INIT
+        if (((vehiclevarname player) in game_master)) then {
+            DUWS_host_start = false;
+            publicVariable "DUWS_host_start";
+            waitUntil {time > 0.1};
+            getsize_script = [player] spawn duws_fnc_mapsize;
+            DUWS_host_start = true;
+            publicVariable "DUWS_host_start";
 
-			// init High Command
-			[] call duws_fnc_hc_init;
-			waitUntil {scriptDone getsize_script};
-		};
-	};
+            // init High Command
+            [] call duws_fnc_hc_init;
+            waitUntil {scriptDone getsize_script};
+        };
+    };
 };
 
 if (!isDedicated && !HQ_pos_found_generated) then {
-	if (((vehiclevarname player) in game_master)) then {
-		[] spawn duws_fnc_placement;
-		waitUntil {chosen_hq_placement};	
-		player globalChat format ["hq_manually_placed: %1", hq_manually_placed];
-		player globalChat format ["player_is_choosing_hqpos: %1", player_is_choosing_hqpos];
-		// create random HQ
-		if (!hq_manually_placed && !player_is_choosing_hqpos) then {
-			player globalChat "lance recherche position...";
-			hq_create = [20, 0.015] spawn duws_fnc_locatorhq;
-			waitUntil {scriptDone hq_create};	
-		};
-	};
+    if (((vehiclevarname player) in game_master)) then {
+        [] spawn duws_fnc_placement;
+        waitUntil {chosen_hq_placement};    
+        player globalChat format ["hq_manually_placed: %1", hq_manually_placed];
+        player globalChat format ["player_is_choosing_hqpos: %1", player_is_choosing_hqpos];
+        // create random HQ
+        if (!hq_manually_placed && !player_is_choosing_hqpos) then {
+            player globalChat "lance recherche position...";
+            hq_create = [20, 0.015] spawn duws_fnc_locatorhq;
+            waitUntil {scriptDone hq_create};    
+        };
+    };
 };
-	
+    
 /*
 //////// DEBUG LOOP /////////////
 [] spawn {
-	while {true} do {
-	hintsilent format["OvercastVar: %1\nFogVar: %2",OvercastVar,FogVar];
-	sleep 1;
-	};
+    while {true} do {
+    hintsilent format["OvercastVar: %1\nFogVar: %2",OvercastVar,FogVar];
+    sleep 1;
+    };
 };
 //////// DEBUG LOOP /////////////
 */
@@ -158,26 +158,26 @@ if (isServer) then {
 if (hasInterface) then { 
     // WHEN CLIENT CONNECTS INIT (might need sleep)
     waitUntil {isPlayer Player};
-    hintsilent "Waiting for the host to find an HQ...";	
+    hintsilent "Waiting for the host to find an HQ...";    
     waitUntil {HQ_pos_found_generated && time > 0.1};
     player setpos [(getpos hq_blu1 select 0),(getpos hq_blu1 select 1)+10];
     _drawicon = [] spawn duws_fnc_drawIcon;
-    hintsilent "Waiting for the host to select the campaign parameters...";	
-    waitUntil {chosen_settings};	
+    hintsilent "Waiting for the host to select the campaign parameters...";    
+    waitUntil {chosen_settings};    
     [hq_blu1] call duws_fnc_HQaddactions;
     sleep 1;
-    player setdamage 0;	
+    player setdamage 0;    
     player allowDamage true;
     hintsilent format["Joined game, welcome to %1, %2",worldName,profileName];
 
     // init High Command
     [] call duws_fnc_hc_init;
     [] spawn duws_fnc_weather_client;
-	
-	// process purchasable units
-	[] call duws_fnc_processUnitConfig;
-	[] call duws_fnc_processVehicleConfig;
-	[] call duws_fnc_processGroupConfig;
+    
+    // process purchasable units
+    [] call duws_fnc_processUnitConfig;
+    [] call duws_fnc_processVehicleConfig;
+    [] call duws_fnc_processGroupConfig;
 
     if(!staminaEnabled) then {
         player enableStamina false;
@@ -217,10 +217,10 @@ if (isMultiplayer) then {
 
 // MP notification
 if (isMultiplayer) then {
-	[] spawn {
-		waitUntil {time > 5};
-		["info",["MP Mechanics","Check the manual for the specifics of the DUWS-R in MP"]] call bis_fnc_showNotification;
-	};
+    [] spawn {
+        waitUntil {time > 5};
+        ["info",["MP Mechanics","Check the manual for the specifics of the DUWS-R in MP"]] call bis_fnc_showNotification;
+    };
 };
 
 // create mission victory script //SPAWN BEGIN
@@ -280,10 +280,10 @@ _dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
 //TODO: Add bought supports.
 /*
 if(isServer) then 
-{	
-	execVM "persistent\missionSpecific\saveFuncs.sqf";
-	waitUntil {!isNil "saveFuncsLoaded"};
+{    
+    execVM "persistent\missionSpecific\saveFuncs.sqf";
+    waitUntil {!isNil "saveFuncsLoaded"};
 
-	execVM "persistent\missionSpecific\loadAccount.sqf";
+    execVM "persistent\missionSpecific\loadAccount.sqf";
 };
 */

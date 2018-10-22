@@ -14,16 +14,16 @@ deleteVehicle _trg;
 
 
 if (!_enemypresent) then {
-	player addEventHandler ["FiredNear", {[] spawn DUWS_dynmusic_firednear}];
-	}
+    player addEventHandler ["FiredNear", {[] spawn DUWS_dynmusic_firednear}];
+    }
 else
-	{
+    {
 
-	_random_music = DUWS_dynmusic_firednear_list call BIS_fnc_selectRandom;
-	playmusic _random_music;
+    _random_music = DUWS_dynmusic_firednear_list call BIS_fnc_selectRandom;
+    playmusic _random_music;
 
 
-	sleep 300;
-	player addEventHandler ["FiredNear", {[] spawn DUWS_dynmusic_firednear}];
-	};
+    sleep 300;
+    player addEventHandler ["FiredNear", {[] spawn DUWS_dynmusic_firednear}];
+    };
 };

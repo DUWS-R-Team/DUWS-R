@@ -1,5 +1,5 @@
 //  _trg = ["Outpost Airbase",5,50,getpos this,true] spawn duws_fnc_createzone;
-//	  Name of the place,pts,radius,position,fortified/not
+//      Name of the place,pts,radius,position,fortified/not
 //
 
 params ["_place","_points","_size","_trigger","_fortified","_prefab"];
@@ -114,127 +114,127 @@ _trigger = [(_trigger select 0)+40,_trigger select 1];
 // Check if fortified is true
 if (_fortified) then  
 {
-	[_fortifiedspawn] call duws_fnc_createopfortified;
-	sleep 2;
+    [_fortifiedspawn] call duws_fnc_createopfortified;
+    sleep 2;
 };
 
 // Check if radius is 100m or smaller => create 2 patrols then exit the script
 if (_size < 101) exitWith  
 {
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
 };
 // Check if radius is 250m-100m => create 2 patrols and 1 fireteam then exit the script
 if (_size < 251) exitWith  
 {
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
 };
 // Check if radius is 250m-500m => create 2 patrols and 2 fireteams then exit the script
 if (_size < 501) exitWith  
 {
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
 };
-if (_size <= 1000) exitWith			
+if (_size <= 1000) exitWith            
 {
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
-};	
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
+};    
 if (_size <= 1500) exitWith  
 {
 _vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
 waitUntil {scriptDone _vehcreate};
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createoppatrol; 
-	[opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
-};	
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol; 
+    [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
+};    
 if (_size <= 2000) exitWith  
 {
 _vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
 waitUntil {scriptDone _vehcreate};
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createoppatrol;  
-	[opfor_Faction,"air",_trigger,_size] spawn duws_fnc_random_veh;
-};	 
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;  
+    [opfor_Faction,"air",_trigger,_size] spawn duws_fnc_random_veh;
+};     
 if (_size <= 3000) exitWith  
 {
-	_vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
-	waitUntil {scriptDone _vehcreate};
-	
-	_vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
-	waitUntil {scriptDone _vehcreate};
-	
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createoppatrol;
+    _vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
+    waitUntil {scriptDone _vehcreate};
     
-	[opfor_Faction,"air",_trigger,_size] spawn duws_fnc_random_veh;
+    _vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
+    waitUntil {scriptDone _vehcreate};
+    
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    
+    [opfor_Faction,"air",_trigger,_size] spawn duws_fnc_random_veh;
 };
 
-// IF NOT IN PARAMETERS (TOO BIG ZONE)	 
+// IF NOT IN PARAMETERS (TOO BIG ZONE)     
 _vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
 waitUntil {scriptDone _vehcreate};
 
 _vehcreate = [opfor_Faction,"armored",_trigger,_size] spawn duws_fnc_random_veh;
 waitUntil {scriptDone _vehcreate};
 
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopwpteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createoppatrol;
-	[_trigger, _size] call duws_fnc_createopteam;
-	[_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopwpteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createoppatrol;
+    [_trigger, _size] call duws_fnc_createopteam;
+    [_trigger, _size] call duws_fnc_createoppatrol;
    
-	[opfor_Faction,"air",_trigger,_size] spawn duws_fnc_random_veh;	   
-	
+    [opfor_Faction,"air",_trigger,_size] spawn duws_fnc_random_veh;       
+    

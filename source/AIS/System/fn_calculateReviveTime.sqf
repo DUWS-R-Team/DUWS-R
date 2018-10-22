@@ -4,11 +4,11 @@
  * Calculate the needed time to revive a unit.
  
  * Arguments:
-	0: Unit (Object)
-	1: Injured (Object)
+    0: Unit (Object)
+    1: Injured (Object)
  
  * Return value:
-	NUMBER (Revive Time)
+    NUMBER (Revive Time)
 */
 
 params ["_unit", "_injured"];
@@ -23,8 +23,8 @@ _ais_avg_damage_factor = 6;
 // get real damage (all body parts + overall damage)
 private _summary_damage = 0;
 {
-	_summary_damage = _summary_damage + (((getAllHitPointsDamage _injured) select 2) select _x);
-	true
+    _summary_damage = _summary_damage + (((getAllHitPointsDamage _injured) select 2) select _x);
+    true
 } count [0,1,2,3,4,5,6,7,8,9,10];
 _summary_damage = _summary_damage + (damage _injured);
 
@@ -33,7 +33,7 @@ _calculated_revive_time = (AIS_REVIVETIME + ((_ais_variation_factor * (_summary_
 
 // rezise the time if the helper is a medic
 if (_unit call AIS_System_fnc_isMedic) then {
-	_calculated_revive_time = _calculated_revive_time / 1.5;
+    _calculated_revive_time = _calculated_revive_time / 1.5;
 };
 
 

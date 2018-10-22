@@ -39,12 +39,12 @@ class FSM
        "tawvd_addon_disable = true;" \n
        "" \n
        "if(isNil {profileNamespace getVariable ""tawvd_foot""}) then {" \n
-       "	profileNamespace setVariable [""tawvd_foot"",viewDistance];" \n
-       "	profileNamespace setVariable [""tawvd_car"",viewDistance];" \n
-       "	profileNamespace setVariable [""tawvd_air"",viewDistance];" \n
-       "	profileNamespace setVariable [""tawvd_drone"",viewDistance];" \n
-       "	profileNamespace setVariable [""tawvd_object"",viewDistance];" \n
-       "	saveProfileNamespace;" \n
+       "    profileNamespace setVariable [""tawvd_foot"",viewDistance];" \n
+       "    profileNamespace setVariable [""tawvd_car"",viewDistance];" \n
+       "    profileNamespace setVariable [""tawvd_air"",viewDistance];" \n
+       "    profileNamespace setVariable [""tawvd_drone"",viewDistance];" \n
+       "    profileNamespace setVariable [""tawvd_object"",viewDistance];" \n
+       "    saveProfileNamespace;" \n
        "};" \n
        "" \n
        "tawvd_foot = profileNamespace getVariable [""tawvd_foot"",viewDistance];" \n

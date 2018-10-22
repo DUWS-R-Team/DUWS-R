@@ -4,11 +4,11 @@
  * Start to drag a unit.
  
  * Arguments:
-	0: Unit Drager (Object)
-	1: Unit wounded (Object)
+    0: Unit Drager (Object)
+    1: Unit wounded (Object)
  
  * Return value:
-	-
+    -
 */
 
 
@@ -33,7 +33,7 @@ _target attachTo [_unit, _attachPoint];
 
 // release the injured if the helper getin a vehicle
 [
-	{isNull ((_this select 1) getVariable ["ais_DragDrop_Player", objNull]) || {!(isNull objectParent (_this select 0))}},
-	{if (!(isNull objectParent (_this select 0))) then {[(_this select 0)] call AIS_System_fnc_release}},
-	[_unit,_target]
+    {isNull ((_this select 1) getVariable ["ais_DragDrop_Player", objNull]) || {!(isNull objectParent (_this select 0))}},
+    {if (!(isNull objectParent (_this select 0))) then {[(_this select 0)] call AIS_System_fnc_release}},
+    [_unit,_target]
 ] call AIS_Core_fnc_waitUntilAndExecute;

@@ -1,5 +1,5 @@
 //  _trg = ["Outpost Airbase",5,50,getpos this,true] spawn duws_fnc_createzonebackup;
-//	  Name of the place,pts,radius,position,fortified/not
+//      Name of the place,pts,radius,position,fortified/not
 //
 
 params ["_place","_points","_size","_trigger","_fortified","_prefab"];

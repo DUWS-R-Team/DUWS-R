@@ -36,16 +36,16 @@ _wp setWaypointSpeed "LIMITED";
 _wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)+10], 0];
 _wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "SAFE";
-_wp setWaypointSpeed "LIMITED";	
-	
+_wp setWaypointSpeed "LIMITED";    
+    
 _wp = _groupPatrol addWaypoint [[(_centerPos select 0)-10, (_centerPos select 1)-10], 0];
 _wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "SAFE";
-_wp setWaypointSpeed "LIMITED";	
+_wp setWaypointSpeed "LIMITED";    
 
 _wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)-10], 0];
 _wp setWaypointType "MOVE";
-	
+    
 _wp = _groupPatrol addWaypoint [[(_centerPos select 0)+10, (_centerPos select 1)+10], 0];
 _wp setWaypointType "CYCLE";
 _wp setWaypointBehaviour "SAFE";

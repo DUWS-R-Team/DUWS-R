@@ -4,13 +4,13 @@
  * Set the unit in unconcsious state for Non-players. Set all variables and handle things around.
  
  * Arguments:
-	0: Unit (Object)
+    0: Unit (Object)
  
  * Return value:
-	Nothing
-	
+    Nothing
+    
 * Exapmle:
-	[unit] call AIS_System_fnc_unconsciousAI;
+    [unit] call AIS_System_fnc_unconsciousAI;
  */
 
 
@@ -21,12 +21,12 @@ _unit setVariable ["ais_unconscious", true, true];
 
 // if player drag or carry someone release the body
 if (!(isNull (_unit getVariable ["ais_DragDrop_Torso", objNull]))) then {
-	[_unit] call AIS_System_fnc_release;
+    [_unit] call AIS_System_fnc_release;
 };
 
 // do some actions for some special situations...
 if (count attachedObjects _unit > 0) then {
-	{detach _x} forEach (attachedObjects _unit);
+    {detach _x} forEach (attachedObjects _unit);
 };
 if (animationState _unit in ["ladderriflestatic", "laddercivilstatic"]) then {
     _unit action ["ladderOff", (nearestBuilding _unit)];

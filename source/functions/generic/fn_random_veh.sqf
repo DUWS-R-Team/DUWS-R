@@ -24,7 +24,7 @@ while {!_found} do {
         _actual_faction = getText (_checked_veh >> "faction");
         _scope = getNumber (_checked_veh >> "scope"); // check if actually present in editor
         _simulation_paracheck = getText (_checked_veh >> "simulation"); // check if not a parachute
-		_artilleryScanner = getNumber (_checked_veh >> "artilleryScanner"); //Check if it is an artillery unit
+        _artilleryScanner = getNumber (_checked_veh >> "artilleryScanner"); //Check if it is an artillery unit
 
         if (_actual_vehclass == _vehClass 
             && _actual_faction == _faction 

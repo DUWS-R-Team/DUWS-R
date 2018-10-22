@@ -5,16 +5,16 @@
 
     Description:
     Bind an EH for a custom event. This EH will be called when the event is triggered.
-	
+    
     Parameter(s):
     - 0: STRING - the name of the event
     - 1: CODE   - the code which get called (_this select 0 will be the data, _this select 1 will be the params)
     - 2: ARRAY  - the params passed to the code (optional)
-	
+    
     Returns:
     -
     Example:
-	
+    
     ["playerChanged", { hint "Player has changed"; }] call AIS_Core_fnc_bindEventHandler;
 */
 

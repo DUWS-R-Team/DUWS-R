@@ -53,7 +53,7 @@ duws_operator_list select lbCurSel 1500 set [7,"Operating"];
 ctrlSetText [1013, format["%1",_selected_soldier_status]];
 
 buttonSetAction [1601, "hint ""This operative is already active in this theatre of operation"""]; 
-ctrlSetText [1601, "ALREADY DEPLOYED"];	
+ctrlSetText [1601, "ALREADY DEPLOYED"];    
 
 // wait until the operator is dead
 waitUntil {sleep 2; !alive _soldier}; 

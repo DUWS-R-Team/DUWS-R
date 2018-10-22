@@ -1,7 +1,7 @@
 class info_radio
 {
-	idd = -1;
-	movingenable = false;
+    idd = -1;
+    movingenable = false;
     //  onLoad = "_this call FRAME_01_Load";
 
     class controls

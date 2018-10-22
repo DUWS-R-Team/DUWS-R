@@ -36,7 +36,7 @@ _ammo = Blufor_SupplyCrate CreateVehicle [_location select 0,_location select 1,
 _ammo attachTo [_parachute,[0,0,0]];
 
 {
-	_ammo addItemCargo _x;
+    _ammo addItemCargo _x;
 } forEach Blufor_Ammobox_Contents;
 
 _ammo addBackpackCargo ["B_AssaultPack_khk",10];

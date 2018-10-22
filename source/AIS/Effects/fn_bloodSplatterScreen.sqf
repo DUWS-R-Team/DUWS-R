@@ -5,10 +5,10 @@
  * Posst process blood effects. (original from BIS_fnc_bloodEffect)
  
  * Arguments:
-	-
+    -
  
  * Return value:
-	-
+    -
 */
 
 if (!canSuspend) exitWith {[] spawn AIS_Effects_fnc_bloodSplatterScreen;};
@@ -24,11 +24,11 @@ _texLower ctrlsetfade 1;
 _texLower ctrlcommit 0;
 
 _texMiddle = _display displayctrl 1212;
-_texMiddle ctrlsetfade 1;	
+_texMiddle ctrlsetfade 1;    
 _texMiddle ctrlcommit 0;
 
 _texUpper = _display displayctrl 1213;
-_texUpper ctrlsetfade 1;	
+_texUpper ctrlsetfade 1;    
 _texUpper ctrlcommit 0;
 
 _x = ((0 * safezoneW) + safezoneX) + ((safezoneW - (2.125 * safezoneW * 3/4)) / 2);
@@ -55,9 +55,9 @@ _texUpper ctrlcommit 0.2;
 
 // remove effect if player get revived/stabilized or died or character changed (teamswitch or zeus f.e.)
 [
-	{!alive player || {!(player getVariable ["ais_unconscious", false])} || {(player getVariable ["ais_stabilized", false])}},
-	{_this spawn AIS_Effects_fnc_deleteBloodSplatterScreen},
-	[_texLower,_texMiddle,_texUpper]
+    {!alive player || {!(player getVariable ["ais_unconscious", false])} || {(player getVariable ["ais_stabilized", false])}},
+    {_this spawn AIS_Effects_fnc_deleteBloodSplatterScreen},
+    [_texLower,_texMiddle,_texUpper]
 ] call AIS_Core_fnc_waitUntilAndExecute;
 
 

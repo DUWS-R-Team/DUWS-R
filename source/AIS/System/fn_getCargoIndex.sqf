@@ -4,10 +4,10 @@
  * Get a free cargo seat position for given vehicle.
  
  * Arguments:
-	0: Vehicle (Object)
+    0: Vehicle (Object)
  
  * Return value:
-	[vehicle, cargo index] (ARRAY) (empty Array if nothing found)
+    [vehicle, cargo index] (ARRAY) (empty Array if nothing found)
  */
 
 params ["_targetVehicle"];
@@ -17,12 +17,12 @@ private _VehicleIndex = [];
 private _allCargoSeats = [];
 _allCargoSeats = fullcrew [_targetVehicle, "cargo", true];
 if ( count _allCargoSeats > 0) then {
-	{
-		if (isNull (_x select 0)) exitWith {
-			_VehicleIndex = [_targetVehicle, _x select 2];
-		};
-		true
-	} count _allCargoSeats;
+    {
+        if (isNull (_x select 0)) exitWith {
+            _VehicleIndex = [_targetVehicle, _x select 2];
+        };
+        true
+    } count _allCargoSeats;
 };
 
 if (count _VehicleIndex > 0) exitWith {_VehicleIndex};
@@ -33,12 +33,12 @@ private _allTurretSeats = [];
 _VehicleIndex = [];
 _allTurretSeats = fullcrew [_targetVehicle, "Turret", true];
 if ( count _allTurretSeats > 0) then {
-	{
-		if (isNull (_x select 0)) exitWith {
-			_VehicleIndex = [_targetVehicle, _x select 2];
-		};
-		true
-	} count _allTurretSeats;
+    {
+        if (isNull (_x select 0)) exitWith {
+            _VehicleIndex = [_targetVehicle, _x select 2];
+        };
+        true
+    } count _allTurretSeats;
 };
 
 

@@ -17,8 +17,8 @@
         10*60, // seconds to deleted planted explosives (0 means don't delete)
         0 // seconds to delete dropped smokes/chemlights (0 means don't delete)
     ] execVM 'repetitive_cleanup.sqf';
-	
-	//NOTE! This has been turned into a function. Use spawn duws_fnc_repetitive_cleanup
+    
+    //NOTE! This has been turned into a function. Use spawn duws_fnc_repetitive_cleanup
 
     will delete dead bodies after 60 seconds (1 minute)
     will delete dead vehicles after 5*60 seconds (5 minutes)
