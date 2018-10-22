@@ -10,29 +10,30 @@ respawn = 3;
 respawnDelay = 4;
 disabledAI = 1;
 
-#include "debriefing.hpp"
-#include "dialog\defines.hpp"
-#include "dialog\squad\squadmng.hpp"
-#include "dialog\squad\rename\renamesquad.hpp"
-#include "dialog\request.hpp"
-#include "dialog\fob\fobmanager.hpp"
-#include "dialog\info\info.hpp"
-#include "dialog\info\reset\reset.hpp"
-#include "locations.hpp"
-#include "support\support.hpp"
-#include "hints.hpp"
-#include "dialog\startup\startup.hpp"
-#include "dialog\startup\hq_placement\placement.hpp"
+#include "includes\debriefing.hpp"
+#include "includes\defines.hpp"
+#include "includes\squad\squadmng.hpp"
+#include "includes\squad\renamesquad.hpp"
+#include "includes\request.hpp"
+#include "includes\fobmanager.hpp"
+#include "includes\info\info.hpp"
+#include "includes\info\reset.hpp"
+#include "includes\locations.hpp"
+#include "includes\support.hpp"
+#include "includes\hints.hpp"
+#include "includes\startup\startup.hpp"
+#include "includes\startup\placement.hpp"
 #include "sounds\sounds.hpp"
-#include "dialog\operative\identities.hpp"
-#include "dialog\operative\operative.hpp"
-#include "params.hpp"
-#include "duws_revive\gui\duws_revive.hpp"
+#include "includes\operative\identities.hpp"
+#include "includes\operative\operative.hpp"
+#include "includes\params.hpp"
+#include "includes\CfgFunctions.hpp"
+#include "AIS\Effects\BarDlg.hpp"
 
 // TAW INIT BEGIN --
 #include "taw_vd\GUI.h"
-class CfgFunctions
+/*class CfgFunctions
 {
 	#include "taw_vd\CfgFunctions.hpp"
-};
+};*/
 // TAW INIT END --
