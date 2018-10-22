@@ -1,33 +1,33 @@
 // DUWS-R Config
 
-DUWS_Version = "0.7.0";                    //Do not touch
+DUWS_Version = "0.7.0";           //Do not touch
 
 // Blufor Faction
-Blufor_Faction =                 "BLU_F";
+Blufor_Faction =                  "BLU_F";
 
 // Blufor Soldiers
-Blufor_Officer =                 "B_officer_F";
-Blufor_Squadleader =             "B_Soldier_SL_F";
-Blufor_Teamleader =             "B_Soldier_TL_F";
-Blufor_Medic =                     "B_medic_F";
+Blufor_Officer =                  "B_officer_F";
+Blufor_Squadleader =              "B_Soldier_SL_F";
+Blufor_Teamleader =               "B_Soldier_TL_F";
+Blufor_Medic =                    "B_medic_F";
 Blufor_Engineer =                 "B_engineer_F";
 Blufor_Rifleman =                 "B_Soldier_F";
-Blufor_Rifleman_Light =         "B_Soldier_lite_F";
-Blufor_Rifleman_AT =             "B_Soldier_LAT_F";
+Blufor_Rifleman_Light =           "B_Soldier_lite_F";
+Blufor_Rifleman_AT =              "B_Soldier_LAT_F";
 Blufor_Marksman =                 "B_soldier_M_F";
-Blufor_Recon_Scout =             "B_recon_F";
-Blufor_Grenadier =                 "B_Soldier_GL_F";
+Blufor_Recon_Scout =              "B_recon_F";
+Blufor_Grenadier =                "B_Soldier_GL_F";
 Blufor_Autorifleman =             "B_soldier_AR_F";
-Blufor_HeavyGunner =             "B_HeavyGunner_F";
-Blufor_AT_Specialist =             "B_soldier_AT_F";
-Blufor_AA_Specialist =             "B_soldier_AA_F";
-Blufor_Pilot =                     "B_pilot_F";
-Blufor_Heli_Pilot =             "B_Helipilot_F";
-Blufor_Crewman =                 "B_crew_F";
-Blufor_Repair_Specialist =         "B_soldier_repair_F";
-Blufor_diver =                     "B_diver_F";
-Blufor_sniper =                 "B_sniper_F";
-Blufor_spotter =                 "B_spotter_F";
+Blufor_HeavyGunner =              "B_HeavyGunner_F";
+Blufor_AT_Specialist =            "B_soldier_AT_F";
+Blufor_AA_Specialist =            "B_soldier_AA_F";
+Blufor_Pilot =                    "B_pilot_F";
+Blufor_Heli_Pilot =               "B_Helipilot_F";
+Blufor_Crewman =                  "B_crew_F";
+Blufor_Repair_Specialist =        "B_soldier_repair_F";
+Blufor_diver =                    "B_diver_F";
+Blufor_sniper =                   "B_sniper_F";
+Blufor_spotter =                  "B_spotter_F";
 Blufor_Explosive_Specialist =     "B_soldier_exp_F";
 
 // Blufor Purchasable Units
