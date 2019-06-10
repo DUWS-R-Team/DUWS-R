@@ -3,8 +3,8 @@
 
     Author: Kibot
 
-    Description: 
-        Variant of ammobox.sqf with less spread in deployment. 
+    Description:
+        Variant of ammobox.sqf with less spread in deployment.
         Air-deploys a NATO ammobox with a parachute at a assigned location.
 
     Parameter(s):
@@ -13,11 +13,12 @@
     Usage:
         _scriptHandle = [player] spawn duws_fnc_fob_ammobox;
 
-    Returns: 
+    Returns:
         - Nil -
 */
 
-params ["_target","_location"];
+params ["_target"];
+private _location = getPos _target;
 
 if (commandpointsblu1<2) exitWith {
     ["info",["Not enough command points","Not enough Command Points (2CP required)"]] call bis_fnc_showNotification;
@@ -34,20 +35,9 @@ _parachute setPos [_location select 0, _location select 1, (_location select 2)+
 _ammo = Blufor_SupplyCrate CreateVehicle [_location select 0,_location select 1,(_location select 2)+20];
 _ammo attachTo [_parachute,[0,0,0]];
 
-_ammo addMagazineCargo ["30Rnd_65x39_caseless_mag", 70];
-_ammo addMagazineCargo ["30Rnd_65x39_caseless_mag_Tracer", 70];
-_ammo addMagazineCargo ["100Rnd_65x39_caseless_mag", 70];
-_ammo addMagazineCargo ["100Rnd_65x39_caseless_mag_tracer", 70];
-_ammo addMagazineCargo ["1Rnd_HE_Grenade_shell", 90];
-_ammo addMagazineCargo ["UGL_FlareRed_F", 70];
-_ammo addMagazineCargo ["UGL_FlareGreen_F", 70];
-_ammo addMagazineCargo ["1Rnd_Smoke_Grenade_shell", 70];
-_ammo addMagazineCargo ["1Rnd_SmokeRed_Grenade_shell", 70];
-_ammo addMagazineCargo ["1Rnd_SmokeBlue_Grenade_shell", 70];
-_ammo addMagazineCargo ["NLAW_F", 70];
-_ammo addMagazineCargo ["Chemlight_green", 70];
-
-_ammo addBackpackCargo ["B_AssaultPack_khk",10];
+{
+    _ammo addItemCargo _x;
+} forEach Blufor_Ammobox_Contents;
 
 if (support_armory_available) then {[[_ammo,["<t color='#ff1111'>Armory</t>",{[] call duws_fnc_bisArsenal},[], 0, false, false, "", "_this distance _target < 4"]],"addAction",true,true] call BIS_fnc_MP;};
 
