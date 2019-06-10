@@ -11,7 +11,7 @@ class CfgFunctions
                 //postInit = 1;
             };
             //duws_fnc_serverInit
-            class serverInit 
+            class serverInit
             {
                 //preInit = 1;
             };
@@ -24,7 +24,7 @@ class CfgFunctions
             class processVehicleConfig {};
             class processGroupConfig {};
         };
-        
+
         class generic
         {
             class bisArsenal {};
@@ -45,7 +45,7 @@ class CfgFunctions
             // [] call duws_fnc_convertCPtoAP
             class dynamic_menu {};
             // [???] spawn duws_fnc_dynamic_menu
-            class dyn_music_init 
+            class dyn_music_init
             {
                 postInit = 1;
             };
@@ -85,7 +85,7 @@ class CfgFunctions
             class hc_init {};
             // [] call duws_fnc_hc_init
         };
-        
+
         class fob
         {
             class fast_travel {};
@@ -97,7 +97,7 @@ class CfgFunctions
             class reinforce {};
             // [] spawn duws_fnc_reinforce
         };
-        
+
         class utilities
         {
             class autoSave {};
@@ -105,13 +105,13 @@ class CfgFunctions
             class groupReset {};
             // [] call duws_fnc_groupReset
         };
-        
+
         class WARCOM
         {
             class random_veh_blu_patrol {};
-            // [faction, vehclass, position, radius] spawn duws_fnc_random_veh_blu_patrol 
+            // [faction, vehclass, position, radius] spawn duws_fnc_random_veh_blu_patrol
             class random_veh_opf_patrol {};
-            //  [faction, vehclass, position, radius] spawn duws_fnc_random_veh_opf_patrol 
+            //  [faction, vehclass, position, radius] spawn duws_fnc_random_veh_opf_patrol
             class WARCOM_blu_assault {};
             // [] call duws_fnc_WARCOM_blu_assault
             class WARCOM_blu_patrol {};
@@ -137,7 +137,7 @@ class CfgFunctions
             class WARCOM_wp_opf_qrf {};
             // [group, unitpos] call duws_fnc_WARCOM_wp_opf_qrf
         };
-        
+
         class initHQ
         {
             class BluHQinit {};
@@ -181,7 +181,7 @@ class CfgFunctions
             class commanderAnim {};
             // [unit] call duws_fnc_commanderAnim
         };
-        
+
         class startup
         {
             class manual {};
@@ -209,7 +209,7 @@ class CfgFunctions
             class weather_client {};
             // [] spawn duws_fnc_weather_client
         };
-        
+
         class initZones
         {
             class createzone {};
@@ -223,7 +223,7 @@ class CfgFunctions
             class locatorzonesV2 {};
             // [radius, diff] spawn duws_fnc_locatorzonesV2
         };
-        
+
         class zonescap
         {
             class blufor_cap {}
@@ -231,7 +231,7 @@ class CfgFunctions
             class opfor_cap {};
             // [place, points, markername, markername2, triggerPos] call duws_fnc_opfor_cap
         };
-        
+
         class prefabs
         {
             class site_Barracks {};
@@ -246,7 +246,7 @@ class CfgFunctions
             class site_researchStation {};
             class site_vehfittingstation {};
         };
-        
+
         class persistent
         {
             class persistent_stats_init {};
@@ -259,7 +259,7 @@ class CfgFunctions
             // [] call duws_fnc_persistent_stats_win;
             class persistent_stats_zones_add {};
             // [] call duws_fnc_persistent_stats_zones_add;
-            
+
             class experience_init {};
             // [] call duws_fnc_experience_init;
             class experience_ability_check {};
@@ -281,7 +281,7 @@ class CfgFunctions
             class experience_ability_warrior {};
             // [player] spawn duws_fnc_experience_ability_warruir
         };
-        
+
         class operative
         {
             class operator_add_aim {};
@@ -305,7 +305,7 @@ class CfgFunctions
             class operator_recruit {};
             // [] spawn duws_fnc_operator_recruit
         };
-        
+
         class missions
         {
             class destroy_mission {};
@@ -328,13 +328,13 @@ class CfgFunctions
             // [location] spawn duws_fnc_underwater_mission
             class underwater_success {};
             // (in addaction) {_this call duws_fnc_underwater_success;}
-            
+
             class missionTimer {};
             // [] spawn duws_fnc_missionTimer
             class stratmap {};
             // [] spawn duws_fnc_stratmap
         };
-        
+
         class squad
         {
             class copyloadout {};
@@ -348,7 +348,7 @@ class CfgFunctions
             class squadmng {};
             // [] spawn duws_fnc_squadmng
         };
-        
+
         class support
         {
             class ammobox {};
@@ -357,6 +357,8 @@ class CfgFunctions
             // [position, salvos, radius, interval, rps, supporttype, cost, ammotype] spawn duws_fnc_arty
             class fob {};
             // [position, size] spawn duws_fnc_fob
+            class fob_addAction {};
+            // object remoteExecCall ["DUWS_fnc_fob_addAction", ]
             class fob_ammobox {};
             // [target, location] spawn duws_fnc_fob_ammobox
             class FOBactions {};
@@ -375,7 +377,7 @@ class CfgFunctions
             // [centerPos, checkedRadius] spawn duws_fnc_uav_map
             class veh_refit {};
             // [] call duws_fnc_veh_refit
-            
+
             // Taxi
             class boatTaxi
             {
@@ -402,7 +404,7 @@ class CfgFunctions
                 file = "functions\support\taxi\fn_random_music.sqf";
             };
             // [] call duws_fnc_random_music
-            
+
             // Cluster
             class cluster
             {
@@ -415,7 +417,7 @@ class CfgFunctions
             };
             // [salvos, radius, interval, rps, supporttype, cost, ammotype] spawn duws_fnc_mapclickcluster
         };
-        
+
         class misc
         {
             class bottom_right_message {};
@@ -423,22 +425,22 @@ class CfgFunctions
             class gps_marker {};
             // [] spawn duws_fnc_gps_marker
         };
-        
+
         class info
         {
             class info {};
             // [] spawn duws_fnc_info
         };
-        
+
         class pFLIR
         {
             class livefeed {};
             class livefeed1 {};
             class livefeedexit {};
         };
-        
+
     };
-    class TAW_VD 
+    class TAW_VD
     {
         tag = "TAWVD";
 
@@ -449,7 +451,7 @@ class CfgFunctions
                 postInit = 1;
                 headerType = -1;
             };
-                
+
             class onSliderChanged {};
             class onTerrainChanged {};
             class updateViewDistance {};
@@ -460,6 +462,6 @@ class CfgFunctions
             class onSaveSelectionChanged {};
         };
     };
-    
+
     #include "..\AIS\cfgFunctions.hpp"
 };
