@@ -2,31 +2,31 @@ if (!isServer) exitWith {};
 
 
 //////////////////////////////////////////////////////
-//  HOW TO MANUALLY CREATE THE MISSION:   
+//  HOW TO MANUALLY CREATE THE MISSION:
 //  1)YOU MUST PLACE THE HQ LOCATION
 //  2)DEFINE THE CAPTURABLE ZONES
 //  -- YOU CAN ALSO JUST PUT A HQ SOMEWHERE AND LET THE ZONES BEING RANDOMLY GENERATED
-//  -- YOU MUST PLACE MANUALLY THE HQ IF YOU ARE ALREADY PLACING THE ZONES BY HAND 
-//  3) DONT FORGET TO DEFINE THE VARIABLES BELOW. If you are ONLY placing the HQ by hand, you just need to put "hq_manually_placed" to 
+//  -- YOU MUST PLACE MANUALLY THE HQ IF YOU ARE ALREADY PLACING THE ZONES BY HAND
+//  3) DONT FORGET TO DEFINE THE VARIABLES BELOW. If you are ONLY placing the HQ by hand, you just need to put "hq_manually_placed" to
 //     "true" instead of "false". If you are also placing the zones by hand, make "zones_manually_placed" to "true".
 /////////////////////////////////////////////////////////////
-//  1) In the gamelogic, for the HQ( !! MAKE ONLY ONE HQ !!): _null=[getpos this] execVM "initHQ\BluHQinit.sqf" 
-// 
-//  2) In the init of gamelogic, to create a capturable enemy zone: 
+//  1) In the gamelogic, for the HQ( !! MAKE ONLY ONE HQ !!): _null=[getpos this] execVM "initHQ\BluHQinit.sqf"
+//
+//  2) In the init of gamelogic, to create a capturable enemy zone:
 //      _null = ["zone name",pts awarded upon capture, zone radius,getpos this,false/true,false/true] execvm "createzone.sqf";
 //        "zone name": name of the zone
 //        pts awarded upon capture: points you earn when you capture the zone. Also the amount of points of army power you take and receive
 //          from the enemy after capture
 //        zone radius: how large the zone is
 //        getpos this: It's the position of the zone. The gamelogic actually. You don't have to modify this.
-//        false/true: if the zone is fortified or not. If the zone is fortified, there will be a bit more enemies and they will be maning 
+//        false/true: if the zone is fortified or not. If the zone is fortified, there will be a bit more enemies and they will be maning
 //          static defences if there are any
 //        false/true: if the zone is selecting randomly a prefab base. Prefab is selected according to the zone radius. The bigger the zone,
 //          the bigger the prefab asset will be chosen.
 //
 //  EXAMPLE, in the init of a gamelogic you have placed on the map:
 //    _null=["OP Xander",20,200,getpos this,true,false] execvm "initZones\createzone.sqf"
-//    
+//
 //  Note, this has been moved to the functions library!
 //  use '_null=["OP Xander",20,200,getpos this,true,false] spawn duws_fnc_createzone' instead!
 //
@@ -44,7 +44,7 @@ hq_manually_placed = false;publicVariable "hq_manually_placed";
 // you must specify if you have manually placed the zones or not. false = zones are randomly generated, true = you have manually placed the zones
 zones_manually_placed = false;publicVariable "zones_manually_placed";
 zones_max_dist_from_hq = 7500;publicVariable "zones_max_dist_from_hq";
-dynamic_weather_enable = true;publicVariable "dynamic_weather_enable";    
+dynamic_weather_enable = true;publicVariable "dynamic_weather_enable";
 manually_chosen = false;publicVariable "manually_chosen";
 
 if (isNil "enable_fast_travel") then { enable_fast_travel = true; };publicVariable "enable_fast_travel";
@@ -54,7 +54,7 @@ if (isNil "enableChopperFastTravel") then { enableChopperFastTravel = true; };pu
 if (isNil "commandpointsblu1") then { commandpointsblu1 = 20; };publicVariable "commandpointsblu1";
 // STARTING ARMY POWER
 if (isNil "blufor_ap") then {blufor_ap = 0;};publicVariable "blufor_ap";
-opfor_ap = 0; 
+opfor_ap = 0;
 
 
 ///////////////////////////////////////////////////////
@@ -62,13 +62,13 @@ opfor_ap = 0;
 //////////////////////////////////////////////////////
 // MOST OF THE VALUES ARE BEING OVERWRITTEN BY PLAYER INPUT AT THE BEGINNING
 //////////////////////////////////////////////////////
- 
+
 /////////////////////////////////////////////////////////////
 debugmode = false;  // Debug mode, kind of obsolete
 /// ------------- VALUES UNDER THIS ARE OVERWRITTEN
 zones_number = 9; // Number of capturables zones to create (when zones are created randomly)
 zones_spacing = 1200; // minimum space between 2 zones (in meters) // SOON OBSOLETE
-zones_max_radius = 1000;   // Determine the maximum radius a generated zone can have   
+zones_max_radius = 1000;   // Determine the maximum radius a generated zone can have
 zones_min_radius = 200; // Determine the minium radius a generated zone can have. SHOULD NOT BE UNDER 200.
 
 ///////////////////////////////////////////////////////
@@ -101,7 +101,7 @@ publicVariable "amount_zones_created";
 
 if (isNil "HQ_pos_found_generated") then {
     HQ_pos_found_generated = false;
-};     
+};
 
 publicVariable "HQ_pos_found_generated";
 
@@ -114,9 +114,9 @@ publicVariable "chosen_settings";
 if (isNil "chosen_hq_placement") then {
     chosen_hq_placement = false;
 };
-    
+
 publicVariable "chosen_hq_placement";
-    
+
 if (isNil "zoneundercontrolblu") then {
     zoneundercontrolblu = 0;
 };
@@ -129,43 +129,43 @@ if (isNil "amount_zones_captured") then {
 
 publicVariable "amount_zones_captured";
 
-if (isNil "savegameNumber") then {    
+if (isNil "savegameNumber") then {
     savegameNumber = 0;
 };
 
 publicVariable "savegameNumber";
 
-if (isNil "capturedZonesNumber") then {    
+if (isNil "capturedZonesNumber") then {
     capturedZonesNumber = 0;
-};    
+};
 
 publicVariable "capturedZonesNumber";
 
-if (isNil "finishedMissionsNumber") then {    
+if (isNil "finishedMissionsNumber") then {
     finishedMissionsNumber = 0;
-};    
+};
 
 publicVariable "finishedMissionsNumber";
 
-if (isNil "OvercastVar") then {    
+if (isNil "OvercastVar") then {
     OvercastVar = 0;
-};    
+};
 
 publicVariable "OvercastVar";
 
-if (isNil "FogVar") then {    
+if (isNil "FogVar") then {
     FogVar = 0;
 };
 
 publicVariable "FogVar";
 
-if (isNil "createzone_server") then {    
+if (isNil "createzone_server") then {
     createzone_server = false;
 };
 
 publicVariable "createzone_server";
 
-if (isNil "mission_number_of_zones_captured") then {    
+if (isNil "mission_number_of_zones_captured") then {
     mission_number_of_zones_captured = 0;
 };
 
@@ -216,19 +216,6 @@ game_master = ["player1"];publicVariable "game_master";
 waitUntil { !isNil "serv_zones_array" };
 diag_log format ["serv_zones_array: %1", serv_zones_array];
 [serv_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] call duws_fnc_WARCOM_init; // 2700 is 40 mins
-
-if (isServer) then {
-    // group cleaning script
-    0 = [
-        60*60, // seconds to delete dead bodies (0 means don't delete) 
-        60*60, // seconds to delete dead vehicles (0 means don't delete)
-        60*60, // seconds to delete dropped weapons (0 means don't delete)
-        0, // seconds to deleted planted explosives (0 means don't delete)
-        60*60 // seconds to delete dropped smokes/chemlights (0 means don't delete)
-    ] spawn duws_fnc_repetitive_cleanup;    
-};
-
-
 
 if (zones_manually_placed) then {
     waitUntil {!isNil ("Array_of_OPFOR_zones")};

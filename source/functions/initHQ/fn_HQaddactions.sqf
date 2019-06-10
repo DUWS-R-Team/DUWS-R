@@ -9,7 +9,7 @@ if (isServer) then {
 };
 
 if (!isServer) then {
-    _hq addaction ["<t color='#00b7ff'>Rest</t>",{[] spawn duws_fnc_savegameClient}, "", 0, true, true, "", "_this == player"];
+    _hq addaction ["<t color='#00b7ff'>Rest</t>",duws_fnc_savegameClient, "", 0, true, true, "", "_this == player"];
 };
 
 _hq addaction ["<t color='#00FFFF'>RESET SQUAD LEADER</t>",{[] call duws_fnc_groupReset}, "", 0, true, true, "", "_this == player"];

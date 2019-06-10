@@ -11,7 +11,7 @@ player allowDamage false;
 
 #include "..\..\includes\supports_init.hpp"
 #include "..\..\includes\squad_number_init.hpp"
-    
+
 if (hasInterface) then {[] spawn duws_fnc_gps_marker;};
 if (!isMultiplayer) then {
     getsize_script = [player] spawn duws_fnc_mapsize;
@@ -42,12 +42,12 @@ if (isMultiplayer) then {
             _x addaction ["<t color='#ff0066'>Armory (VA)</t>",{[] call duws_fnc_bisArsenal}, "", 0, true, true, "", "_this == player"];
         } forEach (Array_of_FOBS);
     };
-    
+
     PlayerKilledEH = player addEventHandler ["killed", {
         commandpointsblu1 = commandpointsblu1 - DUWSMP_CP_death_cost;
         publicVariable "commandpointsblu1";
     }];
-    
+
     PlayerBetrayerEH = player addEventHandler ["HandleRating", {
         // If playerRating is negative (traitor) then reset to zero
         _playerRating = rating (_this select 0);
@@ -56,9 +56,9 @@ if (isMultiplayer) then {
         };
         // If final rating is positive, do not modify, else zero.
         _rating = _this select 1;
-        [0,_rating] select ((_playerRating - _rating) > 0);    
+        [0,_rating] select ((_playerRating - _rating) > 0);
     }];
-    
+
     "support_specialized_training_available" addPublicVariableEventHandler {lbSetColor [2103, 11, [0, 1, 0, 1]];};
     "support_armory_available" addPublicVariableEventHandler {
         hq_blu1 addaction ["<t color='#ff0066'>Armory (VA)</t>",{[] call duws_fnc_bisArsenal}, "", 0, true, true, "", "_this == player"];
@@ -81,23 +81,23 @@ if (isMultiplayer) then {
         _fobAmount = count Array_of_FOBS;
         _fobIndex = _fobAmount - 1;
         _createdFOB = Array_of_FOBS select _fobIndex;
-        
+
         [missionNamespace, _createdFOB] call BIS_fnc_addRespawnPosition;
     };
-    
+
     if (!isServer) then {
         "savegameNumber" addPublicVariableEventHandler {[] spawn duws_fnc_savegameClient};
     };
     if (!isServer) then {
-        "capturedZonesNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_zones_add;}; // change the shown CP for request dialog    
+        "capturedZonesNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_zones_add;}; // change the shown CP for request dialog
     };
     if (!isServer) then {
-        "finishedMissionsNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_missions_total;}; // change the shown CP for request dialog    
-    };    
-        
+        "finishedMissionsNumber" addPublicVariableEventHandler {[] call duws_fnc_persistent_stats_missions_total;}; // change the shown CP for request dialog
+    };
+
     player globalChat format ["gamemaster: %1", game_master];
     player globalChat format ["HQ_pos_found_generated: %1", HQ_pos_found_generated];
-    
+
     if (!isDedicated && !HQ_pos_found_generated) then { // SERVER INIT
         if (((vehiclevarname player) in game_master)) then {
             DUWS_host_start = false;
@@ -117,18 +117,18 @@ if (isMultiplayer) then {
 if (!isDedicated && !HQ_pos_found_generated) then {
     if (((vehiclevarname player) in game_master)) then {
         [] spawn duws_fnc_placement;
-        waitUntil {chosen_hq_placement};    
+        waitUntil {chosen_hq_placement};
         player globalChat format ["hq_manually_placed: %1", hq_manually_placed];
         player globalChat format ["player_is_choosing_hqpos: %1", player_is_choosing_hqpos];
         // create random HQ
         if (!hq_manually_placed && !player_is_choosing_hqpos) then {
             player globalChat "lance recherche position...";
             hq_create = [20, 0.015] spawn duws_fnc_locatorhq;
-            waitUntil {scriptDone hq_create};    
+            waitUntil {scriptDone hq_create};
         };
     };
 };
-    
+
 /*
 //////// DEBUG LOOP /////////////
 [] spawn {
@@ -143,37 +143,25 @@ if (!isDedicated && !HQ_pos_found_generated) then {
 // AMBIANCE LOOP
 //_nul = [] execVM "musicloop.sqf";
 
-if (isServer) then {
-    // group cleaning script
-    clean = [
-        5*60,   // seconds to delete dead bodies (0 means don't delete)
-        5*60,   // seconds to delete dead vehicles (0 means don't delete)
-        0,      // seconds to delete immobile vehicles (0 means don't delete)
-        5*60,   // seconds to delete dropped weapons (0 means don't delete)
-        0,      // seconds to deleted planted explosives (0 means don't delete)
-        10*60   // seconds to delete dropped smokes/chemlights (0 means don't delete)
-   ] spawn duws_fnc_repetitive_cleanup;
-};
-
-if (hasInterface) then { 
+if (hasInterface) then {
     // WHEN CLIENT CONNECTS INIT (might need sleep)
     waitUntil {isPlayer Player};
-    hintsilent "Waiting for the host to find an HQ...";    
+    hintsilent "Waiting for the host to find an HQ...";
     waitUntil {HQ_pos_found_generated && time > 0.1};
     player setpos [(getpos hq_blu1 select 0),(getpos hq_blu1 select 1)+10];
     _drawicon = [] spawn duws_fnc_drawIcon;
-    hintsilent "Waiting for the host to select the campaign parameters...";    
-    waitUntil {chosen_settings};    
+    hintsilent "Waiting for the host to select the campaign parameters...";
+    waitUntil {chosen_settings};
     [hq_blu1] call duws_fnc_HQaddactions;
     sleep 1;
-    player setdamage 0;    
+    player setdamage 0;
     player allowDamage true;
     hintsilent format["Joined game, welcome to %1, %2",worldName,profileName];
 
     // init High Command
     [] call duws_fnc_hc_init;
     [] spawn duws_fnc_weather_client;
-    
+
     // process purchasable units
     [] call duws_fnc_processUnitConfig;
     [] call duws_fnc_processVehicleConfig;
@@ -189,7 +177,7 @@ if (!isMultiplayer) then {
 };
 
 // Create help for DUWS
-_index = player createDiarySubject ["help","DUWS-R Manual"]; 
+_index = player createDiarySubject ["help","DUWS-R Manual"];
 player createDiaryRecord ["help", ["Feedback/bug report", "Internal team members: Use the ""issues"" section to report items."]];
 player createDiaryRecord ["help", ["Export to another island", "<font color='#FF0000'>How to export to another island:</font color><br />You just need to take the .pbo file and rename it with the name of the island you want to export the mission to. You don't have anything else to do<br /><br />Example:<br />SP_DUWS-R.stratis.pbo >>> SP_DUWS-R.chernarus.pbo"]];
 player createDiaryRecord ["help", ["Credits", "Many thanks goes out to everyone that worked on the original DUWS by kibot!"]];
@@ -259,7 +247,7 @@ if (mission_DUWS_firstlaunch) then {
     sleep 20;
     ["info",["DUWS Manual","Check the manual in the briefing for more info"]] call bis_fnc_showNotification;
 
-    profileNamespace setVariable ["profile_DUWS_firstlaunch", false]; 
+    profileNamespace setVariable ["profile_DUWS_firstlaunch", false];
     saveProfileNamespace;
 };
 
@@ -279,8 +267,8 @@ _dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
 //Loading player position and gear.
 //TODO: Add bought supports.
 /*
-if(isServer) then 
-{    
+if(isServer) then
+{
     execVM "persistent\missionSpecific\saveFuncs.sqf";
     waitUntil {!isNil "saveFuncsLoaded"};
 

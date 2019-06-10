@@ -60,8 +60,6 @@ class CfgFunctions
             // [length] call duws_fnc_random_name
             class random_veh {};
             // [faction, vehClass, position, radius] spawn duws_fnc_random_veh
-            class repetitive_cleanup {};
-            // [] spawn duws_fnc_repetitive_cleanup
             class request {};
             // [] call duws_fnc_request
             class request_squad {};
