@@ -3,7 +3,7 @@
 
     Author: Kibot
 
-    Description: 
+    Description:
       Air-deploys a NATO ammobox with a parachute at a assigned location.
 
     Parameter(s):
@@ -12,7 +12,7 @@
     Usage:
         _scriptHandle = [player] execVM 'ammobox.sqf';
 
-    Returns: 
+    Returns:
         - Nil -
 */
 
@@ -41,7 +41,10 @@ _ammo attachTo [_parachute,[0,0,0]];
 
 _ammo addBackpackCargo ["B_AssaultPack_khk",10];
 
-if (support_armory_available) then {[[_ammo,["<t color='#ff1111'>Armory</t>",{[] call duws_fnc_bisArsenal},[], 0, false, false, "", "_this distance _target < 4"]],"addAction",true,true] call BIS_fnc_MP;};
+if (support_armory_available) then
+{
+    [_ammo,["<t color='#ff1111'>Armory</t>",{[] call duws_fnc_bisArsenal},[], 0, false, false, "", "_this distance _target < 4"]] remoteExecCall ["addAction", 0, true];
+};
 
 waitUntil {sleep 1; getpos _ammo select 2<0.2};
 _smoke = "SmokeShellGreen" CreateVehicle (getpos _ammo);

@@ -20,7 +20,7 @@ call compile format["_taskhandle = %1",_VARtaskgeneratedName];
 _object removeAction _action;
 
 //player removeSimpleTask _taskhandle;
-[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
 
 deleteMarker str(_markername2);
 deleteMarker str(_markername);

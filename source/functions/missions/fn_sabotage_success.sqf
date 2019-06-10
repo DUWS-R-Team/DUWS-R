@@ -3,7 +3,7 @@ _missionPos = _arguments select 0;
 _mission_name = _arguments select 1;
 _markername = _arguments select 2;
 _markername2 = _arguments select 3;
-  
+
 _action = _this select 2;
 _object = _this select 0;
 
@@ -17,7 +17,7 @@ call compile format["_taskhandle = %1",_VARtaskgeneratedName]; // recall variabl
 _object removeAction _action;
 
 //player removeSimpleTask _taskhandle;
-[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
 
 deleteMarker str(_markername2);
 deleteMarker str(_markername);
@@ -33,7 +33,7 @@ publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 finishedMissionsNumber = finishedMissionsNumber + 1;
 publicVariable "finishedMissionsNumber";
-[] call operative_mission_complete; 
+[] call operative_mission_complete;
 
 // ADD PERSISTENT STAT
 _addmission = [] call duws_fnc_persistent_stats_missions_total;

@@ -39,7 +39,10 @@ _ammo attachTo [_parachute,[0,0,0]];
     _ammo addItemCargo _x;
 } forEach Blufor_Ammobox_Contents;
 
-if (support_armory_available) then {[[_ammo,["<t color='#ff1111'>Armory</t>",{[] call duws_fnc_bisArsenal},[], 0, false, false, "", "_this distance _target < 4"]],"addAction",true,true] call BIS_fnc_MP;};
+if (support_armory_available) then
+{
+    [_ammo,["<t color='#ff1111'>Armory</t>",{[] call duws_fnc_bisArsenal},[], 0, false, false, "", "_this distance _target < 4"]] remoteExecCall ["addAction", 0, true];
+};
 
 waitUntil {sleep 1; getpos _ammo select 2<0.2};
 _smoke = "SmokeShellGreen" CreateVehicle (getpos _ammo);

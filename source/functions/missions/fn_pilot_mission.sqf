@@ -37,7 +37,7 @@ _choppa = Blufor_Helowreck createVehicle (_missionpos);
 
 _group = createGroup west; // CREATE PILOT
 _pilot = _group createUnit [Blufor_Heli_Pilot, [_missionpos select 0, (_missionpos select 1)+2], [], 0, "FORM"];
-_pilot setcaptive true; 
+_pilot setcaptive true;
 _pilot switchMove "acts_CrouchingIdleRifle01";
 
 // TASK AND NOTIFICATION
@@ -49,7 +49,7 @@ if (!ismultiplayer) then {
     [] spawn duws_fnc_autoSave;
 };
 
-[west, "_taskhandle", ["One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.", "Downed Pilot", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.", "Downed Pilot", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate;
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
@@ -62,7 +62,7 @@ if (!(alive _pilot)) exitWith {
     deleteMarker str(_markername);
 
     //player removeSimpleTask _taskhandle;
-    [["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+    ["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
 
     ["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
 };
@@ -81,7 +81,7 @@ if (!(alive _pilot)) exitWith {
     deleteMarker str(_markername);
 
     //player removeSimpleTask _taskhandle;
-    [["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+    ["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
     ["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
 };
 
@@ -107,7 +107,7 @@ commandpointsblu1 = commandpointsblu1 + reward;
 publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 missions_success = missions_success + 1;
-[] call operative_mission_complete; 
+[] call operative_mission_complete;
 
 // ADD PERSISTENT STAT
 _addmission = [] call duws_fnc_persistent_stats_missions_total;

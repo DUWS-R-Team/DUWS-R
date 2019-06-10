@@ -22,7 +22,7 @@ _markerstr2 setMarkerShape "ELLIPSE";
 str(_markername2) setMarkerBrush "SolidBorder";
 str(_markername2) setMarkerColor "ColorOPFOR";
 str(_markername2) setMarkerSize [_radius, _radius];
-str(_markername2) setMarkerAlpha 0.3; 
+str(_markername2) setMarkerAlpha 0.3;
 
 // CREATE TOWER
 _tower = "Land_TTowerBig_1_F" createVehicle (_missionpos);
@@ -36,7 +36,7 @@ _tower setVectorUp [0,0,1];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 //NEW
 //test1
-[west, "_taskhandle", ["taskDestroy.", "We have detected a large amount of enemy trasmissions coming from this area. This is probably caused by a radio tower used by the enemy forces on the island. Destroy the tower. Be sure to take some satchels, which you can find in the armory. Armory can be unlocked at the HQ.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["taskDestroy.", "We have detected a large amount of enemy trasmissions coming from this area. This is probably caused by a radio tower used by the enemy forces on the island. Destroy the tower. Be sure to take some satchels, which you can find in the armory. Armory can be unlocked at the HQ.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate;
 
 
 if (!ismultiplayer) then {
@@ -52,7 +52,7 @@ sleep 1;
 [_randompos, _radius] call duws_fnc_createopteam;
 
 // MISSION COMPLETED --   ATTENDRE QUE LA TOUR SOIT KO
-waitUntil {sleep 1; !alive _tower};  
+waitUntil {sleep 1; !alive _tower};
 
 // remove markers
 deleteMarker str(_markername2);
@@ -62,8 +62,9 @@ deleteMarker str(_markername);
 //player removeSimpleTask _taskhandle;
 
 //NEW
-[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP; 
- 
+[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
+
 // Give cookies  (bonus & notifications)
 reward = (30 * cp_reward_multiplier);
 ["TaskSucceeded",["",_mission_name]] call bis_fnc_showNotification;
@@ -76,7 +77,7 @@ finishedMissionsNumber = finishedMissionsNumber + 1;
 publicVariable "finishedMissionsNumber";
 publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
-[] call operative_mission_complete; 
+[] call operative_mission_complete;
 
 // ADD PERSISTENT STAT
 _addmission = [] call duws_fnc_persistent_stats_missions_total;

@@ -24,7 +24,7 @@ _markerstr2 setMarkerShape "ELLIPSE";
 str(_markername2) setMarkerBrush "SolidBorder";
 str(_markername2) setMarkerColor "Color3_FD_F";
 str(_markername2) setMarkerSize [_radius, _radius];
-str(_markername2) setMarkerAlpha 0.3; 
+str(_markername2) setMarkerAlpha 0.3;
 
 // CREATE TRUCK & CRATES
 _truck1 = Opfor_Truck_Open createVehicle (_missionpos);
@@ -47,7 +47,7 @@ _box3 setdir 180;
 //_taskhandle = player createSimpleTask ["taskSteal"];
 //_taskhandle setSimpleTaskDescription ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.",_mission_name,""];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
-[west, "_taskhandle", ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.", "Grand Theft", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.", "Grand Theft", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate;
 
 if (!ismultiplayer) then {
     [] spawn duws_fnc_autoSave;
@@ -62,20 +62,20 @@ sleep 1;
 [_randompos, _radius] call duws_fnc_createopteam;
 
 _group = createGroup east;
-_unit = _group createUnit [Opfor_Squadleader, _missionpos, [], 0, "FORM"]; 
+_unit = _group createUnit [Opfor_Squadleader, _missionpos, [], 0, "FORM"];
 _unit = _group createUnit [Opfor_Rifleman_AT, _missionpos, [], 0, "FORM"];
 _unit = _group createUnit [Opfor_Rifleman, _missionpos, [], 0, "FORM"];
 
 
-// MISSION COMPLETED --   ATTENDRE QUE LE CAMION SOIT ARRIVE A LA BASE OU DETRUIT  
-waitUntil {sleep 2; ((getdammage _truck1)>0.95 OR (_truck1 distance _initpos)<50)};  
+// MISSION COMPLETED --   ATTENDRE QUE LE CAMION SOIT ARRIVE A LA BASE OU DETRUIT
+waitUntil {sleep 2; ((getdammage _truck1)>0.95 OR (_truck1 distance _initpos)<50)};
 
 // remove markers
 deleteMarker str(_markername2);
 deleteMarker str(_markername);
 
 //player removeSimpleTask _taskhandle;
-[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
 
 if (getdammage _truck1>0.95) exitWith {
     ["TaskFailed",["","The enemy convoy is destroyed"]] call bis_fnc_showNotification;
@@ -83,7 +83,7 @@ if (getdammage _truck1>0.95) exitWith {
 
 // IF THE MISSION IS COMPLETE
 hint "Unloading the truck...";
- 
+
 // Give cookies  (bonus & notifications)
 reward = (25 * cp_reward_multiplier);
 ["TaskSucceeded",["",_mission_name]] call bis_fnc_showNotification;
@@ -96,7 +96,7 @@ publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 finishedMissionsNumber = finishedMissionsNumber + 1;
 publicVariable "finishedMissionsNumber";
-[] call operative_mission_complete; 
+[] call operative_mission_complete;
 
 // ADD PERSISTENT STAT
 _addmission = [] call duws_fnc_persistent_stats_missions_total;

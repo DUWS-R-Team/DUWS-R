@@ -33,7 +33,7 @@ sleep 1;
 Opfor_MRAP createVehicle ([(_missionpos select 0)+(random 10),(_missionpos select 1)+(random 10)]);
 
 _group = createGroup east;
-_target = _group createUnit [Opfor_Officer, _missionpos, [], 0, "FORM"]; 
+_target = _group createUnit [Opfor_Officer, _missionpos, [], 0, "FORM"];
 _unit = _group createUnit [Opfor_Rifleman, _missionpos, [], 0, "FORM"];
 _unit = _group createUnit [Opfor_Rifleman, _missionpos, [], 0, "FORM"];
 
@@ -41,7 +41,7 @@ _unit = _group createUnit [Opfor_Rifleman, _missionpos, [], 0, "FORM"];
 //_taskhandle = player createSimpleTask ["taskTarget"];
 //_taskhandle setSimpleTaskDescription ["A high enemy target has been spotted somewhere in this location. Hunt him down.",_mission_name,""];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
-[west, "_taskhandle", ["A high ranking enemy target has been spotted somewhere in this location. Hunt him down.", "High Value Target", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["A high ranking enemy target has been spotted somewhere in this location. Hunt him down.", "High Value Target", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate;
 
 if (!ismultiplayer) then {
     [] spawn duws_fnc_autoSave;
@@ -56,7 +56,7 @@ deleteMarker str(_markername2);
 deleteMarker str(_markername);
 
 //player removeSimpleTask _taskhandle;
-[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
 
 sleep 1;
 
@@ -72,7 +72,7 @@ publicVariable "commandpointsblu1";
 publicVariable "WARCOM_blufor_ap";
 finishedMissionsNumber = finishedMissionsNumber + 1;
 publicVariable "finishedMissionsNumber";
-[] call operative_mission_complete;  
+[] call operative_mission_complete;
 
 // ADD PERSISTENT STAT
 _addmission = [] call duws_fnc_persistent_stats_missions_total;
