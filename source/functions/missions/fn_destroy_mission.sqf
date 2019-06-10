@@ -62,7 +62,6 @@ deleteMarker str(_markername);
 //player removeSimpleTask _taskhandle;
 
 //NEW
-[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
 ["_taskhandle", "WEST"] remoteExecCall ["BIS_fnc_deleteTask", 0, true];
 
 // Give cookies  (bonus & notifications)

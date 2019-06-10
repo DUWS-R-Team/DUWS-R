@@ -26,7 +26,7 @@ str(_markername2) setMarkerAlpha 0.3;
 // create TOWER
 _tower = createVehicle ["Land_dp_transformer_F", _MissionPos, [], 0, "NONE"];
 _tower addEventHandler ["HandleDamage", {0}];
-_tower addaction ["Sabotage", duws_fnc_sabotage_success,[_missionPos,_mission_name,_markername,_markername2]];
+_tower addaction ["Sabotage", {_this call duws_fnc_sabotage_success;},[_missionPos,_mission_name,_markername,_markername2]];
 
 // TASK AND NOTIFICATION
 _VARtaskgeneratedName = format["tsksabot%1%2",round(_MissionPos select 0),round(_Missionpos select 1)]; // generate variable name for task
