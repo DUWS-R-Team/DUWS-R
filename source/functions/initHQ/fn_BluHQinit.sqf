@@ -36,7 +36,7 @@ _group = createGroup west;
 _hq = _group createUnit [Blufor_Officer,(getmarkerpos str(blu_hq_markername)), [], 0, "FORM"];
 hq_blu1 = _hq;
 publicVariable "hq_blu1";
-_hq setpos [_hqblu select 0, _hqblu select 1, 0.59]; 
+_hq setpos [_hqblu select 0, _hqblu select 1, 0.59];
 _hq disableAI "AUTOTARGET";
 _hq disableAI "MOVE";
 removeallweapons _hq;
@@ -62,8 +62,8 @@ _handle = [(getpos hq_blu1), _hq] spawn duws_fnc_fortify;
 };
 
 //CREATE PATROL
-[getpos hq_blu1] call duws_fnc_guardsHQ;
-[getpos hq_blu1] call duws_fnc_guardsHQ;
+[getpos hq_blu1, 40] call duws_fnc_guardsHQ;
+[getpos hq_blu1, 60] call duws_fnc_guardsHQ;
 
 // IF THE OFFICER IS DEAD -- End OF "SPAWN"
 

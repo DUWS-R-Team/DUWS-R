@@ -161,7 +161,7 @@ class CfgFunctions
             class guardsFOB {};
             // [_centerPos, _fob, _size] call duws_fnc_guardsFOB
             class guardsHQ {};
-            // [_centerPos] call duws_fnc_guardsHQ
+            // [_centerPos, _distance] call duws_fnc_guardsHQ
             class hq_radioloop {};
             // [_object] spawn duws_fnc_radioloop
             class HQaddactions {};
