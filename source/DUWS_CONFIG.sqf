@@ -83,7 +83,7 @@ Blufor_Taxi_Helo = "B_Heli_Transport_01_camo_F";
 // Format: ["classname", amount]
 // classname can be of types: item, weapons, magazine
 // For more info, see https://community.bistudio.com/wiki/addItemCargo
-Blufor_Ammobox_Contents = 
+Blufor_Ammobox_Contents =
 [
     ["30Rnd_65x39_caseless_mag", 70],
     ["30Rnd_65x39_caseless_mag_Tracer", 70],
@@ -144,7 +144,7 @@ Opfor_Faction =                 "OPF_F";
 
 // Opfor Soldiers
 Opfor_Officer =                 "O_officer_F";
-Opfor_Squadleader =             "O_Soldier_SL_F";        
+Opfor_Squadleader =             "O_Soldier_SL_F";
 Opfor_Teamleader =                 "O_Soldier_TL_F";
 Opfor_Medic =                     "O_medic_F";
 Opfor_Rifleman =                 "O_Soldier_F";
@@ -174,6 +174,12 @@ Opfor_WARCOM_Infantry_Squad =     (configfile >> "CfgGroups" >> "East" >> "OPF_F
 Opfor_WARCOM_Weapons_Squad =     (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad_Weapons");
 Opfor_WARCOM_Mech_Inf_Squad =     (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Mechanized" >> "OIA_MechInfSquad");
 Opfor_WARCOM_Mech_Wpn_Squad =     (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Mechanized" >> "OIA_MechInf_AT");
+
+// Indfor faction
+Indfor_Faction = "IND_F";
+
+// Civilian faction
+Civilian_Faction = "CIV_F";
 
 ///////Special Operatives///////
 duws_operator_list=[

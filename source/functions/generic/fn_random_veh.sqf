@@ -26,26 +26,26 @@ while {!_found} do {
         _simulation_paracheck = getText (_checked_veh >> "simulation"); // check if not a parachute
         _artilleryScanner = getNumber (_checked_veh >> "artilleryScanner"); //Check if it is an artillery unit
 
-        if (_actual_vehclass == _vehClass 
-            && _actual_faction == _faction 
-            && _scope != 0 
-            && _simulation_paracheck != "parachute" 
-            && _artilleryScanner == 0) exitWith {  
+        if (_actual_vehclass == _vehClass
+            && _actual_faction == _faction
+            && _scope != 0
+            && _simulation_paracheck != "parachute"
+            && _artilleryScanner == 0) exitWith {
 
             //hintSilent format["%1",_classname];
             //_veh = createVehicle [_classname, _position, [], 0, _vehClass];
             _foundVeh = _classname;
             _found = true;
         };
-    };   
+    };
 };// --- VEHICLE FOUND --> _foundVeh
 
-// DETERMINE LA FACTION
-_side = EAST; 
-if(_faction=="BLU_F") then {_side=WEST};
-if(_faction==Opfor_Faction) then {_side=EAST};
-if(_faction=="IND_F") then {_side=RESISTANCE};
-if(_faction=="CIV_F") then {_side=CIVILIAN};  
+// DETERMINE FACTION
+_side = EAST;
+if(_faction == Blufor_Faction) then {_side=WEST};
+if(_faction == Opfor_Faction) then {_side=EAST};
+if(_faction == Indfor_Faction) then {_side=RESISTANCE};
+if(_faction == Civilian_Faction) then {_side=CIVILIAN};
 
 _createdVehFnc = [_position,0,_foundVeh,_side] call bis_fnc_spawnvehicle;
 
