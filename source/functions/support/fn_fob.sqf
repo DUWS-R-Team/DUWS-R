@@ -75,7 +75,7 @@ _fob = "Land_Cargo_HQ_V1_F" createVehicle _foundPickupPos;
 _fob remoteExecCall ["DUWS_fnc_fob_addAction", 0, true];
 
 // For fortifying
-_fob addaction ["<t color='#ff0000'>Fortify FOB(4CP)</t>","_this spawn duws_fnc_fortifyFOB", [(getpos _fob), _fob], 0, true, true, "", "_this == player"];
+_fob addaction ["<t color='#ff0000'>Fortify FOB(4CP)</t>",duws_fnc_fortifyFOB, [(getpos _fob), _fob], 0, true, true, "", "_this == player"];
 
 [_foundPickupPos, _size] call duws_fnc_createpatrol;
 [_foundPickupPos, _size] call duws_fnc_createpatrol;

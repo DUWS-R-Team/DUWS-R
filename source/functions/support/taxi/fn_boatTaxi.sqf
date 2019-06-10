@@ -37,11 +37,11 @@ _spawnPos = [_posplayer, 400,500,10,2,5,0,[],[[0,0],[0,0]]] call BIS_fnc_findSaf
 
 // create the boat
 _helo = createVehicle [Blufor_Taxi_Boat, _spawnPos,[], 0, "FLY"];
-_helogroup = createGroup west; 
+_helogroup = createGroup west;
 _pilot = _helogroup createUnit [Blufor_diver, [5,5,5], [], 0, "NONE"];
 
-_helo addAction ["<t color='#00b7ff'>Tell the driver where to go</t>", {_this spawn duws_fnc_mapclickboat}, "", 0, true, true, "", "vehicle _this == _target"];
-_pilot setcaptive true; 
+_helo addAction ["<t color='#00b7ff'>Tell the driver where to go</t>", duws_fnc_mapclickboat, "", 0, true, true, "", "vehicle _this == _target"];
+_pilot setcaptive true;
 _pilot moveindriver _helo;
 
 
@@ -61,7 +61,7 @@ hint format["%1 is too damaged to continue the mission",_fobname];
 // --- AJOUTER DE NOUVEAU LE SUPPORT
 sleep 15;
 _art = [player,"boat_taxi"] call BIS_fnc_addCommMenuItem;
-}; 
+};
 // ****************************************************
 
 _inVehCheck = true;
@@ -69,7 +69,7 @@ while {_inVehCheck} do {
 waitUntil {sleep 0.1;taxiCanTakeOff or (getdammage _helo > 0.7 or !alive _pilot)}; // wait until the player has given a validpos
 if (getdammage _helo > 0.7 or !alive _pilot) exitWith {}; // get out of the loop if choopa is down
 // check if player is inside choppa
-if (vehicle player != _helo) then {taxiCanTakeOff = false; _pilot sidechat format["This is %1, get back in, I can't transport you're not inside the boat !",_fobname]; _helo addAction ["<t color='#00b7ff'>Give a location to the pilot</t>", {_this spawn duws_fnc_mapclickboat}, "", 0, true, true, "", "vehicle _this == _target"];} else {_inVehCheck = false;};
+if (vehicle player != _helo) then {taxiCanTakeOff = false; _pilot sidechat format["This is %1, get back in, I can't transport you're not inside the boat !",_fobname]; _helo addAction ["<t color='#00b7ff'>Give a location to the pilot</t>", duws_fnc_mapclickboat, "", 0, true, true, "", "vehicle _this == _target"];} else {_inVehCheck = false;};
 };
 
 // IF THE PILOT IS DEAD OR CHOPPA DOWN  **************
@@ -80,7 +80,7 @@ hint format["%1 %2-%2 is too damaged to continue the mission",_fobname,_random1,
 sleep 15;
 _art = [player,"helo_taxi"] call BIS_fnc_addCommMenuItem;
 // --- AJOUTER DE NOUVEAU LE SUPPORT
-}; 
+};
 // *****************************
 
 
@@ -88,7 +88,7 @@ _art = [player,"helo_taxi"] call BIS_fnc_addCommMenuItem;
 playMusic [_music, 0];
 _helo lock true;
 titleText ["Driver: Roger that, we're oscar mike...", "PLAIN DOWN"];
-str(_markerpickup) setMarkerPos ClickedTaxiPos; 
+str(_markerpickup) setMarkerPos ClickedTaxiPos;
 str(_markerpickup) setMarkerText "Drop point";
 
 
@@ -103,7 +103,7 @@ hint format["%1 %2-%2 is too damaged to continue the mission",_fobname,_random1,
 // --- AJOUTER DE NOUVEAU LE SUPPORT
 sleep 15;
 _art = [player,"helo_taxi"] call BIS_fnc_addCommMenuItem;
-}; 
+};
 // *****************************
 
 // TELEPORT BOAT NEAR DROP POINT
@@ -130,7 +130,7 @@ hint format["%1 %2-%2 is too damaged to continue the mission",_fobname,_random1,
 // --- AJOUTER DE NOUVEAU LE SUPPORT
 sleep 15;
 _art = [player,"helo_taxi"] call BIS_fnc_addCommMenuItem;
-}; 
+};
 // *****************************
 
 
@@ -144,7 +144,7 @@ hint format["%1 %2-%2 is too damaged to continue the mission",_fobname,_random1,
 // --- AJOUTER DE NOUVEAU LE SUPPORT
 sleep 15;
 _art = [player,"helo_taxi"] call BIS_fnc_addCommMenuItem;
-}; 
+};
 // *****************************
 titleText ["Driver: We've arrived at the drop point", "PLAIN DOWN"];
 
@@ -164,7 +164,7 @@ hint format["%1 %2-%2 is too damaged to continue the mission",_fobname,_random1,
 // --- AJOUTER DE NOUVEAU LE SUPPORT
 sleep 15;
 _art = [player,"helo_taxi"] call BIS_fnc_addCommMenuItem;
-}; 
+};
 // *****************************
 
 

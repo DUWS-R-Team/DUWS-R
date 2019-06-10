@@ -1,4 +1,4 @@
-// pFLIRenable = player addaction ["<t color='#a9ff59'>Activate FLIR</t>",{_this spawn duws_fnc_livefeed},"", 0,false,true,"","_target == _this"];
+// pFLIRenable = player addaction ["<t color='#a9ff59'>Activate FLIR</t>",duws_fnc_livefeed,"", 0,false,true,"","_target == _this"];
 
 // pflir aim
 trucPIPtarget = "Land_Sack_F" createVehicle ([0,0,0]);        // PAS OUBLIER DE SUPPRIMER LE TRUC
@@ -31,20 +31,20 @@ switch (_actualStance) do
         BIS_liveFeed attachTo [player,[0,1,0.85]];
         trucPIPtarget attachTo [player,[0,2000,0.85]];
     };
-    
+
     case "PRONE":
     {
         BIS_liveFeed attachTo [player,[0,1,0.25]];
         trucPIPtarget attachTo [player,[0,2000,0.25]];
-    };    
+    };
 
 };
 
 // add action to disable FLIR
 sleep 1;
 
-pFLIRdisable = player addaction ["<t color='#a9ff59'>Deactivate FLIR</t>",{_this spawn duws_fnc_livefeedexit},"", 0,false,true,"","_target == _this"];
-PlayerKilledEH2 = player addEventHandler ["killed", {[] spawn duws_fnc_livefeedexit}]; //removes screen from hud
+pFLIRdisable = player addaction ["<t color='#a9ff59'>Deactivate FLIR</t>",duws_fnc_livefeedexit,"", 0,false,true,"","_target == _this"];
+PlayerKilledEH2 = player addEventHandler ["killed", duws_fnc_livefeedexit]; //removes screen from hud
 
 
 
@@ -65,12 +65,12 @@ if (!pFlirActivated) exitWith {};
             BIS_liveFeed attachTo [player,[0,1,0.85]];
             trucPIPtarget attachTo [player,[0,2000,0.85]];
         };
-        
+
         case "PRONE":
         {
             BIS_liveFeed attachTo [player,[0,1,0.25]];
             trucPIPtarget attachTo [player,[0,2000,0.25]];
-        };    
+        };
 
     };
 };
