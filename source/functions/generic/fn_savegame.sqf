@@ -3,7 +3,7 @@
 player setdammage 0;
 
 if (isServer) then {
-    skiptime 6;
+    [6, true, true] call BIS_fnc_setDate;
     sleep 0.3;
     saveGame;
 
