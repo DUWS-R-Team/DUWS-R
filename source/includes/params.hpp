@@ -19,4 +19,10 @@ class Params {
         texts[] = {"On","Off"};
         default = 1;
     };
+
+    #define DEBUGCONSOLE_DEFAULT 0
+	#include "paramDebugConsole.hpp"
+
+    #define TIMEACCELERATION_DEFAULT 10
+	#include "paramTimeAcceleration.hpp"
 }
