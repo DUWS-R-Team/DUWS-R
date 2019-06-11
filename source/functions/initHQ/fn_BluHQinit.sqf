@@ -51,16 +51,6 @@ _handle = [(getpos hq_blu1), _hq] call duws_fnc_guards;
 //STATIC DEFENSES
 _handle = [(getpos hq_blu1), _hq] spawn duws_fnc_fortify;
 
-// IF THE OFFICER IS DEAD -- BEGIN OF "SPAWN"
-[_hq] spawn {
-    _hq = _this select 0;
-    waitUntil {sleep 1;!alive _hq};
-    _hq switchMove "AidlPercMstpSnonWnonDnon01";
-    ["TaskFailed",["","Your commanding officer has been killed"]] call bis_fnc_showNotification;
-    sleep 6;
-    ["officerkilled",false,true] call BIS_fnc_endMission;
-};
-
 //CREATE PATROL
 [getpos hq_blu1, 40] call duws_fnc_guardsHQ;
 [getpos hq_blu1, 60] call duws_fnc_guardsHQ;

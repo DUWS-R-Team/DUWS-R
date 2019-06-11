@@ -213,6 +213,9 @@ game_master = ["player1"];publicVariable "game_master";
  // init the bonuses you get when capturing zones
  _basepoint = [] spawn duws_fnc_zones_bonus;
 
+// Mission ending handler
+missionEndHandle = [] spawn duws_fnc_endconditions;
+
 waitUntil { !isNil "serv_zones_array" };
 diag_log format ["serv_zones_array: %1", serv_zones_array];
 [serv_zones_array, getpos hq_blu1, [0,0,0], blufor_ap, opfor_ap, 2700,blufor_ai_skill,opfor_ai_skill, 2000] call duws_fnc_WARCOM_init; // 2700 is 40 mins

@@ -211,24 +211,9 @@ if (isMultiplayer) then {
     };
 };
 
-// create mission victory script //SPAWN BEGIN
-[] spawn {
-
-    // CREATE MAIN OBJECTIVE
-    capture_island_obj = player createSimpleTask ["taskIsland"];
-    capture_island_obj setSimpleTaskDescription ["The ennemy is controlling the island, we must take it back! Capture every zone under enemy control and the mission will succeed.<br />You can let your BLUFOR forces take the island by themselves and help them getting a bigger army by accomplishing side missions. Or you can capture the zones yourself and do all the big work. As the campaign progress, the war will escalate and the armies will get stronger and start to use bigger guns.<br />To capture a zone, you need to have more units inside the zone than the enemy.<br /><br />It's up to you on how you want to play this.<br />Good luck, soldier!","Take the island",""];
-
-    // WAIT UNTIL ALL ZONES ARE CAPTURED
-    waitUntil {sleep 1; amount_zones_created > 0};
-    waitUntil {sleep 3; (zoneundercontrolblu >= amount_zones_created);}; // Toutes les zones sont capturées
-    persistent_stat_script_win = [] call duws_fnc_persistent_stats_win;
-    ["TaskSucceeded",["","Island captured!"]] call bis_fnc_showNotification;
-    capture_island_obj setTaskState "Succeeded";
-    sleep 3;
-    ["island_captured_win",true,true] call BIS_fnc_endMission;
-};
-
-
+// Generate main task
+capture_island_obj = player createSimpleTask ["taskIsland"];
+capture_island_obj setSimpleTaskDescription ["The ennemy is controlling the island, we must take it back! Capture every zone under enemy control and the mission will succeed.<br />You can let your BLUFOR forces take the island by themselves and help them getting a bigger army by accomplishing side missions. Or you can capture the zones yourself and do all the big work. As the campaign progress, the war will escalate and the armies will get stronger and start to use bigger guns.<br />To capture a zone, you need to have more units inside the zone than the enemy.<br /><br />It's up to you on how you want to play this.<br />Good luck, soldier!","Take the island",""];
 
 if (mission_DUWS_firstlaunch) then {
     waitUntil {chosen_settings};

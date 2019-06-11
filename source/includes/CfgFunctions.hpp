@@ -182,6 +182,8 @@ class CfgFunctions
 
         class startup
         {
+            class endconditions {};
+            // [] spawn duws_fnc_endconditions
             class manual {};
             // [] spawn duws_fnc_manual
             class placement {};
