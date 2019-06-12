@@ -1,1 +1,0 @@
-if (DUWS_player_injured) then {_handle = createDialog "duws_revive_menu"};
