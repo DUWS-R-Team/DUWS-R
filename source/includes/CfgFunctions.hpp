@@ -226,7 +226,7 @@ class CfgFunctions
 
         class zonescap
         {
-            class blufor_cap {}
+            class blufor_cap {};
             // [place, points, markername, markername2, triggerPos] call duws_fnc_blufor_cap
             class opfor_cap {};
             // [place, points, markername, markername2, triggerPos] call duws_fnc_opfor_cap
