@@ -246,7 +246,7 @@ for[{_x = 2},{_x <= 20},{_x = _x + 1}] do {
     };
 };
 
-//adding radio mentu items
+//adding radio menu items
 _dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
 _dynam = [player, "SITREP"] call BIS_fnc_addCommMenuItem;
 _dynam = [player, "fob_support"] call BIS_fnc_addCommMenuItem;
