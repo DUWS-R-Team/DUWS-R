@@ -213,7 +213,7 @@ if (isMultiplayer) then {
 
 // Generate main task
 capture_island_obj = player createSimpleTask ["taskIsland"];
-capture_island_obj setSimpleTaskDescription ["The ennemy is controlling the island, we must take it back! Capture every zone under enemy control and the mission will succeed.<br />You can let your BLUFOR forces take the island by themselves and help them getting a bigger army by accomplishing side missions. Or you can capture the zones yourself and do all the big work. As the campaign progress, the war will escalate and the armies will get stronger and start to use bigger guns.<br />To capture a zone, you need to have more units inside the zone than the enemy.<br /><br />It's up to you on how you want to play this.<br />Good luck, soldier!","Take the island",""];
+capture_island_obj setSimpleTaskDescription ["The enemy is controlling the island, we must take it back! Capture every zone under enemy control and the mission will succeed.<br />You can let your BLUFOR forces take the island by themselves and help them getting a bigger army by accomplishing side missions. Or you can capture the zones yourself and do all the big work. As the campaign progress, the war will escalate and the armies will get stronger and start to use bigger guns.<br />To capture a zone, you need to have more units inside the zone than the enemy.<br /><br />It's up to you on how you want to play this.<br />Good luck, soldier!","Take the island",""];
 
 if (mission_DUWS_firstlaunch) then {
     waitUntil {chosen_settings};
@@ -246,8 +246,10 @@ for[{_x = 2},{_x <= 20},{_x = _x + 1}] do {
     };
 };
 
-
+//adding radio mentu items
 _dynam = [player,"DynamicSupportMenu"] call BIS_fnc_addCommMenuItem;
+_dynam = [player, "SITREP"] call BIS_fnc_addCommMenuItem;
+_dynam = [player, "fob_support"] call BIS_fnc_addCommMenuItem;
 
 //Loading player position and gear.
 //TODO: Add bought supports.
